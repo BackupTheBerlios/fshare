@@ -22,6 +22,7 @@ import java.rmi.*;
 import java.util.*;
 import java.io.FileOutputStream;
 import java.io.*;
+import fshare.remote.*;
 
 public class Client {
 
@@ -161,8 +162,8 @@ public class Client {
     prepareInfoFichierClient();
 //client.afficheListeFichierClient();
     appli = new Main(this);*/
-System.out.println("Entré dans télécharger");
-    telechargeFichier ();
+//System.out.println("Entré dans télécharger");
+  //  telechargeFichier ();
   }
 
   /**
@@ -270,7 +271,9 @@ System.out.println("Entré dans télécharger");
 
   }
 
-  private void telechargeFichier() {
+
+  public void telechargeFichier(Fichier fic) {
+    /*
     //On récupere test.txt
     try {
       logger.info("Entrer dans télécharge fichier");
@@ -279,10 +282,19 @@ System.out.println("Entré dans télécharger");
       //on prend le premier fichier
       Fichier fic = list[0];
       logger.info(list[0].toString());
-      String idFichier = fic.getIdFichier();
-      fshare.remote.RemoteClient[] listeClient = fServeur.rechercherClient(
+
+     String idFichier = fic.getIdFichier();
+     */
+    String idFichier = fic.getIdFichier();
+    RemoteClient[] listeClient = null;
+    try {
+      listeClient = fServeur.rechercherClient(
           idFichier);
-      if (null == listeClient || listeClient.length == 0)return; //pas de client
+    }
+    catch (RemoteException ex) {
+      ex.printStackTrace();
+    }
+    if (null == listeClient || listeClient.length == 0)return; //pas de client
       /*if (listeClient [0] == (client))
            {
         logger.info("Meme client");
@@ -325,12 +337,6 @@ System.out.println("Entré dans télécharger");
         ex1.printStackTrace();
       }
 
-    }
-
-    catch (RemoteException ex) {
-      ex.getMessage();
-      ex.printStackTrace();
-    }
   }
 
 

@@ -188,6 +188,13 @@ public class Main {
         }
       }
     });
+    boutR.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent e){
+        controleur.telechargeFichier((Fichier)rechercheTable.getSelectedValue());
+            //rechercheTable.getSelectedValue()
+      }
+    });
+
     rechPane.add(r);
     rechPane.add(fieldR);
     rechPane.add(boutR);
