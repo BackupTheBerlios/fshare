@@ -30,11 +30,12 @@ import fshare.remote.RemoteClient;
 import java.io.File;
 import fshare.commun.Fichier;
 import java.util.ArrayList;
+import fshare.client.Client;
 
 public class Main {
   JFrame frame = new JFrame("fshare");
   //panels correspondant aux onglets
-  private RemoteClient controleur;
+  private Client controleur;
 
   JPanel panelD = new JPanel();
   JPanel panelU = new JPanel();
@@ -155,6 +156,7 @@ private void constructionP(){
         if(returnVal == JFileChooser.APPROVE_OPTION){
           partagePath = repChooser.getSelectedFile().getPath();
           fieldP.setText(partagePath);
+          controleur.setRepertoirePartage(partagePath);
           majListePartage();
         }
       }
@@ -185,7 +187,7 @@ public void majListePartage(){
 
 }
 
-  public Main(RemoteClient controleur) {
+  public Main(Client controleur) {
     this.controleur = controleur;
     assemble();
   }
