@@ -73,6 +73,8 @@ public class ClientImpl extends java.rmi.server.UnicastRemoteObject implements R
   public void ajouterFichier (String idFichier, AttributFichierClient atc)
   {
     listeFichier.put(idFichier, atc);
+    gui.addPartage(atc.getNomFichierAbsolu() + " " + atc.getNbPartieTotale() + " parties " + atc.getDateDerModif());
+
   }
 
   /**
@@ -154,7 +156,8 @@ System.out.println ("Telechargement de : " + id + ", partie : " + partie);
   }
 
   // Destiné à l'affichage dans l'interface graphique
-  public String[] getFichierClient(){
+
+/*  public String[] getFichierClient(){
     Object [] c = listeFichier.values().toArray();
 
     String[] renvoi = new String[c.length];
@@ -169,5 +172,5 @@ System.out.println ("Telechargement de : " + id + ", partie : " + partie);
     }
     return renvoi;
   }
-
+*/
 } // Classe ClientImpl

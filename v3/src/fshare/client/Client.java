@@ -145,11 +145,11 @@ public class Client implements Runnable {
     Propriete.setPropriete(FIC_PROPRIETE, "nickName", nomClient);
 
   }
-
+/*
   public String[] getFichiers() {
     return client.getFichierClient();
   }
-
+*/
   public static void main(String[] args) throws Exception {
     Logger.getLogger("fshare.client").setLevel(Level.ALL);
     System.out.println("Entrer dans le main");

@@ -60,6 +60,7 @@ public class Main {
 
   ArrayList downloadVector = new ArrayList();
   ArrayList uploadVector = new ArrayList();
+  ArrayList partageVector = new ArrayList();
 
   public void addDownload(Fichier f){
     downloadVector.add(f);
@@ -70,6 +71,11 @@ public class Main {
   public void addUpload(String f){
     uploadVector.add(f);
     uploadTable.setListData(uploadVector.toArray());
+  }
+
+  public void addPartage(String f){
+    partageVector.add(f);
+    partageTable.setListData(partageVector.toArray());
   }
 
   private void constructionD() {
@@ -266,7 +272,7 @@ public class Main {
                      for (int i=0; i<files.length; i++)
             files[i].setToString(files[i].getNomFichier());
            */
-          partageTable.setListData(controleur.getFichiers());
+   //       partageTable.setListData(controleur.getFichiers());
 
         }
 
@@ -311,8 +317,10 @@ public class Main {
     this.controleur = controleur;
     assemble();
     updateConnecState();
-    partageTable.setListData(controleur.getFichiers());
+//    partageTable.setListData(controleur.getFichiers());
     frame.addWindowListener(new java.awt.event.WindowAdapter() {
+
+
     public void windowClosing(java.awt.event.WindowEvent e)
     {
       stopClient ();
@@ -343,6 +351,8 @@ public class Main {
   }
 
   public void assemble() {
+
+
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     onglets.addTab("Connexion", new ImageIcon("images/config.gif"), panelC,
                    "Configuration de l'application");
@@ -373,6 +383,7 @@ public class Main {
      */
     frame.setBounds(10, 10, 800, 600);
 
+    fieldP.setText(controleur.getRepertoirePartage());
     frame.setVisible(true);
   }
 
