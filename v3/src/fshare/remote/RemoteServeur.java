@@ -54,7 +54,7 @@ public interface RemoteServeur extends java.rmi.Remote
    *   régulière.
    * @throws RemoteException
    */
-  public String[] rechercherFichier(String regexp) throws java.rmi.RemoteException;
+  public Fichier[] rechercherFichier(String regexp) throws java.rmi.RemoteException;
 
   /**
    * Donne la liste de tous les clients qui possède le fichier d'identifiant

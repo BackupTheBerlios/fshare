@@ -18,6 +18,7 @@ import fshare.commun.Fichier;
 import fshare.commun.AttributFichierClient;
 import fshare.gui.Main;
 import java.util.logging.Level;
+import java.rmi.*;
 
 public class Client {
 
@@ -108,6 +109,19 @@ client.afficheListeFichierClient();
     repertoirePartage = rep;
     prepareInfoFichierClient();
   }
+
+  public Fichier[] rechercherFichier(String regexp){
+
+    try {
+      return fServeur.rechercherFichier(regexp);
+    }
+    catch (RemoteException ex) {
+      System.err.println("Erreur lors de la requête de recherche : " + ex);
+    }
+    return null;
+  }
+
+
   /**
    * Récupere tous les fichiers dans le repertoire de partage (et sous repértoires)
    *  et les ajoute à
@@ -136,6 +150,8 @@ client.afficheListeFichierClient();
             try
             {
               fServeur.ajouterFichier (f, client, atc);
+
+
             }
             catch (java.rmi.RemoteException e)
             {

@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><!--JBuilder QuickDoc-->
+<HEAD>
+<TITLE>Class fshare.remote.RemoteServeur</TITLE><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+</HEAD>
+<BODY>
+
+<H2>
+<FONT SIZE="-1">fshare.remote</FONT>
+<BR>Interface RemoteServeur</H2>
+<DL>
+<DT>public interface <B>RemoteServeur</B><DT>extends java.rmi.Remote
+</DL>
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<TR BGCOLOR="#CCCCFF"><TD COLSPAN=1><FONT SIZE="+2">
+<B>Method Detail</B>
+</FONT></TD></TR></TABLE>
+
+<H3>ajouterFichier</H3>
+<PRE>
+public void <B>ajouterFichier</B>(Fichier&nbsp;fichier,
+                           RemoteClient&nbsp;client,
+                           AttributFichierClient&nbsp;attr)</PRE>
+<DL><DD>Ajoute dans la liste du serveur, que le client <b>client</b> possède le fichier <b>fichier</b> avec les attributs <b>attr</b>.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>fichier</CODE> - le fichier qui le client possède.</DD>
+<DD><CODE>client</CODE> - le client qui possède le fichier.</DD>
+<DD><CODE>attr</CODE> - les attributs sur le fichier pour ce client.</DD>
+<DT><B>Throws:</B><DD><CODE>RemoteException</CODE> - </DD>
+</DL>
+<HR>
+
+<H3>retirerFichier</H3>
+<PRE>
+public void <B>retirerFichier</B>(Fichier&nbsp;fichier,
+                           RemoteClient&nbsp;client)</PRE>
+<DL><DD>Retire dans le liste du serveur le fichier <b>fichier</b> pour le client <b>client</b>.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>fichier</CODE> - le fichier que le client souhaite départager.</DD>
+<DD><CODE>client</CODE> - le client qui souhaite départager le fichier.</DD>
+<DT><B>Throws:</B><DD><CODE>RemoteException</CODE> - </DD>
+</DL>
+<HR>
+
+<H3>retirerFichier</H3>
+<PRE>
+public void <B>retirerFichier</B>(RemoteClient&nbsp;client)</PRE>
+<DL><DD>Retire de la liste du serveur TOUS les fichiers partagés par le client <b>client</b>.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>client</CODE> - le client qui départage tous ces fichiers.</DD>
+<DT><B>Throws:</B><DD><CODE>RemoteException</CODE> - </DD>
+</DL>
+<HR>
+
+<H3>rechercherFichier</H3>
+<PRE>
+public String[] <B>rechercherFichier</B>(String&nbsp;regexp)</PRE>
+<DL><DD>Recherche une liste de fichier repondant à l'expression réguliere <b>regexp</b>.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>regexp</CODE> - l'expression régulière pour matcher les fichiers.</DD>
+<DT><B>Returns:</B><DD>la liste des nom de fichiers correspondant a l'expression régulière.</DD>
+<DT><B>Throws:</B><DD><CODE>RemoteException</CODE> - </DD>
+</DL>
+<HR>
+
+<H3>rechercherClient</H3>
+<PRE>
+public RemoteClient[] <B>rechercherClient</B>(String&nbsp;idFichier)</PRE>
+<DL><DD>Donne la liste de tous les clients qui possède le fichier d'identifiant <b>idFichier</b><DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idFichier</CODE> - l'identifiant du fichier considéré.</DD>
+<DT><B>Returns:</B><DD>la liste des clients qui posséde ce fichier.</DD>
+<DT><B>Throws:</B><DD><CODE>RemoteException</CODE> - </DD>
+</DL>
+<HR>
+
+<H3>majAttrFichier</H3>
+<PRE>
+public void <B>majAttrFichier</B>(String&nbsp;idFichier,
+                           RemoteClient&nbsp;client,
+                           AttributFichierClient&nbsp;attr)</PRE>
+<DL><DD>Met à jour les attributs <b>attr</b> du fichier aynt pour identifiant <b>idFichier</b> du client <b>client</b>.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idFichier</CODE> - l'identifiant du fichier.</DD>
+<DD><CODE>client</CODE> - le client.</DD>
+<DD><CODE>attr</CODE> - les nouveaux attributs.</DD>
+<DT><B>Throws:</B><DD><CODE>RemoteException</CODE> - </DD>
+</DL>
+<HR>
+
+</BODY>
+</HTML>
