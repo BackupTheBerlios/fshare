@@ -248,6 +248,7 @@ public class Main {
           partagePath = repChooser.getSelectedFile().getPath();
           fieldP.setText(partagePath);
           controleur.setRepertoirePartage(partagePath);
+
           /*Fichier[] files = controleur.getFichiers();
                      for (int i=0; i<files.length; i++)
             files[i].setToString(files[i].getNomFichier());

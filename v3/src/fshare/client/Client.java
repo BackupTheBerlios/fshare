@@ -73,7 +73,7 @@ public class Client {
       client = new ClientImpl();
       this.nomClient = nomClient;
       prepareInfoFichierClient();
-      client.afficheListeFichierClient();
+     // client.afficheListeFichierClient();
       appli = new Main(this);
 
     }
@@ -307,7 +307,7 @@ public class Client {
       try {
         String rep = repertoirePartage +
             File.separator + Math.random() + "-" + fic.getNomFichier();
-        System.out.println(rep);
+        //System.out.println(rep);
         FileOutputStream fwrite = new FileOutputStream(rep);
         /* lecture du fichier sauf la derniere partie */
         for (long i = 0; i < (fic.getNbPartiesFichier() - 1); ++i) {
