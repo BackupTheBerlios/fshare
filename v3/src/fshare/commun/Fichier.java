@@ -49,6 +49,7 @@ public class Fichier implements Serializable
     public static final int IMAGE    = 4;
     public static final int DOCUMENT = 5;
 
+    private static final int MD5_CONST = 500;
 /**
  * Construteur d'un fichier.
  * @param nomFichier le nom absolu du fichier.
@@ -63,6 +64,13 @@ public class Fichier implements Serializable
     this.idFichier     = genereIdFichier (nomFichier);
   }
 
+  public Fichier(String f){
+      this.nomFichier    = f;
+        this.tailleFichier = -1;
+        this.typeFichier   = 0;
+        this.idFichier     = genereIdFichier (nomFichier);
+  }
+
   /**
    * A partir du nom (absolu) d'un fichier, génére une clé unique. Cette clé générée sera la même si on rappelle cette fonction avec le même paramêtre.
    * @param nomFichier le nom absolu du fichier.
@@ -71,11 +79,12 @@ public class Fichier implements Serializable
   private String genereIdFichier (String nomFichier)
   {
     File f = new File(nomFichier);
+    tailleFichier = f.length();
     String renvoi = null;
     try {
       MessageDigest md = MessageDigest.getInstance("MD5");
       DataInputStream in = new DataInputStream(new java.io.FileInputStream(f));
-      for (int i=0; i< f.length(); i++)
+      for (int i=0; i< ((f.length() < MD5_CONST) ? f.length() : MD5_CONST); i++)
         md.update(in.readByte());
       in.close();
       renvoi = new String(md.digest());
