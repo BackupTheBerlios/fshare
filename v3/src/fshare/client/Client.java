@@ -104,6 +104,7 @@ public class Client {
   }
 
   public void reConnectToServer(){
+    stopClient();
     try {
       connectToServer(urlServer, nomClient);
     }
@@ -191,7 +192,9 @@ public class Client {
     /* On enlève les fichiers du serveur */
     try
     {
-      fServeur.retirerFichier(this.client);
+      if (isConnected())
+        fServeur.retirerFichier(this.client);
+      fServeur = null;
     }
     catch (RemoteException ex)
     {

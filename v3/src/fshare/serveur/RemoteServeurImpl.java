@@ -244,7 +244,7 @@ public class RemoteServeurImpl
       // La date propre au fichier
       setDateNow(atts);
       hd.startElement("", "", "date", atts);
-
+      hd.endElement("","","date");
       atts.clear();
       // La Taille propre au fichier
       hd.startElement("", "", "taille", atts);

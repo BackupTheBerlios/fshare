@@ -106,9 +106,16 @@ afficheListeFichierServeur ();
     for (int i = 0; i < valeurListe.length; ++i) {
       InfoFichierServeur info = (InfoFichierServeur) (valeurListe[i]);
       String nomFichier = info.getFichier().getNomFichier();
+    // On récupère un ensemble d'infos sur les clients
+      AttributFichierClient[] atts = info.getListeAttributFichierClient();
       //if (nomFichier.matches(regexp)) { //Le nom de fichier match bien l'expression
-      if (Pattern.matches(".*" + regexp + ".*", nomFichier)){
+      Pattern p = Pattern.compile(".*" + regexp + ".*",Pattern.CASE_INSENSITIVE);
+      if (p.matcher(nomFichier).matches())
         resultat.add(info.getFichier());
+      else
+        for (int j=0; j<atts.length; j++)
+          if ( p.matcher(atts[j].getNomFichierAbsolu()).matches()){
+            resultat.add(info.getFichier());
       }
     }
 

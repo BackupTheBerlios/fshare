@@ -1,24 +1,1968 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE etat SYSTEM "etat.dtd">
 <etat xmlns="http://deptinfo.unice.fr/minfo/ns/p2p">
-<date jour="04" mois="04" année="2004" heure="16" minute="30"/>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
 <fichiers>
 <fichier>
-<nom>Client.class</nom>
-<date jour="04" mois="04" année="2004" heure="16" minute="30">
-<taille>4583</taille>
-<type>AUTRE</type>
-<client id="619933dc32e0c000" name="toto">
-<date jour="04" mois="04" année="2004" heure="16" minute="19"/>
+<nom>225.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>31835</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
 </client>
 </fichier>
 <fichier>
-<nom>test.txt</nom>
-<date jour="04" mois="04" année="2004" heure="16" minute="30">
-<taille>3</taille>
+<nom>084.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3856</taille>
 <type>DOCUMENT</type>
-<client id="619933dc32e0c000" name="toto">
-<date jour="04" mois="04" année="2004" heure="16" minute="19"/>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>046.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>4134</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>073.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>435</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>072.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2058</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>113.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2187</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>237.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>642</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>018.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1700</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>076.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1669</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>202.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1566</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>089.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>6057</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>104.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>4114</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>023.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1966</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>187.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2072</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>189.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>8897</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>145.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1366</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>096.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>12498</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>003.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1828</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>062.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>554</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>158.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>13633</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>063.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>988</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>149.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1441</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>030.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>912</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>097.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>4553</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>038.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2928</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>120.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>92661</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>203.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>16475</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>009.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1033</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>124.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2779</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>146.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2895</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>058.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>723</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>138.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>8390</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>119.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>4302</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>154.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>6804</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>216.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3230</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>122.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>4424</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>143.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1545</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>136.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2125</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>190.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>4728</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>077.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3085</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>110.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3351</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>Faille Unicodes.doc</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>29184</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>042.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2481</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>108.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3702</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>095.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>9084</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>055.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>930</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>024.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>4750</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>152.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1767</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>094.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>9137</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>127.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>21357</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>125.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>5305</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>142.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3537</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>231.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>4853</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>032.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1101</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>071.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>529</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>086.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3163</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>004.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>6733</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>002.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1400</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>029.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2354</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>195.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1562</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>082.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1452</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>017.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1331</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>045.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1410</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>123.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3126</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>020.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2294</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>075.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2338</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>173.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1613</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>064.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1489</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>188.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3432</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>181.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1352</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>153.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>7379</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>012.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2264</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>172.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>11490</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>161.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>8479</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>013.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3436</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>116.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>6101</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>031.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>402</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>157.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3211</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>015.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>26804</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>050.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>11309</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>186.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>5390</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>078.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1830</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>019.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1880</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>177.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>698</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>061.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>446</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>099.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2718</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>014.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3544</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>114.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>5084</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>134.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>5563</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>175.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>6034</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>034.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2304</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>141.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1567</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>081.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1438</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>112.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>4699</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>131.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>7058</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>001.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1219</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>107.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1685</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>115.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>10854</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>066.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>621</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>INDEX.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>7631</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>140.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>919</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>162.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>9356</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>174.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3409</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>156.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>7245</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>117.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1572</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>160.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>4970</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>129.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1247</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>100.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>8551</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>041.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1506</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>092.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>18933</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>236.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>140588</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>184.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>4642</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>118.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1091</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>080.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2265</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>039.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2341</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>056.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2745</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>074.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>518</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>169.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1569</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>109.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1801</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>011.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>496</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>200.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3517</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>088.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3546</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>214.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>10239</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>132.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>6785</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>090.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2226</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>093.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>8977</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>139.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2943</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>213.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>4006</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>060.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>654</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>191.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>52460</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>182.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>9147</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>054.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1907</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>171.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>9630</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>193.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>6111</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>016.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1477</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>103.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>4698</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>037.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2548</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>006.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>10254</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>164.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3487</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>083.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2074</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>130.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>4564</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>052.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3337</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>059.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>483</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>137.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1867</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>199.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1605</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>021.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1819</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>049.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>5951</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>005.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2735</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>035.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3192</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>150.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>16739</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>179.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3939</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>170.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3231</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>087.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1946</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>133.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2114</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>228.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>20315</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>065.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1530</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>079.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3082</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>232.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>81603</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>128.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>5979</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>163.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1461</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>044.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>4252</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>126.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2652</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>159.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>7311</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>185.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>298</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>027.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2382</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>147.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>5694</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>070.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>606</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>048.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3975</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>036.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>5781</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>047.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1202</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>098.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1558</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>033.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3864</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>151.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3589</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>165.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1912</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>201.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>4218</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>068.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>680</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>155.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1813</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>168.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>5539</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>067.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>496</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>176.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>515</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>196.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>411</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>091.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>5429</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>209.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>4577</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>105.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>5066</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>057.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1391</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>194.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3264</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>008.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1923</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>198.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1539</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>111.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1184</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>051.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>341</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>007.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2253</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>144.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1455</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>ohe.txt</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3747</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>166.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1806</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>180.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2497</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>085.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>684</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>043.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3362</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>053.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>4572</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>022.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>946</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>148.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2822</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>197.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1708</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>101.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1458</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>025.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2538</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>040.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1822</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>121.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>8399</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>135.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1677</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>106.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>3996</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>226.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>25907</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>235.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>207097</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>DISCLAIM.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>1070</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>026.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>6377</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>183.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2477</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>010.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>10286</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>069.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>632</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>212.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>6964</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>102.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2639</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>192.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>22783</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
+</client>
+</fichier>
+<fichier>
+<nom>028.TXT</nom>
+<date jour="05" mois="04" année="2004" heure="17" minute="09"/>
+<taille>2143</taille>
+<type>DOCUMENT</type>
+<client id="195475f232a7400" name="hgehge">
+<date jour="05" mois="04" année="2004" heure="17" minute="08"/>
 </client>
 </fichier>
 </fichiers>
