@@ -141,6 +141,21 @@ afficheListeFichierServeur ();
      return listeFichier;
  }
 
+ public Object[] getInfoFichierServeur(){
+   return contenuListe.values().toArray();
+ }
+
+ public InfoFichierServeur getInfoFichier(Fichier f){
+   Object[] valeurListe = contenuListe.values().toArray();
+
+        /* Rechercher le nom du fichier match regexp. */
+        for (int i = 0; i < valeurListe.length; ++i) {
+          InfoFichierServeur info = (InfoFichierServeur) (valeurListe[i]);
+          if (info.getFichier().getIdFichier() == f.getIdFichier())
+           return info;
+        }
+        return null;
+}
   /**
    * @param idFichier l'identifiant du fichier dont on souhaite savoir quels client le possède.
    * @return la liste des clients qui posséde le fichier idFichier.

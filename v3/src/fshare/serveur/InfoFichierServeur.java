@@ -139,6 +139,11 @@ public class InfoFichierServeur
     return this.fichier;
   }
 
+  // Retourne la date la plus ancienne du fichier
+  public Date getDate(){
+    return date;
+  }
+
   /**
    * modifie les attributs du fichier du client <b>client</b> avec les attributs <b>attr</b>.
    * @param client le client dont on souhaite modifié les attributs.
