@@ -1,8 +1,8 @@
 #Propriétés setting.props
-#Sat Apr 03 14:26:04 CEST 2004
+#Sun Apr 04 10:16:14 CEST 2004
 urlServer=rmi\://nef/billServer
-VIDEO=mpg mpeg wmv 
 AUDIO=mp3 raw wma 
+VIDEO=mpg mpeg wmv 
+shareDir=partage
 DOCUMENT=txt doc html xml
-shareDir=d\:\\d
 nickName=john

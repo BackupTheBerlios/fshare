@@ -32,6 +32,11 @@ public class ClientImpl extends java.rmi.server.UnicastRemoteObject implements R
   public static final int MAX_OCTET_LU = 500;
 
   /**
+   * n° aléatoire généré à la création du client
+   */
+  private long idClient;
+
+  /**
    * Represente la liste de fichier que possède le client.
    * La clé est l'identifiant du fichier et les valeurs sont des objets de type
    * AttributFichierClient.
@@ -42,6 +47,9 @@ public class ClientImpl extends java.rmi.server.UnicastRemoteObject implements R
   {
     /* Création de la hasmap synchronizée */
     listeFichier = Collections.synchronizedMap (new HashMap ());
+
+    // Création de l'id client
+    idClient = (long) ( ((double)Long.MAX_VALUE) * Math.random() );
   }
 
   /**

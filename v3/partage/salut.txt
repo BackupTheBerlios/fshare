@@ -1,0 +1,144 @@
+Il était une fois,
+
+/**
+ * Ce programme est un petit jeu qui consiste a deviner un nombre choisi au
+ * hasard entre 1 et 100. Le joueur a 5 chance pour le deviner.  A chaque
+ * mauvaise tentative, on dit si le nombre est plus grand ou plus petit.
+ * Aussitot que le nombre est devine, on dit: Vous avez gagner !
+ *
+ * @author dift1010
+ * @version 2003/01/23
+ */
+public class Aleatoire
+{
+  public static void main(String [] arg)
+  {
+    final int INTERVALLE_MIN = 1;   // valeur minimum de l'intervalle
+    final int INTERVALLE_MAX = 100; // valeur maximum de l'intervalle
+
+    int input;      // Nombre donne par l'usager
+    int nb_magique; // Nombre aleatoire que l'usager doit deviner
+
+    //
+    // Generation du nombre aleatoire
+    //
+
+    // Math.random() retourne un nombre aleatoire compris dans [0,1[
+    nb_magique = (int)(Math.random() * (INTERVALLE_MAX - INTERVALLE_MIN + 1))
+      + INTERVALLE_MIN;
+    // Ca revient ici a:
+    // nb_magique = (int)(aleatoire * 100) + 1;
+
+    //
+    // Et on se lance dans les essais
+    //
+
+    // D'abord afficher un message disant quoi faire
+    System.out.println( "Devinez un nombre entre " + INTERVALLE_MIN + " et " +
+                        INTERVALLE_MAX + "." );
+
+    // essai # 1
+
+    // Lecture de l'essai de l'usager
+    System.out.print( "Essai #1: " );
+    input = Keyboard.readInt();
+
+    if( input < nb_magique )
+    {
+      System.out.println( "Votre nombre est trop petit." );
+    }
+    else if( input > nb_magique )
+    {
+      System.out.println( "Votre nombre est trop grand." );
+    }
+    else
+    {
+      System.out.println( "Felicitation, vous avez gagne!!!" );
+      System.exit( 0 );
+    }
+
+    // essai # 2
+
+    // Lecture de l'essai de l'usager
+    System.out.print( "Essai #2: " );
+    input = Keyboard.readInt();
+
+    if( input < nb_magique )
+    {
+      System.out.println( "Votre nombre est trop petit." );
+    }
+    else if( input > nb_magique )
+    {
+      System.out.println( "Votre nombre est trop grand." );
+    }
+    else
+    {
+      System.out.println( "Felicitation, vous avez gagne !!!" );
+      System.exit( 0 );
+    }
+
+    // essai # 3
+
+    // Lecture de l'essai de l'usager
+    System.out.print( "Essai #3: " );
+    input = Keyboard.readInt();
+
+    if( input < nb_magique )
+    {
+      System.out.println( "Votre nombre est trop petit." );
+    }
+    else if( input > nb_magique )
+    {
+      System.out.println( "Votre nombre est trop grand." );
+    }
+    else
+    {
+      System.out.println( "Felicitation, vous avez gagne !!!" );
+      System.exit( 0 );
+    }
+
+    // essai # 4
+
+    // Lecture de l'essai de l'usager
+    System.out.print( "Essai #4: ");
+    input = Keyboard.readInt();
+
+    if( input < nb_magique )
+    {
+      System.out.println( "Votre nombre est trop petit." );
+    }
+    else if( input > nb_magique )
+    {
+      System.out.println( "Votre nombre est trop grand." );
+    }
+    else
+    {
+      System.out.println( "Felicitation, vous avez gagne !!!" );
+      System.exit( 0 );
+    }
+
+    // essai # 5
+
+    // Lecture de l'essai de l'usager
+    System.out.print( "Essai #5: " );
+    input = Keyboard.readInt();
+
+    if( input < nb_magique )
+    {
+      System.out.println( "Votre nombre est trop petit." );
+    }
+    else if( input > nb_magique )
+    {
+      System.out.println( "Votre nombre est trop grand." );
+    }
+    else
+    {
+      System.out.println( "Felicitation, vous avez gagne !!!" );
+      System.exit( 0 );
+    }
+
+    // Si on s'est rendu la, c'est la fin.
+    System.out.println( "Vous avez perdu !!!!!" );
+    System.out.println( "Le nombre etait : " + nb_magique );
+  }
+}

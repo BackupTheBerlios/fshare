@@ -154,19 +154,24 @@ public class RemoteServeurImpl
     TransformerHandler hd = tf.newTransformerHandler();
     Transformer serializer = hd.getTransformer();
 
+    // Propriétés de la sortie
     serializer.setOutputProperty(OutputKeys.ENCODING, "ISO-8859-1");
     serializer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "etat.dtd");
     serializer.setOutputProperty(OutputKeys.INDENT, "yes");
 
     hd.setResult(streamResult);
+    // Début du document
     hd.startDocument();
+    // On utilise un seul ensemble d'attributs que l'on vide a chaque element
     AttributesImpl atts = new AttributesImpl();
 
     atts.addAttribute("", "", "xmlns", "CDATA",
                       "http://deptinfo.unice.fr/minfo/ns/p2p");
 
     hd.startElement("", "", "etat", atts);
+
     atts.clear();
+    // Attributs de date
     atts.addAttribute("", "", "jour", "NMTOKEN",
                       getDateElement(Calendar.DAY_OF_MONTH));
     atts.addAttribute("", "", "mois", "NMTOKEN", getDateElement(Calendar.MONTH));
@@ -180,43 +185,52 @@ public class RemoteServeurImpl
     hd.endElement("", "", "date");
 
     atts.clear();
+    //Liste de fichiers
     hd.startElement("", "", "fichiers", atts);
+
+    Fichier[] tmp = listeFichierServeur.getFichier();
+    for (int i = 0; i < tmp.length; i++){
+      atts.clear();
+      hd.startElement("", "", "fichier",atts);
+      hd.startElement("", "", "nom",atts);
+      char [] nomFichier = tmp[i].getNomFichier().toCharArray();
+      hd.characters(nomFichier, 0, nomFichier.length);
+      hd.endElement("","","nom");
+
+      // Manque la date
+
+      // Taille du fichier
+      hd.startElement("","","taille",atts);
+      char [] tailleFichier = Long.toString(tmp[i].getTailleFichier()).toCharArray();
+      hd.characters(tailleFichier, 0, tailleFichier.length);
+      hd.endElement("","","taille");
+
+      // Type du fichier
+      hd.startElement("","","type",atts);
+      char [] typeFichier = tmp[i].getTypeFichier().toCharArray();
+      hd.characters(typeFichier, 0, typeFichier.length);
+      hd.endElement("","","type");
+
+      // Les clients possédant le fichier
+      RemoteClient [] clients = listeFichierServeur.rechercherClient(tmp[i].getIdFichier());
+
+    // Il faut récupérer un ID, un NOM, une DATE par client
+
+    // IL MANQUE DES DONNEES DANS LA STRUCTURE POUR LE MOMENT
+    // IL FAUDRAIT EVITER DE FAIRE DES APPELS DISTANTS POUR DEMANDER LE NOM DE
+    // CHAQUE CLIENT LORS DE LA GENERATION XML
+
+    for (int j=0; j<clients.length; j++){
+        //atts.addAttribute("", "", "id", "NMTOKEN", clients[i].getIdClient());
+      }
+      hd.endElement("", "", "fichier");
+    }
     hd.endElement("", "", "fichiers");
     hd.endElement("", "", "etat");
     hd.endDocument();
     System.out.println("Export vers XML terminé");
-  }
-    /*
-    Map liste = listeFichierServeur.get();
-    InfoFichierServeur[] info = ( (InfoFichierServeur[]) liste.values().toArray());
-    for (int i = 0; i < liste.size(); i++) {
-      hd.startElement("", "", "fichier", atts);
-      hd.startElement("", "", "nom", atts);
-      hd.characters(info[i].getFichier().getNomFichier().toCharArray(), 0,
-                    info[i].getFichier().getNomFichier().toCharArray().length);
 
-     }
-// USER tags.
-
-     String[] id = {
-        "PWD122", "MX787", "A4Q45"};
-    String[] type = {
-        "customer", "manager", "employee"};
-    String[] desc = {
-        "Tim@Home", "Jack&Moud", "John D'oé"};
-    for (int i = 0; i < id.length; i++) {
-      atts.clear();
-      atts.addAttribute("", "", "ID", "CDATA", id[i]);
-      atts.addAttribute("", "", "TYPE", "CDATA", type[i]);
-      hd.startElement("", "", "USER", atts);
-      hd.characters(desc[i].toCharArray(), 0, desc[i].length());
-      hd.endElement("", "", "USER");
-    }
-    hd.endElement("", "", "USERS");
-    hd.endDocument();
-
-  }
-
+      }
   /**
    * Met à jour les attributs <b>attr</b> du fichier aynt pour identifiant <b>idFichier</b> du client <b>client</b>.
    * @param idFichier l'identifiant du fichier.

@@ -19,6 +19,8 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.io.DataInputStream;
 import fshare.client.ClientImpl;
+import org.xml.sax.Attributes;
+import org.xml.sax.helpers.AttributesImpl;
 
 public class Fichier implements Serializable
 {
@@ -129,6 +131,7 @@ public class Fichier implements Serializable
     }
     return renvoi;
   }
+
 
   /**
    * A partir d'un type de fichier nous renvoie la string correspondante.
