@@ -15,6 +15,9 @@ import java.util.*;
 
 import java.io.Serializable;
 import java.io.File;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.io.DataInputStream;
 
 public class Fichier implements Serializable
 {
@@ -32,7 +35,7 @@ public class Fichier implements Serializable
 /**
  * Represente la taille du fichier.
  */
-    private double tailleFichier;
+    private long tailleFichier;
 
 /**
  * Represente le type de fichier (ex : video musique etc...).
@@ -52,7 +55,7 @@ public class Fichier implements Serializable
  * @param tailleFichier la taille en octet du fichier.
  * @param typeFichier le type du fichier (audio, vidéo, logiciel, image, document texte, autre)
  */
-  public Fichier(String nomFichier, double tailleFichier, int typeFichier)
+  public Fichier(String nomFichier, long tailleFichier, int typeFichier)
   {
     this.nomFichier    = nomFichier;
     this.tailleFichier = tailleFichier;
@@ -67,7 +70,26 @@ public class Fichier implements Serializable
    */
   private String genereIdFichier (String nomFichier)
   {
-    return null;
+    File f = new File(nomFichier);
+    String renvoi = null;
+    try {
+      MessageDigest md = MessageDigest.getInstance("MD5");
+      DataInputStream in = new DataInputStream(new java.io.FileInputStream(f));
+      for (int i=0; i< f.length(); i++)
+        md.update(in.readByte());
+      in.close();
+      renvoi = new String(md.digest());
+    }
+    catch (java.security.NoSuchAlgorithmException ex) {
+      System.out.println(ex);
+    }
+    catch (java.io.FileNotFoundException ex1) {
+      System.out.println(ex1);
+    }
+    catch (IOException ex2) {
+      System.out.println(ex2);
+    }
+    return renvoi;
   }
 
   /**
@@ -95,6 +117,17 @@ public class Fichier implements Serializable
   }
 
   /**
+   * Renvoi le code correspondant au type de fichier du fichier <b>fichier</b>.
+   * @param fichier le fichier dont on souhaite avoir le type.
+   * @return le type de fichier.
+   */
+  public static int getTypeFichier (File fichier)
+  {
+    return 1;
+  }
+
+
+  /**
    * @return Renvoie un string representant le type de fichier.
    */
   public String getTypeFichier ()
@@ -111,7 +144,7 @@ public class Fichier implements Serializable
   }
 
   /**
-   * Renvoi le nom absolu du fichier.
+   * @return le nom absolu du fichier.
    */
   public String getNomFichier ()
   {
@@ -119,9 +152,9 @@ public class Fichier implements Serializable
   }
 
   /**
-   * Renvoi la taille du fichier.
+   * @return la taille du fichier.
    */
-  public double getTailleFichier ()
+  public long getTailleFichier ()
   {
     return tailleFichier;
   }
@@ -144,7 +177,7 @@ public static void main (String [] args)
   System.out.println ("Nom du fichier : " + fichier.getNomFichier ());
   System.out.println ("Taille du fichier : " + fichier.getTailleFichier ());
 
-  AttributFichierClient afc = new AttributFichierClient (null, 12, true);
+  AttributFichierClient afc = new AttributFichierClient ("", null, 12, true, "tartanpion");
 
   java.util.Map map = java.util.Collections.synchronizedMap (new HashMap ());
   map.put ("toto", "valeur toto");

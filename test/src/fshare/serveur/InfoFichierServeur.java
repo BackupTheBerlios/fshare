@@ -81,7 +81,7 @@ public class InfoFichierServeur
   /**
    * Retire le fichier du partage pour le client <B>client</B>.<br>
    * Si le client ne possede pas le fichier, rien ne se passe.
-   * @param le client qui retire le fichier.
+   * @param client le client qui retire le fichier.
    */
   public void retirerFichierClient(RemoteClient client)
   {
@@ -119,8 +119,10 @@ public class InfoFichierServeur
   }
 
   /**
-   * @return les attributs du fichier pour le client <b>client</b>.<br>
-   * renvoi null si le client <b>client</b> ne possede pas le fichier.
+   *
+   * @return les attributs du fichier pour le client <b>client</b>.<br> renvoi
+   *   null si le client <b>client</b> ne possede pas le fichier.
+   * @param client RemoteClient
    */
   public AttributFichierClient getAttributFichierClient (RemoteClient client)
   {
@@ -158,6 +160,14 @@ public class InfoFichierServeur
     if (attr.getDateDerModif ().before (date))
       date = attr.getDateDerModif ();
 
+  }
+
+  /**
+   * @return le nombre de client qui possède le fichier.
+   */
+  public int getNbrClientPossedeFichier ()
+  {
+    return this.listeClient.size();
   }
 
 

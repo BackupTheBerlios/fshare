@@ -38,7 +38,6 @@ public class ListeFichierServeur
   {
     /* Création de la hasmap synchronizée */
     contenuListe = Collections.synchronizedMap (new HashMap ());
-System.out.println ("contenuListe initialisé, null ?" + ((contenuListe == null) ? "oui" : "non"));
   }
 
   /**
@@ -84,12 +83,17 @@ System.out.println ("contenuListe initialisé, null ?" + ((contenuListe == null) 
     {
       InfoFichierServeur info = (InfoFichierServeur) (valeurListe [i]);
       info.retirerFichierClient(client);
+      /* On vérifie qu'il y a bien au moins un client qui a encore le fichier, sinon on supprime l'entrée */
+      if (info.getNbrClientPossedeFichier() == 0)
+        contenuListe.remove(info.getFichier().getIdFichier());
+
     }
   }
 
   /**
    * Recherche un nom de fichier qui match la regexp.
    * @param regexp l'expression réguliere.
+   * @return la liste des noms de fichier.
    */
   public String[] rechercherFichier(String regexp)
   {
@@ -119,6 +123,7 @@ System.out.println ("contenuListe initialisé, null ?" + ((contenuListe == null) 
   }
 
   /**
+   * @param idFichier l'identifiant du fichier dont on souhaite savoir quels client le possède.
    * @return la liste des clients qui posséde le fichier idFichier.
    * renvoi null si le idFichier n'est pas contenu dans la liste.
    */
@@ -148,6 +153,10 @@ System.out.println ("contenuListe initialisé, null ?" + ((contenuListe == null) 
     /* On retire le client pour le fichier */
     InfoFichierServeur info = (InfoFichierServeur) contenuListe.get (fichier.getIdFichier());
     info.retirerFichierClient(client);
+
+    /* On vérifie qu'il y a bien au moins un client qui a encore le fichier, sinon on supprime l'entrée */
+    if (info.getNbrClientPossedeFichier() == 0)
+      contenuListe.remove(fichier.getIdFichier());
   }
 
 

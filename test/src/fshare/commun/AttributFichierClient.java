@@ -35,20 +35,41 @@ public class AttributFichierClient implements Serializable
 /**
  * Represente le nombre de parties totale du fichier.
  */
-  private double nbPartieTotale;
+  private long nbPartieTotale;
+
+  /**
+   * Reprèsente la localisation exacte du fichier pour le client
+  */
+  private String nomFichierAbsolu;
+
+  /**
+   * Represente le nom du client.
+   */
+  private String nomClient;
 
   /**
    * Construit les attributs en fonction des parties et s'il est complet ou pas.
    * @param parties les parties possédées par le client. Si complet est vrai ce paramètre sera ignoré.
    * @param complet si le fichier est complet ou non.
+   * @param nbParties le nombre totale de parties du fichier.
+   * @param nomFichierAbsolu le nom absolu du fichier.
+   * @param nomClient le nom du client.
    */
-  public AttributFichierClient(ArrayList parties, double nbParties, boolean complet)
+  public AttributFichierClient(String nomFichierAbsolu,
+                               ArrayList parties,
+                               long nbParties,
+                               boolean complet,
+                               String nomClient)
   {
-    if (complet)
+    if (complet) /* pas besoin de stocker les parties. */
       parties = null;
-    else this.parties = parties;
+    else
+      this.parties = (null == parties) ? new ArrayList () : parties;
+
     this.complet = complet;
     this.nbPartieTotale = nbParties;
+    this.nomFichierAbsolu = nomFichierAbsolu;
+    this.nomClient = nomClient;
 
     dateModif = new Date ();
   }
@@ -58,11 +79,11 @@ public class AttributFichierClient implements Serializable
    * Ajoute une partie pour le fichier considérer.
    * @param partie le numéro de partie qu'on souhaite ajouter.
    */
-  public void ajoutePartie(double partie)
+  public void ajoutePartie(long partie)
   {
-    if (!parties.contains (new Double (partie)))
+    if (!parties.contains (new Long (partie)))
     {
-      parties.add (new Double (partie));
+      parties.add (new Long (partie));
       dateModif = new Date ();
       if (nbPartieTotale == parties.size ())
         complet = true;
@@ -70,11 +91,12 @@ public class AttributFichierClient implements Serializable
   }
 
   /**
+   * @param partie la partie dont on souhaite savoir si on la possède.
    * @return true si la partie <B>partie</B> est téléchargée.
    */
-  public boolean possedePartie (double partie)
+  public boolean possedePartie (long partie)
   {
-    return parties.contains (new Double (partie));
+    return parties.contains (new Long (partie));
   }
 
   /**
@@ -86,7 +108,34 @@ public class AttributFichierClient implements Serializable
   }
 
   /**
-   * @renvoi la date de derniere modification du fichier.
+   * Retourne le nom du client.
+   * @return le nom du client.
+   */
+  public String getNomClient ()
+  {
+    return nomClient;
+  }
+
+  /**
+   * Retourne le nom absolu du fichier.
+   * @return le nom absolu du fichier.
+   */
+  public String getNomFichierAbsolu ()
+  {
+    return nomFichierAbsolu;
+  }
+
+  /**
+   * Retourne le nombre de parties. au total.
+   * @return le nombre total de parties.
+   */
+  public long getNbPartieTotale ()
+  {
+    return nbPartieTotale;
+  }
+
+  /**
+   * @return la date de derniere modification du fichier.
    */
   public Date getDateDerModif ()
   {
