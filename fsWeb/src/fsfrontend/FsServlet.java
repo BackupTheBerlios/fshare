@@ -84,8 +84,8 @@ throws ServletException {
         /* On traite les feuilles XSLT pour la liste des fichiers et la liste des clients */
         if (typeRequete.equals ("clients") || typeRequete.equals ("fichiers"))
         {
-          if (typeRequete.equals ("clients"))
-            beanStandard.setParameter ("typeRequete", Boolean.TRUE);
+
+          beanStandard.setParameter ("typeRequete", typeRequete);
           beanStandard.setParameter("typeTri", typeTri);
           beanStandard.setParameter("requete", requete);
 
