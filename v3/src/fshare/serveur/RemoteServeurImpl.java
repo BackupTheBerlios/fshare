@@ -21,6 +21,7 @@ import fshare.serveur.ListeFichierServeur;
 import fshare.commun.AttributFichierClient;
 import fshare.commun.Fichier;
 import fshare.remote.RemoteClient;
+import fshare.serveur.serveurhttp.ClassFileServer;
 
 
 public class RemoteServeurImpl extends UnicastRemoteObject implements fshare.remote.RemoteServeur
@@ -104,6 +105,8 @@ public class RemoteServeurImpl extends UnicastRemoteObject implements fshare.rem
   public static void main(String[] args)
   {
     try {
+      ClassFileServer httpServer = new ClassFileServer(8765,null);
+
       if (args.length < 1)
       {
         System.out.println("Donner le nom du serveur en argument");
