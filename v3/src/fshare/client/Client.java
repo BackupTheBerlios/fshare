@@ -19,6 +19,7 @@ import fshare.commun.AttributFichierClient;
 import fshare.gui.Main;
 import java.util.logging.Level;
 import java.rmi.*;
+import java.util.*;
 
 public class Client {
 
@@ -34,6 +35,7 @@ public class Client {
   private RemoteServeur fServeur          = null;
   private ClientImpl    client            = null;
   private String        repertoirePartage = null;
+  private ArrayList     fichiersPartage   = new ArrayList();
 
   public Client(String serverURL, String nomClient) throws java.rmi.RemoteException
   {
@@ -62,6 +64,10 @@ public class Client {
     logger.info("Votre repertoire de partage est : " + repertoirePartage);
 
   }
+
+  public String[] getFichiers(){
+    return client.getFichierClient();
+}
 
   public static void main(String[] args) throws Exception {
     Logger.getLogger("fshare.client").setLevel(Level.ALL);
@@ -145,7 +151,7 @@ client.afficheListeFichierClient();
                                                                    null, 1, true, nomClient);
             /* Enregistrement du fichier chez le client */
             client.ajouterFichier(f.getIdFichier(), atc);
-
+            fichiersPartage.add(f);
             /* Enregistrement au niveau du serveur */
             try
             {
