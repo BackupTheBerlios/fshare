@@ -61,6 +61,7 @@ public class Main {
   ArrayList downloadVector = new ArrayList();
   ArrayList uploadVector = new ArrayList();
   ArrayList partageVector = new ArrayList();
+  JFileChooser repChooser = null;
 
   public void addDownload(Fichier f){
     downloadVector.add(f);
@@ -69,12 +70,18 @@ public class Main {
 
 
   public void addUpload(String f){
+    if (uploadVector.contains(f)) return;
     uploadVector.add(f);
     uploadTable.setListData(uploadVector.toArray());
   }
 
   public void addPartage(String f){
     partageVector.add(f);
+    partageTable.setListData(partageVector.toArray());
+  }
+
+  public void clearPartage () {
+    partageVector.clear();
     partageTable.setListData(partageVector.toArray());
   }
 
@@ -207,9 +214,13 @@ public class Main {
     });
     boutR.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
-        controleur.telechargeFichier((Fichier)rechercheTable.getSelectedValue());
-        addDownload((Fichier)rechercheTable.getSelectedValue());
-        //rechercheTable.getSelectedValue()
+        Object [] listFic = rechercheTable.getSelectedValues();
+        for (int i = 0; i < listFic.length; ++i)
+        {
+          controleur.telechargeFichier ((Fichier) listFic [i]);
+          addDownload ((Fichier) listFic [i]);
+          //rechercheTable.getSelectedValue()
+        }
       }
     });
 
@@ -259,13 +270,16 @@ public class Main {
 
     boutBrowse.addMouseListener(new MouseListener() {
       public void mouseClicked(MouseEvent e) {
-        JFileChooser repChooser = new JFileChooser();
+        if (null == repChooser)
+          repChooser = new JFileChooser(controleur.getRepertoirePartage());
         repChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         int returnVal = repChooser.showOpenDialog(frame);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
           partagePath = repChooser.getSelectedFile().getPath();
           fieldP.setText(partagePath);
           controleur.stopClient();
+          //On efface la liste de partage.
+          clearPartage ();
           controleur.setRepertoirePartage(partagePath);
           controleur.reConnectToServer();
           /*Fichier[] files = controleur.getFichiers();
