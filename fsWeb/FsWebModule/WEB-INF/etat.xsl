@@ -81,11 +81,37 @@
       	</xsl:when>
       <xsl:when test="$typeRequete = 'clientsparfichiers'">
         <h1> Liste des clients par fichiers</h1>
+        <p/> <a href="index.html">Retour</a>
         <xsl:apply-templates select="//etat:fichier" mode="clients"/>
 
 
       </xsl:when>
-                </xsl:choose>
+       <xsl:when test="$typeRequete = 'fichiersparclients'">
+        <h1> Liste des fichiers par clients</h1>
+				<p/> <a href="index.html">Retour</a>
+        <xsl:for-each select="//etat:client[not(@id = preceding::etat:client/@id)]">
+						<xsl:variable name="idcli"><xsl:value-of select="@id"/>
+						</xsl:variable>
+            <h2><xsl:value-of select="@name"/> -- <xsl:value-of select="$idcli"/></h2>
+            <ul>
+            <xsl:for-each select="//etat:fichier">
+                <xsl:for-each select="etat:client">
+              		<xsl:if test="@id=$idcli">
+                        <li> <xsl:value-of select="preceding-sibling::etat:nom"/> --
+                            <xsl:value-of select="etat:date/@jour"/>/<xsl:value-of select="etat:date/@mois"/>/<xsl:value-of select="etat:date/@année"/> (<xsl:value-of select="etat:date/@heure"/>:<xsl:value-of select="etat:date/@minute"/>)
+             						</li>
+                            </xsl:if>
+              </xsl:for-each>
+		           </xsl:for-each>
+
+              </ul>
+          </xsl:for-each>
+
+
+      </xsl:when>
+
+
+      </xsl:choose>
     </xsl:template>
 
     <xsl:template match="etat:fichier" >
@@ -102,7 +128,7 @@
       <h2><xsl:value-of select="etat:nom"/></h2>
 			<ul>
         <xsl:for-each select="etat:client">
-        <li> <xsl:value-of select="@id"/>  --  <xsl:value-of select="@name"/> </li>
+        <li> <xsl:value-of select="@id"/>  --  <xsl:value-of select="@name"/>  -- <th><xsl:value-of select="etat:date/@jour"/>/<xsl:value-of select="etat:date/@mois"/>/<xsl:value-of select="etat:date/@année"/> (<xsl:value-of select="etat:date/@heure"/>:<xsl:value-of select="etat:date/@minute"/>)</th></li>
      </xsl:for-each>
      </ul>
     </xsl:template>
