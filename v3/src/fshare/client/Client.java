@@ -61,7 +61,7 @@ public class Client {
   }
 
   public static void main(String[] args) throws Exception {
-    //Logger.getLogger("fshare.client").setLevel(Level.WARNING);
+    //Logger.getLogger("fshare.client").setLevel(java.util.logging.Level.WARNING);
     System.out.println("Entrer dans le main");
 
     if (args.length < 2) {
