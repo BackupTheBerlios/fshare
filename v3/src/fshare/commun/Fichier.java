@@ -23,7 +23,7 @@ public class Fichier implements Serializable
 {
 
 /**
- * Represente le nom absolu du fichier.
+ * Represente le nom (sans chemin) du fichier.
  */
   private String nomFichier;
 
@@ -58,14 +58,14 @@ public class Fichier implements Serializable
  */
   public Fichier(String nomFichier, long tailleFichier, int typeFichier)
   {
-    this.nomFichier    = nomFichier;
+    this.nomFichier    = new File (nomFichier).getName();
     this.tailleFichier = tailleFichier;
     this.typeFichier   = typeFichier;
     this.idFichier     = genereIdFichier (nomFichier);
   }
 
   public Fichier(String f){
-      this.nomFichier    = f;
+      this.nomFichier    = new File (nomFichier).getName();
         this.tailleFichier = -1;
         this.typeFichier   = 0;
         this.idFichier     = genereIdFichier (nomFichier);
@@ -153,7 +153,7 @@ public class Fichier implements Serializable
   }
 
   /**
-   * @return le nom absolu du fichier.
+   * @return le nom (juste le nom) du fichier.
    */
   public String getNomFichier ()
   {

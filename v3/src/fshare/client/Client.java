@@ -120,7 +120,7 @@ client.afficheListeFichierClient();
         else /* C'est un fichier */
         {
             /* Création des informations sur le fichier */
-            Fichier f = new Fichier (list[i].getName(), list[i].length(), Fichier.getTypeFichier(list[i]));
+            Fichier f = new Fichier (list[i].getAbsolutePath(), list[i].length(), Fichier.getTypeFichier(list[i]));
             AttributFichierClient atc = new AttributFichierClient (list[i].getAbsolutePath(),
                                                                    null, 1, true, nomClient);
             /* Enregistrement du fichier chez le client */
