@@ -24,7 +24,7 @@ import java.io.FileOutputStream;
 import java.io.*;
 import fshare.remote.*;
 
-public class Client {
+public class Client implements Runnable {
 
   public static final String DEFAULT_SHARE_REP = "partage";
   public static final String FIC_PROPRIETE = "setting.props";
@@ -209,10 +209,25 @@ public class Client {
     }
   }
 
+
   /**
    * Prépare les informations necessaire au bon fonctionnement du client
    */
-  private void prepareInfoFichierClient() {
+  public void run ()
+  {
+    prepareInfosFichierClient();
+  }
+
+  private void prepareInfoFichierClient()
+  {
+    new Thread (this).start();
+    logger.info("On a fini de mettre les infos de partage");
+  }
+
+  /**
+   * Prépare les informations necessaire au bon fonctionnement du client
+   */
+  private void prepareInfosFichierClient() {
   /* On récupere le fichier de partage */
     repertoirePartage = Propriete.getPropriete(FIC_PROPRIETE, "shareDir");
 
@@ -376,6 +391,7 @@ public class Client {
           byte[] b;
           logger.info ("On va télécharger la partie " + i + " du fichier");
 //pour les tests
+/*
 try
 {
   Thread.sleep (1000);
@@ -383,6 +399,7 @@ try
 catch (InterruptedException ex4)
 {
 }
+ */
           b = listeClient[numClient].telechargerFichier (idFichier, i);
           fwrite.write (b, 0, b.length);
         }
@@ -392,6 +409,7 @@ catch (InterruptedException ex4)
           int tailleBuff = (int) (fic.getTailleFichier () -
                                   ((fic.getNbPartiesFichier () - 1) *
                                    ClientImpl.MAX_OCTET_LU));
+
           byte[] b;
           logger.info ("On va télécharger la derniere partie du fichier");
           b = listeClient[numClient].telechargerFichier (idFichier,
@@ -405,6 +423,7 @@ catch (InterruptedException ex4)
           }
           logger.info ("octet lu : " + b.toString ());
           fwrite.write (b, 0, tailleBuff);
+          fwrite.flush();
           //On sort de la boucle
           break;
         }
