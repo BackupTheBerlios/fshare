@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE appli
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+  <servlet>
+    <servlet-name>tp.jsp.appli</servlet-name>
+    <servlet-class>tp.jsp.appli</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>tp.jsp.appli</servlet-name>
+    <url-pattern>/appli/essai.jsp</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>tp.jsp.Recup</servlet-name>
+    <servlet-class>tp.jsp.Recup</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>tp.jsp.Recup</servlet-name>
+    <url-pattern>/Recup</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>fshare.fsFrontEnd.Servlet</servlet-name>
+    <servlet-class>fshare.fsFrontEnd.Servlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>fshare.fsFrontEnd.Servlet</servlet-name>
+    <url-pattern>/Servlet</url-pattern>
+  </servlet-mapping>
+
+
+</web-app>
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+  <!--JBuilder Library Definition File-->
+  <fullname>libJ2ee</fullname>
+  <class>
+    <path>[../../../common/lib/ant.jar]</path>
+    <path>[../../../common/lib/commons-collections.jar]</path>
+    <path>[../../../common/lib/commons-dbcp-1.1.jar]</path>
+    <path>[../../../common/lib/commons-el.jar]</path>
+    <path>[../../../common/lib/commons-pool-1.1.jar]</path>
+    <path>[../../../common/lib/jasper-compiler.jar]</path>
+    <path>[../../../common/lib/jasper-runtime.jar]</path>
+    <path>[../../../common/lib/jmx.jar]</path>
+    <path>[../../../common/lib/jsp-api.jar]</path>
+    <path>[../../../common/lib/naming-common.jar]</path>
+    <path>[../../../common/lib/naming-factory.jar]</path>
+    <path>[../../../common/lib/naming-java.jar]</path>
+    <path>[../../../common/lib/naming-resources.jar]</path>
+    <path>[../../../common/lib/servlet-api.jar]</path>
+  </class>
+  <lastmodsaved>1081199077734</lastmodsaved>
+</library>
