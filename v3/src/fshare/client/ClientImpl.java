@@ -69,7 +69,7 @@ public class ClientImpl extends java.rmi.server.UnicastRemoteObject implements R
    * @param partie int
    * @return un tableau de byte[], null en cas d'erreur.
    */
-  public byte [] telechargerFichier(String id, int partie)
+  public byte [] telechargerFichier(String id, long partie)
   {
 System.out.println ("Telechargement de : " + id + ", partie : " + partie);
     if (!listeFichier.containsKey(id)) /* On a pas le fichier */
@@ -113,7 +113,8 @@ System.out.println ("Telechargement de : " + id + ", partie : " + partie);
       AttributFichierClient afc = (AttributFichierClient) c [i];
       System.out.println ("Nom Fichier : " + afc.getNomFichierAbsolu() +
                           ", du client : " + afc.getNomClient() +
-                          ", contient '" + afc.getNbPartieTotale() + "' au total" +
+                          ", sa taille est de : " + (new java.io.File (afc.getNomFichierAbsolu()).length ()) +
+                          ", contient '" + afc.getNbPartieTotale() + "' parties au total" +
                           ", et il est " + ((afc.fichierComplet()) ? "complet" : "incomplet") +
                           ", et sa date est : " + afc.getDateDerModif());
     }
