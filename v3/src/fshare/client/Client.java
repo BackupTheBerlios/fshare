@@ -88,7 +88,7 @@ public class Client {
   {
     prepareInfoFichierClient ();
 client.afficheListeFichierClient();
-    appli = new Main ();
+    appli = new Main (client);
   }
 
   /**
