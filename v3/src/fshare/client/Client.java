@@ -20,6 +20,8 @@ import fshare.gui.Main;
 import java.util.logging.Level;
 import java.rmi.*;
 import java.util.*;
+import java.io.FileOutputStream;
+import java.io.*;
 
 public class Client {
 
@@ -70,7 +72,7 @@ public class Client {
       client = new ClientImpl();
       this.nomClient = nomClient;
       prepareInfoFichierClient();
-      //client.afficheListeFichierClient();
+      client.afficheListeFichierClient();
       appli = new Main(this);
 
     }
@@ -185,7 +187,7 @@ System.out.println("Entré dans télécharger");
    */
   private void prepareInfoFichierClient() {
   /* On récupere le fichier de partage */
-    //repertoirePartage = Propriete.getPropriete(FIC_PROPRIETE, "shareDir");
+    repertoirePartage = Propriete.getPropriete(FIC_PROPRIETE, "shareDir");
 
     if (null == repertoirePartage) {
       repertoirePartage = DEFAULT_SHARE_REP;
@@ -234,7 +236,7 @@ System.out.println("Entré dans télécharger");
       for (int i = 0; i < list.length; i++) {
         if (list[i].isDirectory())
             /* Appel récursif sur les sous-répertoires */
-             {
+            {
           lectureFichierDansRepertoire(list[i]);
         }
         else
@@ -242,9 +244,12 @@ System.out.println("Entré dans télécharger");
           /* Création des informations sur le fichier */
           Fichier f = new Fichier(list[i].toString(), list[i].length(),
                                   Fichier.getTypeFichier(list[i]));
+          long nbParties = ((list[i].length() % ClientImpl.MAX_OCTET_LU) == 0) ?
+                               (list[i].length() / ClientImpl.MAX_OCTET_LU) :
+                               ((list[i].length() / ClientImpl.MAX_OCTET_LU) + 1);
           AttributFichierClient atc = new AttributFichierClient(list[i].
               getAbsolutePath(),
-              null, 1, true, nomClient);
+              null, nbParties, true, nomClient);
           /* Enregistrement du fichier chez le client */
           client.ajouterFichier(f.getIdFichier(), atc);
           fichiersPartage.add(f);
@@ -266,37 +271,68 @@ System.out.println("Entré dans télécharger");
 
   }
 
-  private void telechargeFichier ()
-{
-  //On récupere test.txt
-  try
-  {
-    logger.info("Entrer dans télécharge fichier");
-    Fichier [] list = fServeur.rechercherFichier("txt");
-    if ((list == null) || (list.length == 0)) return; //rien a faire
-    //on prend le premier fichier
-    Fichier fic = list [0];
-    logger.info(list[0].toString());
-    String idFichier = fic.getIdFichier();
-    fshare.remote.RemoteClient [] listeClient = fServeur.rechercherClient(idFichier);
-    if (null == listeClient || listeClient.length == 0) return; //pas de client
-    if (listeClient [0] == (client))
-    {
-      logger.info("Meme client");
-      return;
+  private void telechargeFichier() {
+    //On récupere test.txt
+    try {
+      logger.info("Entrer dans télécharge fichier");
+      Fichier[] list = fServeur.rechercherFichier("txt");
+      if ( (list == null) || (list.length == 0))return; //rien a faire
+      //on prend le premier fichier
+      Fichier fic = list[0];
+      logger.info(list[0].toString());
+      String idFichier = fic.getIdFichier();
+      fshare.remote.RemoteClient[] listeClient = fServeur.rechercherClient(
+          idFichier);
+      if (null == listeClient || listeClient.length == 0)return; //pas de client
+      /*if (listeClient [0] == (client))
+           {
+        logger.info("Meme client");
+        return;
+           }*/
+      logger.info(listeClient[0].toString());
+      logger.info(client.toString());
+
+      /* Ouverture du fichier de réception */
+      try {
+        String rep = repertoirePartage +
+            File.separator + Math.random() + "-" + fic.getNomFichier();
+        System.out.println(rep);
+        FileOutputStream fwrite = new FileOutputStream(rep);
+        /* lecture du fichier sauf la derniere partie */
+        for (long i = 0; i < (fic.getNbPartiesFichier() - 1); ++i) {
+          byte[] b;
+          logger.info("On va télécharger la premiere partie du fichier");
+          b = listeClient[0].telechargerFichier(idFichier, i);
+          logger.info("octet lu : " + b.toString());
+          fwrite.write(b, 0, b.length);
+        }
+        /* écriture de la derniere partie */
+        int tailleBuff = (int) (fic.getTailleFichier() -
+                                ( (fic.getNbPartiesFichier() - 1) *
+                                 ClientImpl.MAX_OCTET_LU));
+        System.out.println("taille buffer pour der lecture : " + tailleBuff);
+        byte[] b;
+        logger.info("On va télécharger la premiere partie du fichier");
+        b = listeClient[0].telechargerFichier(idFichier,
+                                              fic.getNbPartiesFichier() - 1);
+        logger.info("octet lu : " + b.toString());
+        fwrite.write(b, 0, tailleBuff);
+
+      }
+      catch (FileNotFoundException ex1) {
+        ex1.printStackTrace();
+      }
+      catch (IOException ex1) {
+        ex1.printStackTrace();
+      }
+
     }
-    logger.info(listeClient[0].toString());
-    logger.info(client.toString());
-    byte [] b = new byte [ClientImpl.MAX_OCTET_LU];
-    logger.info("On va télécharger la premiere partie du fichier");
-    b = listeClient [0].telechargerFichier(idFichier, 0);
-    logger.info("octet lu : " + b.toString());
+
+    catch (RemoteException ex) {
+      ex.getMessage();
+      ex.printStackTrace();
+    }
   }
-  catch (RemoteException ex)
-  {
-    ex.printStackTrace();
-  }
-}
 
 
 } //Classe Client
