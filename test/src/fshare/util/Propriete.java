@@ -22,7 +22,7 @@ public class Propriete
 
   /**
    * Nouveau fichier de propriété qui aura pour nom nomFicProp
-   * @param nomFicProp le nom du fichier proprété qui sera crée.
+   * @param nomFichProp le nom du fichier proprété qui sera crée.
    */
   public Propriete (String nomFichProp)
   {
@@ -68,6 +68,7 @@ System.out.println ("Pas de fichier proprété prensent pour l'instant");
   /**
    * Vérifie si le propriété <B>key</B> existe dans le fichier de propriété.
    * @param key le nom de la propriété à tester.
+   * @return true si le propriété existe, false autrement.
    */
   public boolean containKey (String key)
   {
@@ -144,6 +145,9 @@ System.out.println ("Pas de fichier proprété prensent pour l'instant");
   /**
    * Ajoute/met à jour la propriété key à la veleur value dans le fichier de
    * propriété nomFic.
+   * @param nomFic le nom du fichier propriété.
+   * @param key la clé de la propriété.
+   * @param value la valeur pour la clé.
    */
   public static void setPropriete (String nomFic, String key, String value)
   {
