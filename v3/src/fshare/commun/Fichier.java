@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.io.DataInputStream;
+import fshare.client.ClientImpl;
 
 public class Fichier implements Serializable
 {
@@ -42,6 +43,11 @@ public class Fichier implements Serializable
  * Represente la taille du fichier.
  */
     private long tailleFichier;
+
+    /**
+     * Le nombre de parties du fichier.
+     */
+    private long nbPartiesFichier;
 
 /**
  * Represente le type de fichier (ex : video musique etc...).
@@ -79,6 +85,10 @@ public class Fichier implements Serializable
     this.typeFichier   = typeFichier;
     this.idFichier     = genereIdFichier (nomFichier);
     this.setToString(getNomFichier());
+    this.nbPartiesFichier = ((tailleFichier % ClientImpl.MAX_OCTET_LU) == 0) ?
+                               (tailleFichier / ClientImpl.MAX_OCTET_LU) :
+                               ((tailleFichier / ClientImpl.MAX_OCTET_LU) + 1);
+
   }
 
   public Fichier(String nomFichier){
@@ -204,6 +214,14 @@ public class Fichier implements Serializable
   public long getTailleFichier ()
   {
     return tailleFichier;
+  }
+
+  /**
+   * @return le nombre de parties du fichier (en lequel il est découpé).
+   */
+  public long getNbPartiesFichier ()
+  {
+    return this.nbPartiesFichier;
   }
 
   /**
