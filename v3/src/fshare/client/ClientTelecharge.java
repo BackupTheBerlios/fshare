@@ -73,7 +73,7 @@ public class ClientTelecharge extends Thread
     {
       /*rep = client.getRepertoirePartage() +
           File.separator + Math.random () + "-" + fic.getNomFichier ();*/
-      rep = "incoming" +
+      rep = client.getNickName() +
           File.separator + fic.getNomFichier ();
       //System.out.println(rep);
       fwrite = new FileOutputStream (rep);

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Fichier build.xml -->
+<!-- D. Mandrioli - R. Giraud -->
+<!-- Projet de maîtrise info -->
+
+<project name="fshare" default="server.build" basedir="..">
+
+<!-- Propriétés spécifiques et par défaut, 
+à mettre obligatoirement dans cet ordre -->
+<property file="build.properties"/>
+<property file="default.properties"/>
+
+<!-- Classpath de l'application serveur-->
+<path id="server.classpath">
+    <pathelement location="serverSide"/>
+  </path>
+
+
+<!-- Classpath de l'application client-->
+<path id="client.classpath">
+    <pathelement location="clientSide"/>
+  </path>
+
+<target name="init">
+  <mkdir dir="clientSide"/>
+  <mkdir dir="serverSide"/>
+  <tstamp/>
+</target>
+
+
+
+
+<target name="clean"> 
+  <!-- Supprime les fichiers construits --> 
+  <delete dir="clientSide"/> 
+  <delete dir="serverSide"/>
+  </target>
+
+<target name="javadoc" depends="init">
+   <javadoc destdir="doc">
+        <fileset dir="src">
+     </fileset>
+   </javadoc>
+</target>
+        
+<target name="all" depends="init" 
+        description="nettoie et construit et execute"/>
+
+<!-- Exécution des applications -->
+
+     
+
+<target name="server.run" depends="server.build"
+        description="Lance le serveur">
+  <java classname="fshare.serveur.RemoteServeurImpl" fork="yes" spawn="no"> 
+  <jvmarg value="-Djava.security.policy=java.policy"/>
+  <arg value="demoserver"/>
+    <classpath refid="server.classpath"/>
+          </java>
+</target>
+
+<target name="client.run" depends="client.build"
+        description="Lance un client">
+  <java classname="fshare.client.Client" fork="yes" spawn="no"> 
+  <jvmarg value="-Djava.security.policy=java.policy"/>
+    <classpath refid="client.classpath"/>
+          </java>
+</target>
+
+
+<target name="server.build" depends="init"
+        description="Compile toutes les classes de l'application Serveur">
+  <javac srcdir="src" 
+         destdir="serverSide"
+	 optimize="${optimize}">
+         <classpath refid="server.classpath"/>
+	 </javac>
+  <rmic classname="fshare.serveur.RemoteServeurImpl" base="serverSide"/>
+</target>
+
+<target name="client.build" depends="init"
+        description="Compile toutes les classes de l'application Client">
+  <javac srcdir="src" 
+         destdir="clientSide"
+	 optimize="${optimize}">
+         <classpath refid="client.classpath"/>
+	 </javac>
+   <rmic classname="fshare.client.ClientImpl" base="clientSide"/>
+</target>
+
+
+
+</project>	      
+

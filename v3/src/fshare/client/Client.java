@@ -45,10 +45,16 @@ public class Client implements Runnable {
 
   public Client(String serverURL, String nomClient) throws java.rmi.
       RemoteException {
+
     if (serverURL == null || nomClient == null) {
       serverURL = Propriete.getPropriete(FIC_PROPRIETE, "urlServer");
       nomClient = Propriete.getPropriete(FIC_PROPRIETE, "nickName");
     }
+
+    // Crée le répertoire personnel de l'utilisateur (ne fait rien si il existe)
+    new File(nomClient).mkdir();
+
+
     urlServer = serverURL;
     this.nomClient = nomClient;
 
@@ -133,6 +139,9 @@ System.out.println("Code base : " + System.getProperty("java.rmi.server.codebase
   public void connectToServer(String serverURL, String nomClient) throws java.
       rmi.RemoteException {
     try {
+      // Crée le répertoire personnel de l'utilisateur (ne fait rien si il existe)
+      new File(nomClient).mkdir();
+
       appli.addTrace("Connexion au serveur " + getServerName());
       //On change le code base pour prendre celui du serveur
       System.setProperty ("java.rmi.server.codebase",
@@ -257,7 +266,7 @@ System.out.println("Code base : " + System.getProperty("java.rmi.server.codebase
     lectureFichierDansRepertoire(new File(repertoirePartage));
 
     /* Ajout des fichiers téléchargés dans incoming */
-    lectureFichierDansRepertoire(new File("incoming"));
+    lectureFichierDansRepertoire(new File(getNickName()));
 
     /* Ajout des fichiers en cours de téléchargement */
   }

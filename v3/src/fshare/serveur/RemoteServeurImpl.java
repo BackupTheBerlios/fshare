@@ -47,9 +47,17 @@ public class RemoteServeurImpl
   private static Logger logger =
       Logger.getLogger("fshare.serveur");
 
+  public RemoteServeurImpl(String serverName) throws RemoteException {
+    listeFichierServeur = new ListeFichierServeur();
+    mainServer = new MainServer(this);
+    mainServer.addTrace("Lancement du serveur...");
+    mainServer.addTrace("URL :  rmi://" + getHostName() + "/" + serverName);
+  }
+
   public RemoteServeurImpl() throws RemoteException {
     listeFichierServeur = new ListeFichierServeur();
     mainServer = new MainServer(this);
+
   }
 
   /**
@@ -62,8 +70,13 @@ public class RemoteServeurImpl
                              AttributFichierClient attr)
   /* throws java.rmi.RemoteException */
   {
-    logger.info("Ajout du fichier qui a pour clé : " + fichier.getNomFichier() +
-                ", qui a pour type : " + fichier.getTypeFichier());
+    mainServer.addTrace("Ajout de fichier : " + attr.getIdClient()
+                        + " (" + attr.getNomClient() + ") ajoute " + fichier.getNomFichier()
+                        + " " + attr.getNbPartieTotale() + " partie(s), "
+                        + fichier.getTailleFichier() + " octets, " + fichier.getTypeFichier()
+                        + " (" + attr.getDateDerModif() + ")");
+//  logger.info("Ajout du fichier qui a pour clé : " + fichier.getNomFichier() +
+//                ", qui a pour type : " + fichier.getTypeFichier());
     /*    System.out.println("listeFichierServeur initialisé, null ?" +
                            ( (listeFichierServeur == null) ? "oui" : "non"));
         System.out.println("Attribut fichier initialisé, null ?" +
@@ -317,7 +330,7 @@ public class RemoteServeurImpl
       if (System.getSecurityManager() == null) {
         System.setSecurityManager(new java.rmi.RMISecurityManager());
       }
-      RemoteServeurImpl obj = new RemoteServeurImpl();
+      RemoteServeurImpl obj = new RemoteServeurImpl(serverName);
       Naming.rebind(serverName, obj);
       System.out.println("Server bound in registry under URL ");
       System.out.println("   rmi://" + getHostName() + "/" + serverName);
@@ -326,6 +339,11 @@ public class RemoteServeurImpl
       System.out.println("ServerImpl err: " + e.getMessage());
       e.printStackTrace();
     }
+  }
+  public void printListeFichiers(){
+    String[] liste = listeFichierServeur.getListeFichierServeur();
+    for (int i=0; i<liste.length; i++)
+      mainServer.addTrace(liste[i]);
   }
 
   private static String getHostName() {

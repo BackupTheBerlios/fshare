@@ -232,4 +232,20 @@ afficheListeFichierServeur ();
 
   }
 
+  public String[] getListeFichierServeur ()
+    {
+
+      Object [] ifs = contenuListe.values().toArray();
+      String[] renvoi = new String[ifs.length + 1];
+      for (int i = 0; i < ifs.length; ++i)
+      {
+        renvoi[0] = "Liste des fichiers enregistrés sur le serveur : ";
+        InfoFichierServeur info = (InfoFichierServeur) ifs[i];
+        renvoi[i + 1] = "    " + info.getFichier().getNomFichier()
+            + " Nb source(s) : " + info.getNbrClientPossedeFichier();
+
+      }
+      return renvoi;
+    }
+
 } // Classe ListeFichierServeur
