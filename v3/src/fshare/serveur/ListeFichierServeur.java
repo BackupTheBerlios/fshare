@@ -67,6 +67,9 @@ public class ListeFichierServeur {
    * @param client le client dont on souhaite retirer tous ces fichiers.
    */
   public void retirerFichierClient(RemoteClient client) {
+System.out.println("avant retire fichier");
+afficheListeFichierServeur ();
+
     /* On parcours tout le contenu de la liste et on verifie qu'il le client
        ne possede pas ce fichier, si c'est le cas on le retire */
 
@@ -83,6 +86,9 @@ public class ListeFichierServeur {
 
       }
     }
+System.out.println("après retire fichier");
+afficheListeFichierServeur ();
+
   }
 
   /**
@@ -165,5 +171,22 @@ public class ListeFichierServeur {
 
   }
 
+
+
+  /**
+   * Fonction de débug.
+   */
+  public void afficheListeFichierServeur ()
+  {
+    System.out.println("Liste fichier Serveur :");
+    Object [] ifs = contenuListe.values().toArray();
+    for (int i = 0; i < ifs.length; ++i)
+    {
+      InfoFichierServeur info = (InfoFichierServeur) ifs [i];
+      System.out.print ("Fichier : " + info.getFichier().getNomFichier());
+      System.out.println(", nb client : " + info.getNbrClientPossedeFichier());
+    }
+
+  }
 
 } // Classe ListeFichierServeur
