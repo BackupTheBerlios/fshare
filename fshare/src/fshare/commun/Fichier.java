@@ -6,7 +6,7 @@ package fshare.commun;
  * Copyright:    Copyright (c) 2004
  * Company:
  * @author Giraud Rémy, Mandrioli Damien
- * @version 1.0
+ * @version 1.1
  */
 
 

@@ -1,3 +1,5 @@
+
+/* Version 1.1*/
 package fshare.gui;
 
 import javax.swing.*;
