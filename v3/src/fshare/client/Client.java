@@ -53,7 +53,10 @@ public class Client {
     this.nomClient = nomClient;
 
     if (serverURL == null || nomClient == null) {
+
       client = new ClientImpl();
+      appli = new Main(this);
+      client.setGui(appli);
       prepareInfoFichierClient();
       appli = new Main(this);
     }
@@ -73,11 +76,14 @@ public class Client {
         throw new java.rmi.RemoteException(
             "The server was not found at the given URL");
       }
+
       client = new ClientImpl();
+      appli = new Main(this);
+      client.setGui(appli);
       this.nomClient = nomClient;
       prepareInfoFichierClient();
      // client.afficheListeFichierClient();
-      appli = new Main(this);
+
       String temps = Propriete.getPropriete(FIC_PROPRIETE, "TEMPS_TEMPO");
       if (null == temps)
         tempsTempo = Client.DEFAULT_TEMPS_TEMPO;
@@ -132,7 +138,7 @@ public class Client {
     }
     this.nomClient = nomClient;
     client = new ClientImpl();
-
+    client.setGui(appli);
     setRepertoirePartage(repertoirePartage);
 
     Propriete.setPropriete(FIC_PROPRIETE, "urlServer", serverURL);
@@ -372,7 +378,7 @@ public class Client {
 //pour les tests
 try
 {
-  Thread.sleep (5000);
+  Thread.sleep (1000);
 }
 catch (InterruptedException ex4)
 {

@@ -21,15 +21,23 @@ import fshare.commun.AttributFichierClient;
 import fshare.commun.Fichier;
 import java.io.FileInputStream;
 import java.io.IOException;
+import fshare.gui.Main;
 
 public class ClientImpl extends java.rmi.server.UnicastRemoteObject implements RemoteClient
 {
 
   /**
-   * Le nombre d'octet lu et envoyer aux autres clients
-   * Le fichier sera donc découpé en partie de 500 octets.
+   * L'interface graphique
+   *
    */
-  public static final int MAX_OCTET_LU = 500;
+  public static Main gui;
+
+
+  /**
+   * Le nombre d'octet lu et envoyer aux autres clients
+   * Le fichier sera donc découpé en partie de 5000 octets.
+   */
+  public static final int MAX_OCTET_LU = 5000;
 
   /**
    * n° aléatoire généré à la création du client
@@ -43,8 +51,13 @@ public class ClientImpl extends java.rmi.server.UnicastRemoteObject implements R
    */
   private Map listeFichier;
 
+  public void setGui(Main gui){
+    this.gui = gui;
+  }
+
   public ClientImpl () throws java.rmi.RemoteException
   {
+
     /* Création de la hasmap synchronizée */
     listeFichier = Collections.synchronizedMap (new HashMap ());
 
@@ -85,7 +98,7 @@ System.out.println ("Telechargement de : " + id + ", partie : " + partie);
     AttributFichierClient atc = (AttributFichierClient) listeFichier.get(id);
     if (null == atc) /* On a pas les attributs du fichier du client */
       return null;
-
+    gui.addUpload(atc.getNomFichierAbsolu() + " " + atc.getNbPartieTotale()+ " parties " + atc.getDateDerModif().toString());
     try
     {
       FileInputStream fread = new FileInputStream(atc.getNomFichierAbsolu());

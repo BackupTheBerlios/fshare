@@ -58,6 +58,19 @@ public class Main {
   JScrollPane scrollR;
   JScrollPane scrollP;
 
+  ArrayList downloadVector = new ArrayList();
+  ArrayList uploadVector = new ArrayList();
+
+  public void addDownload(Fichier f){
+    downloadVector.add(f);
+    downloadTable.setListData(downloadVector.toArray());
+  }
+
+
+  public void addUpload(String f){
+    uploadVector.add(f);
+    uploadTable.setListData(uploadVector.toArray());
+  }
 
   private void constructionD() {
     downloadTable = new JList();
@@ -189,7 +202,8 @@ public class Main {
     boutR.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         controleur.telechargeFichier((Fichier)rechercheTable.getSelectedValue());
-            //rechercheTable.getSelectedValue()
+        addDownload((Fichier)rechercheTable.getSelectedValue());
+        //rechercheTable.getSelectedValue()
       }
     });
 
