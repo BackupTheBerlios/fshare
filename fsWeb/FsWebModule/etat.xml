@@ -11,6 +11,10 @@
 <client id="5fa33a46da6b1000" name="fred">
 <date jour="07" mois="04" année="2004" heure="13" minute="22"/>
 </client>
+<client id="5fa33a46da6b10f00" name="armand">
+<date jour="07" mois="04" année="2004" heure="13" minute="22"/>
+</client>
+
 </fichier>
 <fichier>
 <nom>Jazz Fusion - Steve Bailey &amp; Victor Wooten - Bass Extremes - A Chick from Corea.mp3</nom>

@@ -82,7 +82,7 @@ throws ServletException {
           return;
 
         /* On traite les feuilles XSLT pour la liste des fichiers et la liste des clients */
-        if (typeRequete.equals ("clients") || typeRequete.equals ("fichiers"))
+     //   if (typeRequete.equals ("clients") || typeRequete.equals ("fichiers") || typeRequete.equals("clientsparfichiers"))
         {
 
           beanStandard.setParameter ("typeRequete", typeRequete);
@@ -90,11 +90,11 @@ throws ServletException {
           beanStandard.setParameter("requete", requete);
 
         }
-        else
+   /*     else
         {
             //autre valeur de feuille XSLT
         }
-
+*/
 
 
         request.setAttribute("html", beanStandard.getTransformXmlByXslt());

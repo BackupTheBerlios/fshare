@@ -11,16 +11,8 @@
 		<xsl:param name="typeTri" select="." />
 
     <xsl:template match="/">
-        <html>
-            <head>
-                <title>Zoo</title>
-                <link href="zoo.css" rel="stylesheet" type="text/css"/>
-            </head>
-            <body>
-						      <xsl:call-template name="fichiers"/>
-
-            </body>
-        </html>
+      <link href="zoo.css" rel="stylesheet" type="text/css"/>
+      <xsl:call-template name="fichiers"/>
 
     </xsl:template>
 
@@ -56,7 +48,7 @@
                   </xsl:choose>
                   </table>
                     </xsl:when>
-                    <xsl:otherwise>
+                    <xsl:when test="$typeRequete = 'fichiers'">
                 <h1>Liste des Fichiers</h1>
 
       <p/> <a href="index.html">Retour</a>
@@ -70,27 +62,33 @@
       </tr>
 			<xsl:choose>
         <xsl:when test="$typeTri='name'">
-          <xsl:apply-templates mode="toc" select="//etat:fichier">
+          <xsl:apply-templates  select="//etat:fichier">
              <xsl:sort select="etat:nom"/>
           </xsl:apply-templates>
         </xsl:when>
         <xsl:when test="$typeTri='taille'">
-        <xsl:apply-templates mode="toc" select="//etat:fichier">
+        <xsl:apply-templates  select="//etat:fichier">
              <xsl:sort select="etat:taille" order="descending" data-type="number"/>
           </xsl:apply-templates>
         </xsl:when>
         <xsl:when test="$typeTri='type'">
-        <xsl:apply-templates mode="toc" select="//etat:fichier">
+        <xsl:apply-templates  select="//etat:fichier">
              <xsl:sort select="etat:type"/>
         </xsl:apply-templates>
         </xsl:when>
         </xsl:choose>
         </table>
-                    </xsl:otherwise>
+      	</xsl:when>
+      <xsl:when test="$typeRequete = 'clientsparfichiers'">
+        <h1> Liste des clients par fichiers</h1>
+        <xsl:apply-templates select="//etat:fichier" mode="clients"/>
+
+
+      </xsl:when>
                 </xsl:choose>
     </xsl:template>
 
-    <xsl:template match="etat:fichier" mode="toc">
+    <xsl:template match="etat:fichier" >
       <tr> <th><xsl:value-of select="etat:nom"/></th>
       			 <th><xsl:value-of select="etat:taille"/></th>
              <th><xsl:value-of select="etat:date/@jour"/>/<xsl:value-of select="etat:date/@mois"/>/<xsl:value-of select="etat:date/@année"/> (<xsl:value-of select="etat:date/@heure"/>:<xsl:value-of select="etat:date/@minute"/>)</th>
@@ -99,7 +97,18 @@
         </tr>
     </xsl:template>
 
-    <xsl:template match="etat:client" mode="toc">
+    <xsl:template match="etat:fichier" mode="clients">
+
+      <h2><xsl:value-of select="etat:nom"/></h2>
+			<ul>
+        <xsl:for-each select="etat:client">
+        <li> <xsl:value-of select="@id"/>  --  <xsl:value-of select="@name"/> </li>
+     </xsl:for-each>
+     </ul>
+    </xsl:template>
+
+
+    <xsl:template match="etat:client" >
 
 
     </xsl:template>
