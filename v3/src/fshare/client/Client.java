@@ -312,7 +312,7 @@ public class Client {
       ex1.printStackTrace ();
       return;
     }
-
+    long i = 0;
     while (true)
     {
       try
@@ -360,12 +360,13 @@ public class Client {
           if (numClient != listeClient.length)break;
         }
 //pour les tests
-numClient = 0;
+//numClient = 0;
         /* écriture du fichier sauf la derniere partie */
-        for (long i = 0; i < (fic.getNbPartiesFichier () - 1); ++i)
+        for (; i < (fic.getNbPartiesFichier () - 1); ++i)
         {
           byte[] b;
           logger.info ("On va télécharger la partie " + i + " du fichier");
+//pour les tests
 try
 {
   Thread.sleep (5000);
@@ -376,26 +377,28 @@ catch (InterruptedException ex4)
           b = listeClient[numClient].telechargerFichier (idFichier, i);
           fwrite.write (b, 0, b.length);
         }
-        /* écriture de la derniere partie */
-        int tailleBuff = (int) (fic.getTailleFichier () -
-                                ((fic.getNbPartiesFichier () - 1) *
-                                 ClientImpl.MAX_OCTET_LU));
-        byte[] b;
-        logger.info ("On va télécharger la derniere partie du fichier");
-        b = listeClient[numClient].telechargerFichier (idFichier,
-            fic.getNbPartiesFichier () - 1);
-        if (null == b)
+        if (i == (fic.getNbPartiesFichier () - 1))
         {
-          /* On a pas pu lire la partie, on dit que le client ne possède plus le fichier
-             NORMALEMENT ON ENLEVE LA PARTIE QUI MANQUE POUR LE CLIENT à voir version future */
-          System.out.println ("Probleme lecture fichier");
-          fServeur.retirerFichier (fic, listeClient[numClient]);
+          /* écriture de la derniere partie */
+          int tailleBuff = (int) (fic.getTailleFichier () -
+                                  ((fic.getNbPartiesFichier () - 1) *
+                                   ClientImpl.MAX_OCTET_LU));
+          byte[] b;
+          logger.info ("On va télécharger la derniere partie du fichier");
+          b = listeClient[numClient].telechargerFichier (idFichier,
+              fic.getNbPartiesFichier () - 1);
+          if (null == b)
+          {
+            /* On a pas pu lire la partie, on dit que le client ne possède plus le fichier
+               NORMALEMENT ON ENLEVE LA PARTIE QUI MANQUE POUR LE CLIENT à voir version future */
+            System.out.println ("Probleme lecture fichier");
+            fServeur.retirerFichier (fic, listeClient[numClient]);
+          }
+          logger.info ("octet lu : " + b.toString ());
+          fwrite.write (b, 0, tailleBuff);
+          //On sort de la boucle
+          break;
         }
-        logger.info ("octet lu : " + b.toString ());
-        fwrite.write (b, 0, tailleBuff);
-        //On sort de la boucle
-        break;
-
       }
       catch (RemoteException ex)
       {
@@ -421,6 +424,29 @@ catch (InterruptedException ex4)
     }
     logger.info("Téléchargement de : " + (new File (rep).getName()) +
                 " RéUSSI dans le répertoire : " + (new File (rep).getAbsolutePath()));
+    /* On l'ajoute dans les fichiers partager et sur le serveur */
+       //prepare les infos
+    AttributFichierClient afc = new AttributFichierClient (rep, null, fic.getNbPartiesFichier(),
+                                                           true, nomClient, client.getIdClient());
+       //enregistrement sur le client
+   client.ajouterFichier (fic.getIdFichier (), afc);
+      //enregistrement dans l'interface graphique
+   fichiersPartage.add (fic);
+
+     //Enregistrement au niveau du serveur
+   try
+   {
+     if (fServeur != null)
+     {
+       fServeur.ajouterFichier (fic, client, afc);
+     }
+   }
+   catch (java.rmi.RemoteException e)
+   {
+     logger.severe ("Impossible d'ajouter le fichier sur le serveur");
+     e.printStackTrace ();
+   }
+
   }
 
 
