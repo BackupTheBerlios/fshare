@@ -63,12 +63,12 @@ public class RemoteServeurImpl
   {
     logger.info("Ajout du fichier qui a pour clé : " + fichier.getNomFichier() +
                 ", qui a pour type : " + fichier.getTypeFichier());
-    System.out.println("listeFichierServeur initialisé, null ?" +
+/*    System.out.println("listeFichierServeur initialisé, null ?" +
                        ( (listeFichierServeur == null) ? "oui" : "non"));
     System.out.println("Attribut fichier initialisé, null ?" +
                        ( (attr == null) ? "oui" : "non"));
     System.out.println("client initialisé, null ?" +
-                       ( (client == null) ? "oui" : "non"));
+                       ( (client == null) ? "oui" : "non")); */
     listeFichierServeur.ajouterFichier(fichier, client, attr);
   }
 
