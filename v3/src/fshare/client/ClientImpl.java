@@ -19,9 +19,17 @@ import java.util.Collections;
 import java.util.HashMap;
 import fshare.commun.AttributFichierClient;
 import fshare.commun.Fichier;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 public class ClientImpl extends java.rmi.server.UnicastRemoteObject implements RemoteClient
 {
+
+  /**
+   * Le nombre d'octet lu et envoyer aux autres clients
+   * Le fichier sera donc découpé en partie de 500 octets.
+   */
+  public static final int MAX_OCTET_LU = 500;
 
   /**
    * Represente la liste de fichier que possède le client.
@@ -55,9 +63,43 @@ public class ClientImpl extends java.rmi.server.UnicastRemoteObject implements R
     listeFichier.remove(idFichier);
   }
 
-  public void telechargerFichier(String id, int partie)
+  /**
+   * Renvoi la partie <b>partie</b> du fichier d'identifiant <b>id</b>.
+   * @param id String
+   * @param partie int
+   * @return un tableau de byte[], null en cas d'erreur.
+   */
+  public byte [] telechargerFichier(String id, int partie)
   {
 System.out.println ("Telechargement de : " + id + ", partie : " + partie);
+    if (!listeFichier.containsKey(id)) /* On a pas le fichier */
+      return null;
+    AttributFichierClient atc = (AttributFichierClient) listeFichier.get(id);
+    if (null == atc) /* On a pas les attributs du fichier du client */
+      return null;
+
+    try
+    {
+      FileInputStream fread = new FileInputStream(atc.getNomFichierAbsolu());
+      byte [] b = new byte [MAX_OCTET_LU];
+      /* placement de la tete de lecture au bon endroit */
+      long deplacement = partie * MAX_OCTET_LU;
+      if (deplacement != fread.skip(deplacement))
+        return null; /* on a pas réussi a se déplacer au bon endroit du fichier */
+      /* Lecture des octets dans le fichier */
+      int nbOctetLu = fread.read(b, 0, MAX_OCTET_LU);
+
+      /* vérification qu'on a bien pu lire le nombre d'octet. attention pour la derniere partie
+              A FAIRE
+       */
+      return b;
+
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace ();
+    }
+    return null;
   }
 
   /**
