@@ -15,7 +15,6 @@ import java.rmi.RemoteException;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
-
 import fshare.remote.RemoteServeur;
 import fshare.serveur.ListeFichierServeur;
 import fshare.commun.AttributFichierClient;
@@ -23,17 +22,16 @@ import fshare.commun.Fichier;
 import fshare.remote.RemoteClient;
 import fshare.serveur.serveurhttp.ClassFileServer;
 
-
-public class RemoteServeurImpl extends UnicastRemoteObject implements fshare.remote.RemoteServeur
-{
+public class RemoteServeurImpl
+    extends UnicastRemoteObject
+    implements fshare.remote.RemoteServeur {
 
   private ListeFichierServeur listeFichierServeur = null;
   private static Logger logger =
-        Logger.getLogger("fshare.serveur");
+      Logger.getLogger("fshare.serveur");
 
-  public RemoteServeurImpl() throws RemoteException
-  {
-    listeFichierServeur = new ListeFichierServeur ();
+  public RemoteServeurImpl() throws RemoteException {
+    listeFichierServeur = new ListeFichierServeur();
   }
 
   /**
@@ -42,14 +40,19 @@ public class RemoteServeurImpl extends UnicastRemoteObject implements fshare.rem
    * @param client le client qui possède le fichier.
    * @param attr les attributs sur le fichier pour ce client.
    */
-  public void ajouterFichier(Fichier fichier, RemoteClient client, AttributFichierClient attr)/* throws java.rmi.RemoteException */
-  {
-    logger.info ("Ajout du fichier qui a pour clé : " + fichier.getNomFichier () +
-                 ", qui a pour type : " + fichier.getTypeFichier ());
-    System.out.println ("listeFichierServeur initialisé, null ?" + ((listeFichierServeur == null) ? "oui" : "non"));
-    System.out.println ("Attribut fichier initialisé, null ?" + ((attr == null) ? "oui" : "non"));
-    System.out.println ("client initialisé, null ?" + ((client == null) ? "oui" : "non"));
-    listeFichierServeur.ajouterFichier (fichier, client, attr);
+  public void ajouterFichier(Fichier fichier, RemoteClient client,
+                             AttributFichierClient attr)
+                             /* throws java.rmi.RemoteException */
+                             {
+    logger.info("Ajout du fichier qui a pour clé : " + fichier.getNomFichier() +
+                ", qui a pour type : " + fichier.getTypeFichier());
+    System.out.println("listeFichierServeur initialisé, null ?" +
+                       ( (listeFichierServeur == null) ? "oui" : "non"));
+    System.out.println("Attribut fichier initialisé, null ?" +
+                       ( (attr == null) ? "oui" : "non"));
+    System.out.println("client initialisé, null ?" +
+                       ( (client == null) ? "oui" : "non"));
+    listeFichierServeur.ajouterFichier(fichier, client, attr);
   }
 
   /**
@@ -57,18 +60,20 @@ public class RemoteServeurImpl extends UnicastRemoteObject implements fshare.rem
    * @param fichier le fichier que le client souhaite départager.
    * @param client le client qui souhaite départager le fichier.
    */
-  public void retirerFichier(Fichier fichier, RemoteClient client) /* throws java.rmi.RemoteException */
-  {
-    listeFichierServeur.retirerFichier (fichier, client);
+  public void retirerFichier(Fichier fichier,
+                             RemoteClient client) /* throws java.rmi.RemoteException */
+                             {
+    listeFichierServeur.retirerFichier(fichier, client);
   }
 
   /**
    * Retire de la liste du serveur TOUS les fichiers partagés par le client <b>client</b>.
    * @param client le client qui départage tous ces fichiers.
    */
-  public void retirerFichier(RemoteClient client) /* throws java.rmi.RemoteException */
-  {
-    listeFichierServeur.retirerFichierClient (client);
+  public void retirerFichier(RemoteClient client)
+                             /* throws java.rmi.RemoteException */
+                             {
+    listeFichierServeur.retirerFichierClient(client);
   }
 
   /**
@@ -76,9 +81,10 @@ public class RemoteServeurImpl extends UnicastRemoteObject implements fshare.rem
    * @param regexp l'expression régulière pour matcher les fichiers.
    * @return la liste des nom de fichiers correspondant a l'expression régulière.
    */
-  public String[] rechercherFichier(String regexp) /* throws java.rmi.RemoteException */
-  {
-    return listeFichierServeur.rechercherFichier (regexp);
+  public Fichier[] rechercherFichier(String regexp)
+                                    /* throws java.rmi.RemoteException */
+                                    {
+    return listeFichierServeur.rechercherFichier(regexp);
   }
 
   /**
@@ -86,9 +92,10 @@ public class RemoteServeurImpl extends UnicastRemoteObject implements fshare.rem
    * @param idFichier l'identifiant du fichier considéré.
    * @return la liste des clients qui posséde ce fichier.
    */
-  public RemoteClient[] rechercherClient(String idFichier) /* throws java.rmi.RemoteException */
-  {
-    return listeFichierServeur.rechercherClient (idFichier);
+  public RemoteClient[] rechercherClient(String idFichier)
+                                         /* throws java.rmi.RemoteException */
+                                         {
+    return listeFichierServeur.rechercherClient(idFichier);
   }
 
   /**
@@ -97,18 +104,19 @@ public class RemoteServeurImpl extends UnicastRemoteObject implements fshare.rem
    * @param client le client.
    * @param attr les nouveaux attributs.
    */
-  public void majAttrFichier(String idFichier, RemoteClient client, AttributFichierClient attr) /* throws java.rmi.RemoteException */
-  {
-    listeFichierServeur.majAttrFichier (idFichier, client, attr);
+  public void majAttrFichier(String idFichier, RemoteClient client,
+                             AttributFichierClient attr)
+                             /* throws java.rmi.RemoteException */
+                             {
+    listeFichierServeur.majAttrFichier(idFichier, client, attr);
   }
 
-  public static void main(String[] args)
-  {
+  public static void main(String[] args) {
     try {
-      ClassFileServer httpServer = new ClassFileServer(8765,null);
+      // Crée un serveur HTTP sur le port 8765
+      ClassFileServer httpServer = new ClassFileServer(8765, null);
 
-      if (args.length < 1)
-      {
+      if (args.length < 1) {
         System.out.println("Donner le nom du serveur en argument");
         System.exit(1);
       }
@@ -121,10 +129,9 @@ public class RemoteServeurImpl extends UnicastRemoteObject implements fshare.rem
       RemoteServeurImpl obj = new RemoteServeurImpl();
       Naming.rebind(serverName, obj);
       System.out.println("Server bound in registry under URL ");
-      System.out.println("   rmi://"+getHostName()+"/"+serverName);
+      System.out.println("   rmi://" + getHostName() + "/" + serverName);
     }
-    catch (Exception e)
-    {
+    catch (Exception e) {
       System.out.println("ServerImpl err: " + e.getMessage());
       e.printStackTrace();
     }
@@ -132,9 +139,10 @@ public class RemoteServeurImpl extends UnicastRemoteObject implements fshare.rem
 
   private static String getHostName() {
     try {
-       return java.net.InetAddress.getLocalHost().getHostName();
-    } catch (java.net.UnknownHostException e) {
-       return "Unknown";
+      return java.net.InetAddress.getLocalHost().getHostName();
+    }
+    catch (java.net.UnknownHostException e) {
+      return "Unknown";
     }
   }
 
