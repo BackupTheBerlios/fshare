@@ -69,45 +69,31 @@ throws ServletException {
     ServletContext webApp = this.getServletContext();
 
     try {
-        // Get concrete implementation
-        TransformerFactory tFactory = TransformerFactory.newInstance();
-        // Create a reusable templates for a particular stylesheet
-        Templates templates = tFactory.newTemplates( new StreamSource( webApp.getRealPath( XSLT_PATH ) ) );
-        // Create a transformer
-        Transformer transformer = templates.newTransformer();
 
-        // Get concrete implementation
-        DocumentBuilderFactory dFactory = DocumentBuilderFactory.newInstance();
-        // Need a parser that support namespaces
-        dFactory.setNamespaceAware( true );
-        // Create the parser
-        DocumentBuilder parser = dFactory.newDocumentBuilder();
-        // Parse the XML document
-        Document doc = parser.parse( webApp.getRealPath( XML_PATH ) );
-        // Get the XML source
-        Source xmlSource =  new DOMSource( doc );
+        String typeRequete = request.getParameter( "typeRequete" );
 
-        response.setContentType("text/html");
-        // Transform input XML doc in HTML stream
-        StringWriter sw = new StringWriter ();
-        Result res = new StreamResult (sw);
+        if (typeRequete == null) /* On a pas su récupérer la valeur de la requete, rien à faire */
+          return;
 
-        String sort = request.getParameter( "typeRequete" );
+        FsBean fsBean;
 
-        if ( sort != null ) {
-          if (sort.equals("clients"))
-          {
-            transformer.setParameter ("typeRequete", Boolean.TRUE);
-          }
+        /* On traite les feuilles XSLT pour la liste des fichiers et la liste des clients */
+        if (typeRequete.equals ("clients") || typeRequete.equals ("fichiers"))
+        {
+          fsBean = new FsBean (this, XSLT_PATH, XML_PATH);
+          if (typeRequete.equals ("clients"))
+            fsBean.setParameter ("typeRequete", Boolean.TRUE);
+        }
+        else
+        {
+            //autre valeur de feuille XSLT
+            fsBean = new FsBean (this, "tata.xsl", "toto.xml");
         }
 
 
 
-        transformer.transform( xmlSource, res);
-
-        //Forward au jsp
-        request.setAttribute("html", sw.toString());
-//        request.setAttribute("obj", obj);
+        request.setAttribute("html", fsBean.getTransformXmlByXslt());
+//response.getWriter().println(fsBean.getTransformXmlByXslt());
 
         ServletContext context = this.getServletConfig().getServletContext();
 
