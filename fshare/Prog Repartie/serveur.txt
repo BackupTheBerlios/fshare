@@ -1,0 +1,53 @@
+Travail du client.
+
+Récuperer une référence distante au serveur = CONNEXION
+
+Si la connexion echoue, cad le serveur n'existe pas, terminer le programme.
+
+Si la connexion reussi :
+-Le client prépare les informations sur les fichiers qu'il possede (voir Préparation information fichier client)
+-Envoi des informations des fichiers partagés au serveur.
+-Reprise des télécharment en cours
+
+Les actions cités ci dessus sont toujours a réaliser. Le client doit fournir aussi les actions suivantes :
+-Ajout de fichier (cad préparation des information fichier client + envoi au serveur)
+-Retirer un fichier (départage d'un fichier = prevenir le serveur)
+-Retirer tous les fichiers d'un client (deconnexion d'un client = prevenir le serveur)
+-signalement qu'un client n'est plus present au serveur (c'est le cas quand un client s'est deconnecté de facon inatendu, sans prevenir le serveur, et qu'un autre client cherche a télécharger un fichier chez ce client. Il recoit une reférence de ce dernier qui n'est plus valide par le serveur, il en averti donc le serveur).
+-téléchargement d'un fichier (demande liste des personne ayant le fichier au serveur pour récuperer une référence a un client distant, puis ammorcage du transfert de fichier).
+-affichage / recherche de fichier (appel au serveur)
+
+
+
+Préparation information fichier client
+
+Lors du démarrage du client, ce dernier va regarder dans un répertoire particulier les fichiers qu'il partage (fichier soit téléchargé soit partagé, qui sont entiers). Il va générer les informations neccessaire au serveur avant de lui envoyer. ATTENTION pour faire le fichier XML on a besoin du nom et de l'identifiant : <client id="UI88N" name="philippe"> 
+Il mettra à jour aussi sa propre liste de fichiers partagés.
+
+Ensuite il faut générer les informations pour les fichiers qui sont en cours de téléchargement (dans un répertoire temporaire), avec les parties deja obtenus etc (voir aussi reprise téléchargement)...
+
+Les 2 répertoires cités au dessus pourront etre configurable par un fichier de propriété.
+
+Si on souhaite partager un nouveau fichier dejà present, il faut faire la meme
+chose qu'avec un fichier partagé.
+
+
+
+Reprise téléchargement
+Dans le repertoire temporaire, les fichiers presents sont des listes d'objet
+séréaliser. Pour chaque fichier il faudra le deséréaliser, voir les parties
+qu'il manque et les demander. Pour chaque fichier en cours de téléchargement
+on aura un thread.
+
+
+
+Téléchargement
+A partir des infos fichiers, on demandera quelle utilisateur a telle partie de
+fichier et on lui prendra (lancement d'un nouveau thread?)
+Trouver la politique, l'algorithm de téléchargement sur plusieur personne.
+Pour chaque thread, toutes les X temps, on devrai ecrire sur le disque les
+parties récuperer.
+ATTENTION PROBLEME DE SYNCHRONISATION ou de SERIALISATION...
+a voir...
+
+

@@ -1,0 +1,145 @@
+package fshare.serveur;
+
+/**
+ * Title:        fshare
+ * Description:  Logiciel d'échange de fichiers.
+ * Copyright:    Copyright (c) 2004
+ * Company:
+ * @author Giraud Rémy, Mandrioli Damien
+ * @version 1.0
+ */
+
+import java.util.Map;
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Collections;
+
+import fshare.remote.RemoteClient;
+import fshare.commun.Fichier;
+import fshare.serveur.InfoFichierServeur;
+import fshare.commun.AttributFichierClient;
+
+public class ListeFichierServeur
+{
+
+  /**
+   * Represente le contenu de la liste.
+   * La clé est l'identifiant du fichier et les valeurs sont des objets de type
+   * infoFichierServeur.
+   */
+  private Map contenuListe;
+
+
+
+  /**
+   * Constructeur qui initialise la liste.
+   */
+  public ListeFichierServeur()
+  {
+    /* Création de la hasmap synchronizée */
+    contenuListe = Collections.synchronizedMap (new HashMap ());
+  }
+
+  /**
+   * Ajoute le client <b>client</b> pour le fichier <b>fichier</B> avec ces attributs <b>attr</B>.
+   * @param fichier le fichier qu'on traite, ou on souhaite ajouter le client et ses info sur son fichier.
+   * @param client le client qui possede le fichier.
+   * @param attr les informations sur le fichier pour le client <B>client</B>.
+   */
+  public void ajouterFichier(Fichier fichier, RemoteClient client, AttributFichierClient attr)
+  {
+    /* On vérifie si la clé pour le fichier existe ou pas */
+    if (contenuListe.containsKey (new Integer (fichier.getIdFichier ())))
+    {
+      /* La clé existe, il faut rajouter le client a la liste de valeur dejà créée */
+      InfoFichierServeur info = (InfoFichierServeur) (contenuListe.get (
+                                    new Integer (fichier.getIdFichier())));
+      info.ajouteClient(client, attr);
+    }
+    else
+    {
+      /* La clé n'existe pas il faut créer une nouvelle instance infoFichier */
+      InfoFichierServeur info = new InfoFichierServeur (fichier);
+      info.ajouteClient(client, attr);
+      /* puis l'ajouter au la liste */
+      contenuListe.put (new Integer (fichier.getIdFichier()), info);
+    }
+  }
+
+  /**
+   * Retire de la liste tous les fichiers qui correspondent au client <b>client</b>.
+   * @param client le client dont on souhaite retirer tous ces fichiers.
+   */
+  public void retirerFichierClient(RemoteClient client)
+  {
+    /* On parcours tout le contenu de la liste et on verifie qu'il le client
+       ne possede pas ce fichier, si c'est le cas on le retire */
+
+    /* récuperation des valeurs pour la contenuListe */
+    Object [] valeurListe = contenuListe.values ().toArray ();
+
+    /* Rechercher du client et retrait du fichier. */
+    for (int i = 0; i < valeurListe.length; ++i)
+    {
+      InfoFichierServeur info = (InfoFichierServeur) (valeurListe [i]);
+      info.retirerFichierClient(client);
+    }
+  }
+
+  /**
+   * Recherche un nom de fichier qui match la regexp.
+   * @param regexp l'expression réguliere.
+   */
+  public String[] rechercherFichier(String regexp)
+  {
+    ArrayList resultat = new ArrayList ();
+
+    /* récuperation des valeurs pour la contenuListe */
+    Object [] valeurListe = contenuListe.values ().toArray ();
+
+    /* Rechercher le nom du fichier match regexp. */
+    for (int i = 0; i < valeurListe.length; ++i)
+    {
+      InfoFichierServeur info = (InfoFichierServeur) (valeurListe[i]);
+      String nomFichier = info.getFichier ().getNomFichier ();
+      if (nomFicher.matches (regexp))
+      {//Le nom de fichier match bien l'expression
+        resultat.add (nomFichier);
+      }
+    }
+
+    /* Remplissage d'un tableau de string */
+    String [] listeFichier = new String [resultat.size ()];
+    for (int i = 0; i < resultat.size (); ++i)
+    {
+      listeFichier [i] = (String) resultat.get (i);
+    }
+    return listeFichier;
+  }
+
+  /**
+   * @return la liste des clients qui posséde le fichier idFichier.
+   * renvoi null si le idFichier n'est pas contenu dans la liste.
+   */
+  public RemoteClient[] rechercherClient(int idFichier)
+  {
+    /* Si on a pas le fichier concerné, on renvoi null */
+    if (!contenuListe.containsKey (new Integer (idFichier)))
+      return null;
+
+    /* sinon on renvoi le tableau */
+    InfoFichierServeur info = contenuListe.get (new Integer (idFichier));
+    return info.getListeClient();
+  }
+
+  /**
+   * Retire de la liste le fichier <B>fichier</B> posséder par le client <B>client</B>.
+   */
+  public void retirerFichier(Fichier fichier, RemoteClient client)
+  {
+    if (!contenuListe.containsKey (new Integer (fichier.getIdFichier())))
+    {}
+  }
+
+
+} // Classe ListeFichierServeur

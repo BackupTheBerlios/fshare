@@ -1,0 +1,157 @@
+package fshare.commun;
+
+/**
+ * Title:        fichier.java
+ * Description:  Classe qui modélise les fichiers.
+ * Copyright:    Copyright (c) 2004
+ * Company:
+ * @author Giraud Rémy, Mandrioli Damien
+ * @version 1.0
+ */
+
+
+import java.lang.String;
+import java.util.*;
+
+import java.io.Serializable;
+import java.io.File;
+
+public class Fichier implements Serializable
+{
+
+/**
+ * Represente le nom absolu du fichier.
+ */
+  private String nomFichier;
+
+/**
+ * Represente une clé unique pour ce fichier.
+ */
+    private int idFichier;
+
+/**
+ * Represente la taille du fichier.
+ */
+    private double tailleFichier;
+
+/**
+ * Represente le type de fichier (ex : video musique etc...).
+ */
+    private int typeFichier;
+
+    public static final int AUTRE    = 0;
+    public static final int AUDIO    = 1;
+    public static final int VIDEO    = 2;
+    public static final int LOGICIEL = 3;
+    public static final int IMAGE    = 4;
+    public static final int DOCUMENT = 5;
+
+/**
+ * Construteur d'un fichier.
+ * @param nomFichier le nom absolu du fichier.
+ * @param tailleFichier la taille en octet du fichier.
+ * @param typeFichier le type du fichier (audio, vidéo, logiciel, image, document texte, autre)
+ */
+  public Fichier(String nomFichier, double tailleFichier, int typeFichier)
+  {
+    this.nomFichier    = nomFichier;
+    this.tailleFichier = tailleFichier;
+    this.typeFichier   = typeFichier;
+    this.idFichier     = genereIdFichier (nomFichier);
+  }
+
+  /**
+   * A partir du nom (absolu) d'un fichier, génére une clé unique. Cette clé générée sera la même si on rappelle cette fonction avec le même paramêtre.
+   * @param nomFichier le nom absolu du fichier.
+   * @return un identifiant unique pour ce fichier,
+   */
+  private int genereIdFichier (String nomFichier)
+  {
+    //return (new File (nomFichier)).hashCode ();
+try {
+    java.io.FileInputStream in = new java.io.FileInputStream (new File (nomFichier));
+    return in.hashCode ();
+    }
+    catch (java.io.FileNotFoundException e) {}
+    return 0;
+  }
+
+  /**
+   * A partir d'un type de fichier nous renvoie la string correspondante.
+   * @param typeFichier le type de fichier.
+   * @return la sigification du typeFichier sous forme de string.
+   */
+  public static String getTypeFichier (int typeFichier)
+  {
+    switch (typeFichier)
+    {
+      case AUDIO :
+        return "audio";
+      case VIDEO :
+        return "vidéo";
+      case DOCUMENT :
+        return "document texte";
+      case IMAGE :
+        return "image";
+      case LOGICIEL :
+        return "logiciel";
+      default :
+        return "autre";
+    }
+  }
+
+  /**
+   * @return Renvoie un string representant le type de fichier.
+   */
+  public String getTypeFichier ()
+  {
+    return getTypeFichier (typeFichier);
+  }
+
+  /**
+   * @return l'identifiant du fichier.
+   */
+  public int getIdFichier ()
+  {
+    return idFichier;
+  }
+
+  /**
+   * Renvoi le nom absolu du fichier.
+   */
+  public String getNomFichier ()
+  {
+    return nomFichier;
+  }
+
+  /**
+   * Renvoi la taille du fichier.
+   */
+  public double getTailleFichier ()
+  {
+    return tailleFichier;
+  }
+
+
+
+public static void main (String [] args)
+{
+  File fic = new File ("fshare.html");
+  Fichier fichier = new Fichier (fic.getAbsolutePath (), fic.length (), 1);
+  System.out.println ("Type de fichier : " + fichier.getTypeFichier ());
+  System.out.println ("Id du fichier : " + fichier.getIdFichier ());
+  System.out.println ("Nom du fichier : " + fichier.getNomFichier ());
+  System.out.println ("Taille du fichier : " + fichier.getTailleFichier ());
+
+  fic = new File ("../fshare.html");
+  fichier = new Fichier (fic.getAbsolutePath (), fic.length (), 1);
+  System.out.println ("Type de fichier : " + fichier.getTypeFichier ());
+  System.out.println ("Id du fichier : " + fichier.getIdFichier ());
+  System.out.println ("Nom du fichier : " + fichier.getNomFichier ());
+  System.out.println ("Taille du fichier : " + fichier.getTailleFichier ());
+
+  AttributFichierClient afc = new AttributFichierClient (null, 12, true);
+
+}
+
+} // Classe Fichier
