@@ -64,12 +64,12 @@ public class RemoteServeurImpl
   {
     logger.info("Ajout du fichier qui a pour clé : " + fichier.getNomFichier() +
                 ", qui a pour type : " + fichier.getTypeFichier());
-/*    System.out.println("listeFichierServeur initialisé, null ?" +
-                       ( (listeFichierServeur == null) ? "oui" : "non"));
-    System.out.println("Attribut fichier initialisé, null ?" +
-                       ( (attr == null) ? "oui" : "non"));
-    System.out.println("client initialisé, null ?" +
-                       ( (client == null) ? "oui" : "non")); */
+    /*    System.out.println("listeFichierServeur initialisé, null ?" +
+                           ( (listeFichierServeur == null) ? "oui" : "non"));
+        System.out.println("Attribut fichier initialisé, null ?" +
+                           ( (attr == null) ? "oui" : "non"));
+        System.out.println("client initialisé, null ?" +
+                           ( (client == null) ? "oui" : "non")); */
     listeFichierServeur.ajouterFichier(fichier, client, attr);
   }
 
@@ -117,9 +117,16 @@ public class RemoteServeurImpl
     return listeFichierServeur.rechercherClient(idFichier);
   }
 
-  public String getDateElement(int i) {
+  // Prends en argument une constante Calendar.const, renvoi le formatage souhaité
+  private static String getDateElement(int i, Date date) {
     Calendar calendrier = Calendar.getInstance(Locale.FRENCH);
-    calendrier.setTime(new Date(System.currentTimeMillis()));
+    if (date == null) {
+      calendrier.setTime(new Date(System.currentTimeMillis()));
+    }
+    else {
+      calendrier.setTime(date);
+
+    }
     String renvoi = null;
     if (i == Calendar.MONTH) {
       renvoi = Integer.toString( ( (calendrier.get(i) + 1) % 12));
@@ -132,6 +139,49 @@ public class RemoteServeurImpl
       renvoi = "0" + renvoi;
     }
     return renvoi;
+  }
+
+// Construit <client id="d" name="r"/>
+  private static void setAttsClient(RemoteClient client,
+                                    InfoFichierServeur info,
+                                    AttributesImpl atts) {
+    atts.clear();
+    atts.addAttribute("", "", "id", "CDATA",
+                      info.getAttributFichierClient(client).getIdClient());
+    atts.addAttribute("", "", "name", "CDATA",
+                      info.getAttributFichierClient(client).getNomClient());
+  }
+
+  private static void setDateOfClient(RemoteClient client,
+                                      InfoFichierServeur info,
+                                      AttributesImpl atts) {
+    atts.clear();
+    Date date = info.getAttributFichierClient(client).getDateDerModif();
+    atts.addAttribute("", "", "jour", "NMTOKEN",
+                      getDateElement(Calendar.DAY_OF_MONTH, date));
+    atts.addAttribute("", "", "mois", "NMTOKEN",
+                      getDateElement(Calendar.MONTH, date));
+    atts.addAttribute("", "", "année", "NMTOKEN",
+                      getDateElement(Calendar.YEAR, date));
+    atts.addAttribute("", "", "heure", "NMTOKEN",
+                      getDateElement(Calendar.HOUR_OF_DAY, date));
+    atts.addAttribute("", "", "minute", "NMTOKEN",
+                      getDateElement(Calendar.MINUTE, date));
+
+  }
+
+  // Modifie un ensemble d'attributs => Date
+  private static void setDateNow(AttributesImpl atts) {
+    atts.clear();
+    atts.addAttribute("", "", "jour", "NMTOKEN",
+                      getDateElement(Calendar.DAY_OF_MONTH, null));
+    atts.addAttribute("", "", "mois", "NMTOKEN", getDateElement(Calendar.MONTH, null));
+    atts.addAttribute("", "", "année", "NMTOKEN", getDateElement(Calendar.YEAR, null));
+    atts.addAttribute("", "", "heure", "NMTOKEN",
+                      getDateElement(Calendar.HOUR_OF_DAY, null));
+    atts.addAttribute("", "", "minute", "NMTOKEN",
+                      getDateElement(Calendar.MINUTE, null));
+
   }
 
   public void xmlExport() throws TransformerConfigurationException,
@@ -170,58 +220,57 @@ public class RemoteServeurImpl
 
     hd.startElement("", "", "etat", atts);
 
-    atts.clear();
-    // Attributs de date
-    atts.addAttribute("", "", "jour", "NMTOKEN",
-                      getDateElement(Calendar.DAY_OF_MONTH));
-    atts.addAttribute("", "", "mois", "NMTOKEN", getDateElement(Calendar.MONTH));
-    atts.addAttribute("", "", "année", "NMTOKEN", getDateElement(Calendar.YEAR));
-    atts.addAttribute("", "", "heure", "NMTOKEN",
-                      getDateElement(Calendar.HOUR_OF_DAY));
-    atts.addAttribute("", "", "minute", "NMTOKEN",
-                      getDateElement(Calendar.MINUTE));
-
+    setDateNow(atts);
     hd.startElement("", "", "date", atts);
     hd.endElement("", "", "date");
 
     atts.clear();
     //Liste de fichiers
     hd.startElement("", "", "fichiers", atts);
+    char[] charArray;
+    Object[] tmp = listeFichierServeur.getInfoFichierServeur();
 
-    Fichier[] tmp = listeFichierServeur.getFichier();
-    for (int i = 0; i < tmp.length; i++){
+    // Pour chaque fichier du serveur
+    for (int i = 0; i < tmp.length; i++) {
       atts.clear();
-      hd.startElement("", "", "fichier",atts);
-      hd.startElement("", "", "nom",atts);
-      char [] nomFichier = tmp[i].getNomFichier().toCharArray();
-      hd.characters(nomFichier, 0, nomFichier.length);
-      hd.endElement("","","nom");
+      hd.startElement("", "", "fichier", atts);
 
-      // Manque la date
+      // Le nom propre au fichier
+      hd.startElement("", "", "nom", atts);
+      charArray = ((InfoFichierServeur)tmp[i]).getFichier().getNomFichier().toCharArray();
+      hd.characters(charArray, 0, charArray.length);
+      hd.endElement("", "", "nom");
 
-      // Taille du fichier
-      hd.startElement("","","taille",atts);
-      char [] tailleFichier = Long.toString(tmp[i].getTailleFichier()).toCharArray();
+      // La date propre au fichier
+      setDateNow(atts);
+      hd.startElement("", "", "date", atts);
+
+      atts.clear();
+      // La Taille propre au fichier
+      hd.startElement("", "", "taille", atts);
+      char[] tailleFichier = Long.toString(((InfoFichierServeur)tmp[i]).getFichier().getTailleFichier()).
+          toCharArray();
       hd.characters(tailleFichier, 0, tailleFichier.length);
-      hd.endElement("","","taille");
+      hd.endElement("", "", "taille");
 
-      // Type du fichier
-      hd.startElement("","","type",atts);
-      char [] typeFichier = tmp[i].getTypeFichier().toCharArray();
+      // Type propre au fichier
+      hd.startElement("", "", "type", atts);
+      char[] typeFichier = ((InfoFichierServeur)tmp[i]).getFichier().getTypeFichier().toCharArray();
       hd.characters(typeFichier, 0, typeFichier.length);
-      hd.endElement("","","type");
+      hd.endElement("", "", "type");
 
-      // Les clients possédant le fichier
-      RemoteClient [] clients = listeFichierServeur.rechercherClient(tmp[i].getIdFichier());
+      // On boucle sur les clients possédants le fichier
+      RemoteClient[] clients = ((InfoFichierServeur)tmp[i]).getListeClient();
+      for (int j = 0; j < clients.length; j++) {
+        setAttsClient(clients[j], (InfoFichierServeur)tmp[i], atts);
+        // client + attributs
+        hd.startElement("", "", "client", atts);
+        // date propre au client
+        setDateOfClient(clients[j], (InfoFichierServeur)tmp[i], atts);
+        hd.startElement("", "", "date", atts);
+        hd.endElement("", "", "date");
+        hd.endElement("", "", "client");
 
-    // Il faut récupérer un ID, un NOM, une DATE par client
-
-    // IL MANQUE DES DONNEES DANS LA STRUCTURE POUR LE MOMENT
-    // IL FAUDRAIT EVITER DE FAIRE DES APPELS DISTANTS POUR DEMANDER LE NOM DE
-    // CHAQUE CLIENT LORS DE LA GENERATION XML
-
-    for (int j=0; j<clients.length; j++){
-        //atts.addAttribute("", "", "id", "NMTOKEN", clients[i].getIdClient());
       }
       hd.endElement("", "", "fichier");
     }
@@ -230,7 +279,8 @@ public class RemoteServeurImpl
     hd.endDocument();
     System.out.println("Export vers XML terminé");
 
-      }
+  }
+
   /**
    * Met à jour les attributs <b>attr</b> du fichier aynt pour identifiant <b>idFichier</b> du client <b>client</b>.
    * @param idFichier l'identifiant du fichier.
