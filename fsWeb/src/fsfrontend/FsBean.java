@@ -10,6 +10,7 @@ import javax.xml.transform.stream.*;
 import java.io.*;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
+import java.io.Serializable;
 
 /**
  * <p>Title: </p>
@@ -20,7 +21,7 @@ import org.xml.sax.SAXException;
  * @version 1.0
  */
 
-public class FsBean
+public class FsBean implements Serializable
 {
 
   private String xsltPath = null;
@@ -28,6 +29,13 @@ public class FsBean
   private String requete = null;
   private Transformer transformer = null;
   private HttpServlet servlet = null;
+
+
+  /**
+   * Constructeur par défaut.
+   */
+  public FsBean ()
+  {}
 
   /**
    * Construit un bean avec les fichier XML et XSLT.
