@@ -17,18 +17,42 @@
                 <link href="style.css" rel="stylesheet" type="text/css"/>
             </head>
             <body>
+						      <xsl:call-template name="fichiers"/>
+            </body>
+        </html>
+
+    </xsl:template>
+
+
+    <xsl:template name="fichiers">
                 <xsl:choose>
                     <xsl:when test="$typeRequete">
                 				 <h1>Liste des Clients</h1>
+                              		 valeur de type tri : <xsl:value-of select="$typeTri"/>
+                        <p/> <a href="index.html">Retour</a>
+                          <p/> <a href="fsservlet?requete=&#38;typeRequete=clients&#38;typeTri=name">Tri par nom</a>
+                          <p/> <a href="fsservlet?requete=&#38;typeRequete=clients&#38;typeTri=id">Tri par ID</a>
                         <table align="left" border="1">
+                      <xsl:choose>
+                          <xsl:when test="$typeTri = 'id'">
          								<xsl:for-each select="//etat:client[not(@id = preceding::etat:client/@id)]">
-													<xsl:sort select="@id"/>
-                           <tr> <th><xsl:value-of select="@name"/></th>
+											      <xsl:sort select="@id"/>
+                               <tr> <th><xsl:value-of select="@name"/></th>
+                              		 <th><xsl:value-of select="@id"/></th>
+                             </tr>
+												</xsl:for-each>
+									</xsl:when>
+                  <xsl:when test="$typeTri = 'name'">
+         								<xsl:for-each select="//etat:client[not(@id = preceding::etat:client/@id)]">
+											      <xsl:sort select="@name"/>
+                               <tr> <th><xsl:value-of select="@name"/></th>
                               		 <th><xsl:value-of select="@id"/></th>
                              </tr>
 												</xsl:for-each>
 
-                    </table>
+                  </xsl:when>
+                  </xsl:choose>
+                  </table>
                     </xsl:when>
                     <xsl:otherwise>
                 <h1>Liste des Fichiers</h1>
@@ -39,10 +63,6 @@
                     </table>
                     </xsl:otherwise>
                 </xsl:choose>
-
-            </body>
-        </html>
-
     </xsl:template>
 
     <xsl:template match="etat:fichier" mode="toc">

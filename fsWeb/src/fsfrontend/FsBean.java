@@ -119,6 +119,10 @@ public class FsBean implements Serializable
     ServletContext webApp = servlet.getServletContext ();
     // Get concrete implementation
     DocumentBuilderFactory dFactory = DocumentBuilderFactory.newInstance ();
+
+    //validation par la dtd
+    dFactory.setValidating(true);
+
     // Need a parser that support namespaces
     dFactory.setNamespaceAware (true);
     // Create the parser

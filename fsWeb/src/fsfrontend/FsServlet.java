@@ -30,10 +30,14 @@ public class FsServlet extends HttpServlet
       /** The path to the XML doc. */
       XML_PATH = "etat.xml";
 
+  private FsBean beanStandard;
+
+
 
   //Initialize global variables
   public void init() throws ServletException
   {
+    beanStandard = new FsBean (this, XSLT_PATH, XML_PATH);
   }
 
   //Process the HTTP Get request
@@ -71,28 +75,29 @@ throws ServletException {
     try {
 
         String typeRequete = request.getParameter( "typeRequete" );
+        String requete    =  request.getParameter("requete");
+        String typeTri    =  request.getParameter("typeTri");
 
         if (typeRequete == null) /* On a pas su récupérer la valeur de la requete, rien à faire */
           return;
 
-        FsBean fsBean;
-
         /* On traite les feuilles XSLT pour la liste des fichiers et la liste des clients */
         if (typeRequete.equals ("clients") || typeRequete.equals ("fichiers"))
         {
-          fsBean = new FsBean (this, XSLT_PATH, XML_PATH);
           if (typeRequete.equals ("clients"))
-            fsBean.setParameter ("typeRequete", Boolean.TRUE);
+            beanStandard.setParameter ("typeRequete", Boolean.TRUE);
+          beanStandard.setParameter("typeTri", typeTri);
+          beanStandard.setParameter("requete", requete);
+
         }
         else
         {
             //autre valeur de feuille XSLT
-            fsBean = new FsBean (this, "tata.xsl", "toto.xml");
         }
 
 
 
-        request.setAttribute("html", fsBean.getTransformXmlByXslt());
+        request.setAttribute("html", beanStandard.getTransformXmlByXslt());
 //response.getWriter().println(fsBean.getTransformXmlByXslt());
 
         ServletContext context = this.getServletConfig().getServletContext();
