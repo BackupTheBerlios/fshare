@@ -272,6 +272,15 @@ public static void main (String [] args)
 
   System.out.println ("Type de fichier : " +  Fichier.getTypeFichier(Fichier.getTypeFichier(fic)));
 
+  String rmiName = "rmi://patachou:3443/";
+  String res = rmiName.replaceFirst("rmi://", "http://");
+  int index;
+  if (-1 < (index = res.indexOf(":", "http://".length())))
+    res = res.substring(0, index);
+  if (-1 < (index = res.indexOf("/", "http://".length())))
+    res = res.substring(0, index);
+  System.out.println(res);
+
 
 }
 

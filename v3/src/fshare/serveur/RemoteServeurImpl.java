@@ -298,7 +298,14 @@ public class RemoteServeurImpl
     try {
       // Crée un serveur HTTP sur le port 8765
       ClassFileServer httpServer = new ClassFileServer( ( (args.length < 2) ?
-          8765 : Integer.parseInt(args[1])), null);
+          8765 : Integer.parseInt(args[1])), "serverSide");
+
+      System.setProperty ("java.rmi.server.codebase",
+                          "http://" + httpServer.getHostname ()
+                          + ":" + httpServer.getServerSocketPort () + "/");
+
+
+      ClassFileServer httpServerClient = new ClassFileServer(8766, "clientSide");
 
       if (args.length < 1) {
         System.out.println("Donner le nom du serveur en argument");

@@ -63,6 +63,12 @@ public class Client implements Runnable {
     else {
       try {
 
+        /* Mise en place du code base */
+        System.setProperty ("java.rmi.server.codebase",
+                            Client.getServerHostName(serverURL)
+                            + ":" + 8766 + "/");
+System.out.println("Code base : " + System.getProperty("java.rmi.server.codebase"));
+
         /* Récupere l'objet serveur distant */
         logger.info("Connexion au serveur...");
         fServeur = (RemoteServeur) java.rmi.Naming.lookup(serverURL);
@@ -128,7 +134,11 @@ public class Client implements Runnable {
       rmi.RemoteException {
     try {
       appli.addTrace("Connexion au serveur " + getServerName());
-
+      //On change le code base pour prendre celui du serveur
+      System.setProperty ("java.rmi.server.codebase",
+                          Client.getServerHostName(serverURL)
+                          + ":" + 8766 + "/");
+System.out.println("Code base : " + System.getProperty("java.rmi.server.codebase"));
       /* Récupere l'objet serveur distant */
       logger.info("Connexion au serveur...");
       fServeur = (RemoteServeur) java.rmi.Naming.lookup(serverURL);
@@ -158,13 +168,13 @@ public class Client implements Runnable {
 */
   public static void main(String[] args) throws Exception {
     Logger.getLogger("fshare.client").setLevel(Level.ALL);
-    System.out.println("Entrer dans le main");
+    //System.out.println("Entrer dans le main");
 
-    if (args.length < 2) {
+/*    if (args.length < 2) {
       System.out.println("You must give the URL of the chat server and the name of the client as arguments");
       System.out.println(" ex : ClientImpl rmi://clio.unice.fr/Server bob");
       System.exit(1);
-    }
+    }*/
     System.out.println("Configuration security manager");
 
     // Create and install a security manager
@@ -334,6 +344,22 @@ public class Client implements Runnable {
 
   }
 
+  /**
+   *
+   * @param rmiName le nom du serveur, par ex : rmi://patachou/patServer
+   * @return le nom de l'hote, par ex http://patachou
+   */
+  public static String getServerHostName (String rmiName)
+  {
+    String res = rmiName.replaceFirst("rmi://", "http://");
+    int index;
+    if (-1 < (index = res.indexOf(":", "http://".length())))
+      res = res.substring(0, index);
+    if (-1 < (index = res.indexOf("/", "http://".length())))
+      res = res.substring(0, index);
+
+    return res;
+  }
 
   public void telechargeFichier (Fichier fic)
   {
