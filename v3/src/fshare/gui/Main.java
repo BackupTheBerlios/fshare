@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import fshare.client.Client;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.rmi.*;
 
 public class Main {
   JFrame frame = new JFrame("fshare");
@@ -37,7 +38,11 @@ public class Main {
   JPanel panelA = new JPanel();
 
   JTextField fieldR = new JTextField("regexp...", 30);
-  JTextField fieldP = new JTextField("/", 30);
+  JTextField fieldP;
+  JTextField fieldC;
+  JTextField fieldN;
+
+
   String partagePath;
   public ArrayList fichierPartage = new ArrayList();
 
@@ -53,26 +58,6 @@ public class Main {
   JScrollPane scrollR;
   JScrollPane scrollP;
 
-  /*
-     JMenuBar menu = new JMenuBar();
-     JMenu menuAction = new JMenu("Action");
-     JMenuItem itemConfig = new JMenuItem("Configuration");
-     JMenuItem itemQuit = new JMenuItem("Quitter");
-   */
-  String[] columnsD = {
-      "Nom du fichier", "ID", "Nombre de parties", "Parties restantes", "Date"};
-  String[] columnsU = {
-      "Nom du fichier", "ID", "Nombre de parties", "Parties envoyées", "Date"};
-  String[] columnsR = {
-      "Nom du fichier", "ID", "Nombre de parties", "Nombre de sources", "Date"};
-  String[] columnsP = {
-      "Nom du fichier", "ID", "Nombre de parties", "Parties reçues", "Date"};
-
-  Object[][] dataD = {
-      {
-      "emule.exe", "EFZFEGG435R34TG436T", new Integer(5), new Integer(2),
-      "20/10/03"}
-  };
 
   private void constructionD() {
     downloadTable = new JList();
@@ -86,6 +71,90 @@ public class Main {
     scrollU = new JScrollPane(uploadTable);
     panelU.setLayout(new BorderLayout());
     panelU.add(scrollU, BorderLayout.CENTER);
+  }
+
+  private void updateConnecState(){
+    if (controleur.isConnected())
+      frame.setTitle("f-share (connecté)");
+    else frame.setTitle("f-share (déconnecté)");
+  }
+
+  private void constructionC() {
+    SpringLayout layout = new SpringLayout();
+    BorderLayout bol = new BorderLayout();
+    JButton boutC1 = new JButton("Connexion");
+    JButton boutC2 = new JButton("Déconnexion");
+    fieldC = new JTextField(controleur.getServerName(), 30);
+    JLabel r = new JLabel("URL du serveur ");
+    fieldN = new JTextField(controleur.getNickName(), 30);
+    JLabel nickLabel = new JLabel("Nickname");
+    JPanel serverPane = new JPanel();
+    //JPanel nickPane = new JPanel();
+
+    serverPane.setLayout(layout);
+    //nickPane.setLayout(bol);
+
+    panelC.setLayout(bol);
+
+    serverPane.setPreferredSize(new Dimension(10, 100));
+    //nickPane.setPreferredSize(new Dimension(10, 35));
+
+    layout.putConstraint(SpringLayout.WEST, r, 5, SpringLayout.WEST, serverPane);
+    layout.putConstraint(SpringLayout.NORTH, r, 5, SpringLayout.NORTH,
+                         serverPane);
+    layout.putConstraint(SpringLayout.WEST, fieldC, 5, SpringLayout.EAST, r);
+    layout.putConstraint(SpringLayout.NORTH, fieldC, 5, SpringLayout.NORTH,
+                         serverPane);
+    layout.putConstraint(SpringLayout.WEST, boutC1, 5, SpringLayout.EAST,
+                         fieldC);
+    layout.putConstraint(SpringLayout.NORTH, boutC1, 5, SpringLayout.NORTH,
+                         serverPane);
+    layout.putConstraint(SpringLayout.WEST, boutC2, 5, SpringLayout.EAST,
+                         boutC1);
+    layout.putConstraint(SpringLayout.NORTH, boutC2, 5, SpringLayout.NORTH,
+                         serverPane);
+
+    layout.putConstraint(SpringLayout.WEST, nickLabel, 5, SpringLayout.WEST,
+                         serverPane);
+    layout.putConstraint(SpringLayout.NORTH, nickLabel, 15, SpringLayout.SOUTH, r);
+    layout.putConstraint(SpringLayout.WEST, fieldN, 38, SpringLayout.EAST,
+                         nickLabel);
+    layout.putConstraint(SpringLayout.NORTH, fieldN, 15, SpringLayout.SOUTH,
+                         r);
+
+    boutC1.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        try {
+          controleur.deconnect();
+          controleur.connectToServer(fieldC.getText(), fieldN.getText());
+          updateConnecState();
+        }
+        catch (RemoteException ex) {
+          System.out.println("Erreur connexion serveur : " + ex);
+        }
+      }
+    });
+    boutC2.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+
+          controleur.deconnect();
+          updateConnecState();
+
+      }
+    });
+
+    serverPane.add(r);
+    serverPane.add(fieldC);
+    serverPane.add(boutC1);
+    serverPane.add(boutC2);
+    serverPane.add(nickLabel);
+    serverPane.add(fieldN);
+
+    //nickPane.add(nickLabel);
+    //nickPane.add(fieldN);
+    panelC.add(serverPane, BorderLayout.NORTH);
+    //panelC.add(nickPane, BorderLayout.CENTER);
+
   }
 
   private void constructionR() {
@@ -110,9 +179,13 @@ public class Main {
 
     fieldR.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        Fichier[] files = controleur.rechercherFichier(fieldR.getText());
-        setToString(files, 0);
-        rechercheTable.setListData(files);
+        Fichier[] files = null;
+        if (controleur.isConnected())
+          files = controleur.rechercherFichier(fieldR.getText());
+        if (files != null){
+          setToString(files, 0);
+          rechercheTable.setListData(files);
+        }
       }
     });
     rechPane.add(r);
@@ -123,6 +196,7 @@ public class Main {
   }
 
   private void constructionP() {
+    fieldP = new JTextField(controleur.getRepertoirePartage(),30);
     SpringLayout layout = new SpringLayout();
     BorderLayout bol = new BorderLayout();
     JButton boutAjout = new JButton("Ajouter un fichier");
@@ -168,10 +242,10 @@ public class Main {
           fieldP.setText(partagePath);
           controleur.setRepertoirePartage(partagePath);
           /*Fichier[] files = controleur.getFichiers();
-          for (int i=0; i<files.length; i++)
+                     for (int i=0; i<files.length; i++)
             files[i].setToString(files[i].getNomFichier());
-          */
-           partageTable.setListData(controleur.getFichiers());
+           */
+          partageTable.setListData(controleur.getFichiers());
 
         }
 
@@ -200,9 +274,7 @@ public class Main {
     panelP.add(scrollP, BorderLayout.CENTER);
   }
 
-
-
-  private  void setToString(Fichier[] f, int type) {
+  private void setToString(Fichier[] f, int type) {
     for (int i = 0; i < f.length; i++) {
       switch (type) {
         case 0:
@@ -217,6 +289,7 @@ public class Main {
   public Main(Client controleur) {
     this.controleur = controleur;
     assemble();
+    updateConnecState();
     partageTable.setListData(controleur.getFichiers());
   }
 
@@ -244,6 +317,8 @@ public class Main {
 
   public void assemble() {
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    onglets.addTab("Connexion", new ImageIcon("images/config.gif"), panelC,
+                   "Configuration de l'application");
     onglets.addTab("Download", new ImageIcon("images/down.gif"), panelD,
                    "Gestion des téléchargements");
     onglets.addTab("Upload", new ImageIcon("images/up.gif"), panelU,
@@ -252,13 +327,13 @@ public class Main {
                    "Recherche de fichiers");
     onglets.addTab("Partage", new ImageIcon("images/share.gif"), panelP,
                    "Gestion des fichiers partagés");
-    onglets.addTab("Configuration", new ImageIcon("images/config.gif"), panelC,
-                   "Configuration de l'application");
+
     onglets.addTab("Aide", new ImageIcon("images/aide.gif"), panelA,
                    "Aide de l'application");
 
     frame.getContentPane().add(onglets);
 
+    constructionC();
     constructionD();
     constructionU();
     constructionR();
