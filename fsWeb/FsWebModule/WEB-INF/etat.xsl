@@ -13,17 +13,20 @@
         <html>
             <head>
                 <title>Zoo</title>
-                <link href="zoo.css" rel="stylesheet" type="text/css"/>
+                <link href="style.css" rel="stylesheet" type="text/css"/>
             </head>
             <body>
                 <xsl:choose>
                     <xsl:when test="$typeRequete">
-                <h1>Liste des Clients</h1>
-                        <ul>
-                            <xsl:apply-templates mode="toc" select="//etat:client">
-                                <xsl:sort select="../@id"/>
-                            </xsl:apply-templates>
-                        </ul>
+                				 <h1>Liste des Clients</h1>
+                        <table align="left" border="1">
+         								<xsl:for-each select="//etat:client[not(@id = preceding::etat:client/@id)]">
+															<tr> <th><xsl:value-of select="@name"/></th>
+                              		 <th><xsl:value-of select="@id"/></th>
+                             </tr>
+												</xsl:for-each>
+
+                    </table>
                     </xsl:when>
                     <xsl:otherwise>
                 <h1>Liste des Fichiers</h1>
@@ -46,7 +49,8 @@
     </xsl:template>
 
     <xsl:template match="etat:client" mode="toc">
-        <li><a href="#{generate-id()}"><xsl:value-of select="./@name"/></a></li>
+
+
     </xsl:template>
 
 
