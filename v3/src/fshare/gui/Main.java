@@ -291,6 +291,12 @@ public class Main {
     assemble();
     updateConnecState();
     partageTable.setListData(controleur.getFichiers());
+    frame.addWindowListener(new java.awt.event.WindowAdapter() {
+    public void windowClosing(java.awt.event.WindowEvent e)
+    {
+      stopClient ();
+    }});
+
   }
 
   private void ajoutRecursif(File d) {
@@ -354,4 +360,9 @@ public class Main {
 
   }
 
+  private void stopClient ()
+  {
+System.out.println ("On stoppe le client");
+    controleur.stopClient();
+  }
 }
