@@ -1,12 +1,26 @@
 package fshare.gui;
 
 import javax.swing.*;
+
 import java.awt.Dimension;
 import java.util.Vector;
+
+
+
 import java.awt.GridLayout;
+
+
 import java.awt.*;
+
+
+
 import java.awt.BorderLayout;
 import java.awt.GridBagLayout;
+
+
+
+
+
 import java.awt.GridBagConstraints;
 
 public class Main {
