@@ -125,7 +125,7 @@ public class Main {
     boutC1.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         try {
-          controleur.deconnect();
+          controleur.stopClient();
           controleur.connectToServer(fieldC.getText(), fieldN.getText());
           updateConnecState();
         }
@@ -136,11 +136,9 @@ public class Main {
     });
     boutC2.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-
-          controleur.deconnect();
+          controleur.stopClient();
           updateConnecState();
-
-      }
+        }
     });
 
     serverPane.add(r);
@@ -247,8 +245,9 @@ public class Main {
         if (returnVal == JFileChooser.APPROVE_OPTION) {
           partagePath = repChooser.getSelectedFile().getPath();
           fieldP.setText(partagePath);
+          controleur.stopClient();
           controleur.setRepertoirePartage(partagePath);
-
+          controleur.reConnectToServer();
           /*Fichier[] files = controleur.getFichiers();
                      for (int i=0; i<files.length; i++)
             files[i].setToString(files[i].getNomFichier());

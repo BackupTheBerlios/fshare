@@ -95,6 +95,15 @@ public class Client {
     fServeur = null;
   }
 
+  public void reConnectToServer(){
+    try {
+      connectToServer(urlServer, nomClient);
+    }
+    catch (RemoteException ex) {
+      ex.printStackTrace();
+    }
+  }
+
   public void connectToServer(String serverURL, String nomClient) throws java.
       rmi.RemoteException {
     try {
