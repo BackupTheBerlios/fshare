@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Exported by JBuilder on 6 avr. 2004 22:00:08-->
+<!--Exported by JBuilder on 7 avr. 2004 22:57:50-->
 <!--It is RECOMMENDED that JBuilder builds and Ant builds done with
 this exported Ant file be kept separate and be written to different
 directories. For example, the JBuilder output directory might be "classes"
@@ -60,8 +60,8 @@ and the Ant output directory might be "classes.ant".-->
       <arg value="${dest};${jdk.home}/demo/jfc/Java2D/Java2Demo.jar;${jdk.home}/demo/plugin/jfc/Java2D/Java2Demo.jar;${jdk.home}/jre/javaws/javaws.jar;${jdk.home}/jre/lib/charsets.jar;${jdk.home}/jre/lib/ext/dnsns.jar;${jdk.home}/jre/lib/ext/ldapsec.jar;${jdk.home}/jre/lib/ext/localedata.jar;${jdk.home}/jre/lib/ext/sunjce_provider.jar;${jdk.home}/jre/lib/im/indicim.jar;${jdk.home}/jre/lib/im/thaiim.jar;${jdk.home}/jre/lib/jce.jar;${jdk.home}/jre/lib/jsse.jar;${jdk.home}/jre/lib/plugin.jar;${jdk.home}/jre/lib/rt.jar;${jdk.home}/jre/lib/sunrsasign.jar;${jdk.home}/lib/dt.jar;${jdk.home}/lib/htmlconverter.jar;${jdk.home}/lib/tools.jar"/>
       <arg value="-d"/>
       <arg value="${dest}"/>
-      <arg value="fshare.client.ClientImpl"/>
       <arg value="fshare.serveur.RemoteServeurImpl"/>
+      <arg value="fshare.client.ClientImpl"/>
     </exec>
   </target>
   <target name="resource">
