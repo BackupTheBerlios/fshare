@@ -114,7 +114,7 @@ public class RemoteServeurImpl
   public static void main(String[] args) {
     try {
       // Crée un serveur HTTP sur le port 8765
-      ClassFileServer httpServer = new ClassFileServer(8765, null);
+      ClassFileServer httpServer = new ClassFileServer( ((args.length < 2)?8765:Integer.parseInt(args[1])), null);
 
       if (args.length < 1) {
         System.out.println("Donner le nom du serveur en argument");

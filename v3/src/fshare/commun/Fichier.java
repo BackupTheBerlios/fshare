@@ -65,7 +65,7 @@ public class Fichier implements Serializable
 
 
 
-    private static final int MD5_CONST = 500;
+    private static final int MD5_CONST = 31;
 /**
  * Construteur d'un fichier.
  * @param nomFichier le nom absolu du fichier.

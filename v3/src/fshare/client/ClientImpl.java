@@ -122,6 +122,7 @@ System.out.println ("Telechargement de : " + id + ", partie : " + partie);
   // Destiné à l'affichage dans l'interface graphique
   public String[] getFichierClient(){
     Object [] c = listeFichier.values().toArray();
+
     String[] renvoi = new String[c.length];
     for (int i = 0; i < c.length; ++i)
     {
