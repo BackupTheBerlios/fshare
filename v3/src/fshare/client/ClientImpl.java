@@ -128,6 +128,11 @@ System.out.println ("Telechargement de : " + id + ", partie : " + partie);
     }
   }
 
+// Renvoi l'id sous forme d'une chaine
+  public String getIdClient(){
+    return Long.toHexString(idClient);
+  }
+
   // Destiné à l'affichage dans l'interface graphique
   public String[] getFichierClient(){
     Object [] c = listeFichier.values().toArray();
