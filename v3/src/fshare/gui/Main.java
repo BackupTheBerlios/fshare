@@ -1,4 +1,3 @@
-
 /* Version 1.1*/
 package fshare.gui;
 
@@ -7,21 +6,12 @@ import javax.swing.*;
 import java.awt.Dimension;
 import java.util.Vector;
 
-
-
 import java.awt.GridLayout;
-
 
 import java.awt.*;
 
-
-
 import java.awt.BorderLayout;
 import java.awt.GridBagLayout;
-
-
-
-
 
 import java.awt.GridBagConstraints;
 import java.awt.event.MouseListener;
@@ -31,6 +21,8 @@ import java.io.File;
 import fshare.commun.Fichier;
 import java.util.ArrayList;
 import fshare.client.Client;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Main {
   JFrame frame = new JFrame("fshare");
@@ -44,29 +36,29 @@ public class Main {
   JPanel panelR = new JPanel();
   JPanel panelA = new JPanel();
 
-  JTextField fieldR = new JTextField("regexp...",30);
-  JTextField fieldP = new JTextField("/",30);
+  JTextField fieldR = new JTextField("regexp...", 30);
+  JTextField fieldP = new JTextField("/", 30);
   String partagePath;
-  ArrayList fichierPartage = new ArrayList();
+  public ArrayList fichierPartage = new ArrayList();
 
   JButton boutR = new JButton("Télécharger");
 
   JTabbedPane onglets = new JTabbedPane();
-  JTable downloadTable;
-  JTable uploadTable;
-  JTable rechercheTable;
-  JTable partageTable;
+  JList downloadTable;
+  JList uploadTable;
+  JList rechercheTable;
+  JList partageTable;
   JScrollPane scrollD;
   JScrollPane scrollU = new JScrollPane(uploadTable);
   JScrollPane scrollR;
   JScrollPane scrollP;
 
   /*
-  JMenuBar menu = new JMenuBar();
-  JMenu menuAction = new JMenu("Action");
-  JMenuItem itemConfig = new JMenuItem("Configuration");
-  JMenuItem itemQuit = new JMenuItem("Quitter");
-*/
+     JMenuBar menu = new JMenuBar();
+     JMenu menuAction = new JMenu("Action");
+     JMenuItem itemConfig = new JMenuItem("Configuration");
+     JMenuItem itemQuit = new JMenuItem("Quitter");
+   */
   String[] columnsD = {
       "Nom du fichier", "ID", "Nombre de parties", "Parties restantes", "Date"};
   String[] columnsU = {
@@ -83,116 +75,150 @@ public class Main {
   };
 
   private void constructionD() {
-    downloadTable = new JTable(dataD, columnsD);
+    downloadTable = new JList();
     scrollD = new JScrollPane(downloadTable);
     panelD.setLayout(new BorderLayout());
     panelD.add(scrollD, BorderLayout.CENTER);
   }
 
   private void constructionU() {
-    uploadTable = new JTable(dataD, columnsU);
+    uploadTable = new JList();
     scrollU = new JScrollPane(uploadTable);
     panelU.setLayout(new BorderLayout());
     panelU.add(scrollU, BorderLayout.CENTER);
   }
 
-  private void constructionR(){
+  private void constructionR() {
     SpringLayout layout = new SpringLayout();
     BorderLayout bol = new BorderLayout();
     JLabel r = new JLabel("Rechercher : ");
-    rechercheTable = new JTable(dataD, columnsR);
+    rechercheTable = new JList();
     scrollR = new JScrollPane(rechercheTable);
     JPanel rechPane = new JPanel();
     rechPane.setLayout(layout);
-      panelR.setLayout(bol);
+    panelR.setLayout(bol);
 
     rechPane.setPreferredSize(new Dimension(10, 35));
-  layout.putConstraint(SpringLayout.WEST, r, 5, SpringLayout.WEST, rechPane);
+    layout.putConstraint(SpringLayout.WEST, r, 5, SpringLayout.WEST, rechPane);
     layout.putConstraint(SpringLayout.NORTH, r, 5, SpringLayout.NORTH, rechPane);
     layout.putConstraint(SpringLayout.WEST, fieldR, 5, SpringLayout.EAST, r);
-    layout.putConstraint(SpringLayout.NORTH, fieldR, 5, SpringLayout.NORTH, rechPane);
+    layout.putConstraint(SpringLayout.NORTH, fieldR, 5, SpringLayout.NORTH,
+                         rechPane);
     layout.putConstraint(SpringLayout.WEST, boutR, 5, SpringLayout.EAST, fieldR);
-    layout.putConstraint(SpringLayout.NORTH, boutR, 5, SpringLayout.NORTH, rechPane);
+    layout.putConstraint(SpringLayout.NORTH, boutR, 5, SpringLayout.NORTH,
+                         rechPane);
 
+    fieldR.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        Fichier[] files = controleur.rechercherFichier(fieldR.getText());
+        setToString(files, 0);
+        rechercheTable.setListData(files);
+      }
+    });
+    rechPane.add(r);
+    rechPane.add(fieldR);
+    rechPane.add(boutR);
+    panelR.add(rechPane, BorderLayout.NORTH);
+    panelR.add(scrollR, BorderLayout.CENTER);
+  }
 
-  rechPane.add(r);
-  rechPane.add(fieldR);
-  rechPane.add(boutR);
-  panelR.add(rechPane, BorderLayout.NORTH);
-panelR.add(scrollR, BorderLayout.CENTER);
-}
+  private void constructionP() {
+    SpringLayout layout = new SpringLayout();
+    BorderLayout bol = new BorderLayout();
+    JButton boutAjout = new JButton("Ajouter un fichier");
+    JButton boutRetire = new JButton("Retirer un fichier");
+    JButton boutBrowse = new JButton("...");
+    JLabel partLabel = new JLabel("Rép. par défaut ");
 
-private void constructionP(){
-  SpringLayout layout = new SpringLayout();
-  BorderLayout bol = new BorderLayout();
-  JButton boutAjout = new JButton("Ajouter un fichier");
-  JButton boutRetire = new JButton("Retirer un fichier");
-  JButton boutBrowse = new JButton("...");
-  JLabel partLabel = new JLabel("Rép. par défaut ");
-
-  partageTable = new JTable(dataD, columnsP);
-  scrollP = new JScrollPane(partageTable);
-  JPanel partPane = new JPanel();
-  partPane.setLayout(layout);
+    partageTable = new JList();
+    scrollP = new JScrollPane(partageTable);
+    JPanel partPane = new JPanel();
+    partPane.setLayout(layout);
     panelP.setLayout(bol);
 
-  partPane.setPreferredSize(new Dimension(10, 35));
-  layout.putConstraint(SpringLayout.WEST, boutAjout, 5, SpringLayout.WEST, partPane);
-  layout.putConstraint(SpringLayout.NORTH, boutAjout, 5, SpringLayout.NORTH, partPane);
-  layout.putConstraint(SpringLayout.WEST, boutRetire, 5, SpringLayout.EAST, boutAjout);
-  layout.putConstraint(SpringLayout.NORTH, boutRetire, 5, SpringLayout.NORTH, partPane);
-  layout.putConstraint(SpringLayout.WEST, partLabel, 10, SpringLayout.EAST, boutRetire);
-  layout.putConstraint(SpringLayout.NORTH, partLabel, 10, SpringLayout.NORTH, partPane);
-  layout.putConstraint(SpringLayout.WEST, fieldP, 5, SpringLayout.EAST, partLabel);
-  layout.putConstraint(SpringLayout.NORTH, fieldP, 7, SpringLayout.NORTH, partPane);
-  layout.putConstraint(SpringLayout.WEST, boutBrowse, 5, SpringLayout.EAST, fieldP);
-  layout.putConstraint(SpringLayout.NORTH, boutBrowse, 5, SpringLayout.NORTH, partPane);
+    partPane.setPreferredSize(new Dimension(10, 35));
+    layout.putConstraint(SpringLayout.WEST, boutAjout, 5, SpringLayout.WEST,
+                         partPane);
+    layout.putConstraint(SpringLayout.NORTH, boutAjout, 5, SpringLayout.NORTH,
+                         partPane);
+    layout.putConstraint(SpringLayout.WEST, boutRetire, 5, SpringLayout.EAST,
+                         boutAjout);
+    layout.putConstraint(SpringLayout.NORTH, boutRetire, 5, SpringLayout.NORTH,
+                         partPane);
+    layout.putConstraint(SpringLayout.WEST, partLabel, 10, SpringLayout.EAST,
+                         boutRetire);
+    layout.putConstraint(SpringLayout.NORTH, partLabel, 10, SpringLayout.NORTH,
+                         partPane);
+    layout.putConstraint(SpringLayout.WEST, fieldP, 5, SpringLayout.EAST,
+                         partLabel);
+    layout.putConstraint(SpringLayout.NORTH, fieldP, 7, SpringLayout.NORTH,
+                         partPane);
+    layout.putConstraint(SpringLayout.WEST, boutBrowse, 5, SpringLayout.EAST,
+                         fieldP);
+    layout.putConstraint(SpringLayout.NORTH, boutBrowse, 5, SpringLayout.NORTH,
+                         partPane);
 
-  boutBrowse.addMouseListener(new MouseListener(){
+    boutBrowse.addMouseListener(new MouseListener() {
       public void mouseClicked(MouseEvent e) {
-                JFileChooser repChooser = new JFileChooser();
+        JFileChooser repChooser = new JFileChooser();
         repChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         int returnVal = repChooser.showOpenDialog(frame);
-        if(returnVal == JFileChooser.APPROVE_OPTION){
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
           partagePath = repChooser.getSelectedFile().getPath();
           fieldP.setText(partagePath);
           controleur.setRepertoirePartage(partagePath);
-          majListePartage();
+          /*Fichier[] files = controleur.getFichiers();
+          for (int i=0; i<files.length; i++)
+            files[i].setToString(files[i].getNomFichier());
+          */
+           partageTable.setListData(controleur.getFichiers());
+
         }
+
       }
+
       public void mouseEntered(MouseEvent e) {
       }
+
       public void mouseExited(MouseEvent e) {
       }
+
       public void mousePressed(MouseEvent e) {
       }
+
       public void mouseReleased(MouseEvent e) {
       }
 
     });
 
-  partPane.add(boutAjout);
-  partPane.add(boutRetire);
-  partPane.add(partLabel);
-  partPane.add(fieldP);
-  partPane.add(boutBrowse);
-  panelP.add(partPane, BorderLayout.NORTH);
-  panelP.add(scrollP, BorderLayout.CENTER);
-}
+    partPane.add(boutAjout);
+    partPane.add(boutRetire);
+    partPane.add(partLabel);
+    partPane.add(fieldP);
+    partPane.add(boutBrowse);
+    panelP.add(partPane, BorderLayout.NORTH);
+    panelP.add(scrollP, BorderLayout.CENTER);
+  }
 
-public void majListePartage(){
-  ajoutRecursif(new File(partagePath));
-  //partageTable.getModel().add
-//  partageTable.getModel().setValueAt(fichierPartage.get(0),1,1);
 
-}
+
+  private  void setToString(Fichier[] f, int type) {
+    for (int i = 0; i < f.length; i++) {
+      switch (type) {
+        case 0:
+          f[i].setToString(f[i].getNomFichier() + " --- "
+                           + f[i].getTailleFichier() + "octets ("
+                           + f[i].getTypeFichier() + ")");
+          break;
+      }
+    }
+  }
 
   public Main(Client controleur) {
     this.controleur = controleur;
     assemble();
+    partageTable.setListData(controleur.getFichiers());
   }
-
-
 
   private void ajoutRecursif(File d) {
 
@@ -203,11 +229,11 @@ public void majListePartage(){
           ajoutRecursif(sub[i]);
           continue;
         }
-        try{
+        try {
           fichierPartage.add(new Fichier(sub[i].toString()));
         }
-        catch (OutOfMemoryError e){
-          System.out.println("ERROR "+sub[i].toString());
+        catch (OutOfMemoryError e) {
+          System.out.println("ERROR " + sub[i].toString());
         }
       }
     }
@@ -229,7 +255,7 @@ public void majListePartage(){
     onglets.addTab("Configuration", new ImageIcon("images/config.gif"), panelC,
                    "Configuration de l'application");
     onglets.addTab("Aide", new ImageIcon("images/aide.gif"), panelA,
-                     "Aide de l'application");
+                   "Aide de l'application");
 
     frame.getContentPane().add(onglets);
 
