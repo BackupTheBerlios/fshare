@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Front End fshare</title>
+  </head>
+  <body>
+    <h1>Action</h1>
+    <form action="fsservlet" method="GET">
+
+
+      <input type="text"  value="" name="requete"/>
+      <input type="submit" value="go"  \>
+
+
+      <table>
+        <tr>
+              <td>
+                <input type="radio" value="clients" name="typeRequete" />
+              </td>
+              <td>
+                Liste des clients
+              </td>
+        </tr>
+        <tr>
+              <td>
+                <input type="radio" value="Liste des fichier" name="typeRequete" />
+              </td>
+              <td>
+Liste des fichiers
+              </td>
+        </tr>
+<tr>
+              <td>
+                <input type="radio" value="Liste des fichiers d'un client" name="typeRequete" />
+              </td>
+              <td>
+Liste des fichiers d'un client
+              </td>
+</tr>
+<tr>
+              <td>
+                <input type="radio" value="Liste des clients pour un fichier" name="typeRequete"/>
+              </td>
+              <td>
+                Liste des clients pour un fichier
+              </td>
+        </tr>
+      </table>
+
+    </form>
+  </body>
+</html>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--JBuilder XML Project-->
+<project>
+  <property category="generalFormatting" name="tabSize" value="2"/>
+  <property category="idl" name="ProcessIDL" value="false"/>
+  <property category="javaFormatting" name="classBraceNextLine" value="1"/>
+  <property category="javaFormatting" name="extendsOnNewLine" value="0"/>
+  <property category="javaFormatting" name="implementsOnNewLine" value="0"/>
+  <property category="javaFormatting" name="methodBraceNextLine" value="1"/>
+  <property category="javaFormatting" name="otherBraceNextLine" value="1"/>
+  <property category="javaFormatting" name="packageThreshold" value="0"/>
+  <property category="javaFormatting" name="spaceBeforeCallLparen" value="1"/>
+  <property category="javaFormatting" name="spaceBeforeLparen" value="0"/>
+  <property category="javaFormatting" name="spaceBeforeMethodDefLparen" value="1"/>
+  <property category="javadoc" name="custom.tags.1" value="todo;a;To Do:"/>
+  <property category="module" name="last.wizard.module.name" value="FsWebModule"/>
+  <property category="runtime" name="ConfigurationCount" value="3"/>
+  <property category="runtime.0" name="BuildTargetOnRun" value="com.borland.jbuilder.build.ProjectBuilder$ProjectBuildAction;make"/>
+  <property category="runtime.0" name="ConfigurationName" value="FsServlet"/>
+  <property category="runtime.0" name="RunnableType" value="com.borland.jbuilder.runtime.ServerRunner"/>
+  <property category="runtime.0" name="appserver.addProjectClassPathOnRun" value="1"/>
+  <property category="runtime.0" name="appserver.parameters" value=""/>
+  <property category="runtime.0" name="appserver.servername" value=""/>
+  <property category="runtime.0" name="appserver.vmparameters" value=""/>
+  <property category="runtime.0" name="enabled.services" value="jsp;naming"/>
+  <property category="runtime.0" name="jsp.launchuri" value="/FsWebModule/fsservlet"/>
+  <property category="runtime.0" name="jsprunner.launchuri" value="/FsWebModule/fsservlet"/>
+  <property category="runtime.0" name="server.addProjectLibrariesOnRun" value="1"/>
+  <property category="runtime.0" name="server.addProjectOutputPathOnRun" value="1"/>
+  <property category="runtime.0" name="server.arguments" value=""/>
+  <property category="runtime.0" name="server.instance.name" value=""/>
+  <property category="runtime.0" name="server.name" value="Tomcat 4.0"/>
+  <property category="runtime.0" name="server.vmparameters" value=""/>
+  <property category="runtime.1" name="ConfigurationName" value="FsJsp"/>
+  <property category="runtime.1" name="RunnableType" value="com.borland.jbuilder.runtime.ServerRunner"/>
+  <property category="runtime.1" name="jsp.launchuri" value="/FsWebModule/FsJsp.jsp"/>
+  <property category="runtime.1" name="jsprunner.launchuri" value="/FsWebModule/FsJsp.jsp"/>
+  <property category="runtime.1" name="server.name" value="Tomcat 4.0"/>
+  <property category="runtime.2" name="BuildTargetOnRun" value="com.borland.jbuilder.build.ProjectBuilder$ProjectBuildAction;make"/>
+  <property category="runtime.2" name="ConfigurationName" value="Copy of FsServlet"/>
+  <property category="runtime.2" name="RunnableType" value="com.borland.jbuilder.runtime.ServerRunner"/>
+  <property category="runtime.2" name="appserver.parameters" value=""/>
+  <property category="runtime.2" name="appserver.servername" value=""/>
+  <property category="runtime.2" name="appserver.vmparameters" value=""/>
+  <property category="runtime.2" name="enabled.services" value="jsp;naming"/>
+  <property category="runtime.2" name="jsp.launchuri" value="/FsWebModule/index.html"/>
+  <property category="runtime.2" name="jsprunner.launchuri" value="/FsWebModule/index.html"/>
+  <property category="runtime.2" name="server.arguments" value=""/>
+  <property category="runtime.2" name="server.instance.name" value=""/>
+  <property category="runtime.2" name="server.name" value="Tomcat 4.0"/>
+  <property category="runtime.2" name="server.vmparameters" value=""/>
+  <property category="runtime.3" name="ConfigurationName" value="Servlet1"/>
+  <property category="runtime.3" name="RunnableType" value="com.borland.jbuilder.runtime.JspRunner"/>
+  <property category="runtime.3" name="jsp.launchuri" value="/FsWebModule/servlet1"/>
+  <property category="runtime.3" name="jsprunner.launchuri" value="/FsWebModule/servlet1"/>
+  <property category="serverservices" name="disabled.services" value="jdatastore;sqlj"/>
+  <property category="serverservices" name="single.server.name" value="Tomcat 4.0"/>
+  <property category="sys" name="AuthorLabel" value="@author"/>
+  <property category="sys" name="BackupPath" value="bak"/>
+  <property category="sys" name="CheckStable" value="1"/>
+  <property category="sys" name="Company" value=""/>
+  <property category="sys" name="CompanyLabel" value="Company:"/>
+  <property category="sys" name="Copyright" value="Copyright (c) 2004"/>
+  <property category="sys" name="CopyrightLabel" value="Copyright:"/>
+  <property category="sys" name="DefaultPath" value="src"/>
+  <property category="sys" name="Description" value=""/>
+  <property category="sys" name="DescriptionLabel" value="Description:"/>
+  <property category="sys" name="DocPath" value="doc"/>
+  <property category="sys" name="ExcludeClassEnabled" value="0"/>
+  <property category="sys" name="IncludeTestPath" value="1"/>
+  <property category="sys" name="InstanceVisibility" value="2"/>
+  <property category="sys" name="JDK" value="java version 1.4.2_01-b06"/>
+  <property category="sys" name="JvmVersion" value="1.2"/>
+  <property category="sys" name="LastTag" value="0"/>
+  <property category="sys" name="Libraries" value="Servlet"/>
+  <property category="sys" name="MakeStable" value="0"/>
+  <property category="sys" name="OutPath" value="classes"/>
+  <property category="sys" name="ServletContentType" value="HTML"/>
+  <property category="sys" name="SourcePath" value="src;test"/>
+  <property category="sys" name="TestPath" value="test"/>
+  <property category="sys" name="Title" value=""/>
+  <property category="sys" name="TitleLabel" value="Title:"/>
+  <property category="sys" name="Version" value="1.0"/>
+  <property category="sys" name="VersionLabel" value="@version"/>
+  <property category="sys" name="WorkingDirectory" value="."/>
+  <property category="team" name="ignorePath.0" value="Tomcat"/>
+  <property category="team" name="ignorePath.1" value="FsWebModule/WEB-INF/classes"/>
+  <property category="team" name="ignorePath.2" value="bak"/>
+  <property category="team" name="ignorePath.3" value="classes"/>
+  <property category="webModule" name="last.wizard.module.name" value="FsWebModule"/>
+  <node name="Additional Settings" type="Folder">
+    <property category="sys" name="SettingsFolder" value="1"/>
+    <file path="src/fsfrontend/FsServlet.java">
+      <property category="servletrun" name="servlet.ContextRunDebug" value="true"/>
+      <property category="servletrun" name="servlet.WebApp" value="FsWebModule"/>
+    </file>
+    <file path="src/fsfrontend/Servlet1.java">
+      <property category="servletrun" name="servlet.ContextRunDebug" value="true"/>
+      <property category="servletrun" name="servlet.WebApp" value="FsWebModule"/>
+    </file>
+  </node>
+  <node name="FsWebModule" type="WebModuleNode">
+    <property category="archiving" name="archiverClass" value="com.borland.jbuilder.enterprise.module.web.WebModuleArchiver"/>
+    <property category="archiving" name="defaultLibraryState" value="3"/>
+    <property category="archiving" name="libraryStates.1" value="0:Servlet"/>
+    <property category="archiving" name="libraryStates.2" value="0:Tomcat 4.0 Servlet"/>
+    <property category="archiving" name="targetPath" value="FsWebModule.war"/>
+    <property category="module" name="build.exploded.archive" value="1"/>
+    <property category="module" name="cleanRules.1" value="I:/WEB-INF/classes/**"/>
+    <property category="module" name="cleanRules.2" value="I:/WEB-INF/lib/**"/>
+    <property category="module" name="cleanRules.3" value="X:/WEB-INF/**/*.ds"/>
+    <property category="module" name="cleanRules.4" value="X:/WEB-INF/**/*.wsdd"/>
+    <property category="module" name="cleanRules.5" value="X:/WEB-INF/**/cocoon.xconf"/>
+    <property category="module" name="cleanRules.6" value="X:/WEB-INF/**/logkit.xconf"/>
+    <property category="module" name="cleanRules.7" value="X:/WEB-INF/*.xml"/>
+    <property category="module" name="cleanRules.8" value="X:/WEB-INF/*.xmi"/>
+    <property category="module" name="directory" value="FsWebModule"/>
+    <property category="module" name="extensions.exclude" value="xmi"/>
+    <property category="module" name="extraDefaultDirectoriesToKeepOnClean.1" value="CVS"/>
+    <property category="module" name="extraDefaultDirectoriesToKeepOnClean.2" value=".cvsignore"/>
+    <property category="module" name="extraDefaultDirectoriesToKeepOnClean.3" value="vssver.scc"/>
+    <property category="module" name="last.wizard.module.name" value="FsWebModule"/>
+    <property category="module" name="lastServer" value="Tomcat 4.0"/>
+    <property category="module" name="supported.features.1" value="Servlet 2.3"/>
+    <property category="module" name="supported.features.2" value="JSP 1.2"/>
+    <property category="web" name="context-root" value="FsWebModule"/>
+  </node>
+  <file path="FsWebModule/etat.dtd"/>
+</project>

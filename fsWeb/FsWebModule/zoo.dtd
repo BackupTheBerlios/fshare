@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!ENTITY nourrir.gif SYSTEM "nourrir.gif" NDATA gif>
+
+<!ENTITY % block "p | info | danger | attention">
+<!ENTITY % inline "b | i | em | strong | stabilo | img">
+<!ENTITY % attractions "aquarium?, vivarium?, enclos?, volière?">
+<!ENTITY % animal "nom, sexe, taille, poids, commentaire?">
+<!ENTITY % animal-attr "
+    id		ID #REQUIRED
+    espèce		CDATA #IMPLIED
+    nom-savant	CDATA #IMPLIED
+    photo		ENTITY #IMPLIED
+    date-naissance  CDATA #REQUIRED
+">
+<!ENTITY % u-attr "
+    unité		CDATA #REQUIRED
+    status		CDATA #IMPLIED
+">
+
+<!ELEMENT p (#PCDATA | %inline;)*>
+<!ELEMENT info (#PCDATA | %inline;)*>
+<!ELEMENT danger (#PCDATA | %inline;)*>
+<!ELEMENT attention (#PCDATA | %inline;)*>
+
+<!ELEMENT b (#PCDATA | %inline;)*>
+<!ELEMENT i (#PCDATA | %inline;)*>
+<!ELEMENT em (#PCDATA | %inline;)*>
+<!ELEMENT strong (#PCDATA | %inline;)*>
+<!ELEMENT stabilo (#PCDATA | %inline;)*>
+<!ELEMENT img EMPTY>
+<!ATTLIST img src ENTITY #REQUIRED>
+
+<!ELEMENT zoo ((%block;)*, %attractions;)>
+
+<!ELEMENT aquarium (mammifères-marins?, poissons?)>
+<!ELEMENT mammifères-marins (dauphins?, baleines?, orques?)>
+<!ELEMENT poissons (sélaciens?)>
+
+<!ELEMENT vivarium (serpents?, arachnéens?)>
+<!ELEMENT serpents (boas?)>
+<!ELEMENT arachnéens (mygales?)>
+
+<!ELEMENT enclos (primates?, fauves?)>
+<!ELEMENT primates (gorilles?, orangs-outans?)>
+<!ELEMENT fauves (tigres?, lions?)>
+
+<!ELEMENT volière (oiseaux-terrestres?, oiseaux-aquatiques?, rapaces?)>
+<!ELEMENT oiseaux-terrestres (autruches?)>
+<!ELEMENT oiseaux-aquatiques (pingouins?, manchots?)>
+<!ELEMENT rapaces (aigles?)*>
+
+<!ELEMENT dauphins (%block; | dauphin)+>
+<!ELEMENT dauphin (%animal;)>
+<!ATTLIST dauphin %animal-attr;>
+
+<!ELEMENT baleines (%block; | baleine)+>
+<!ELEMENT baleine (%animal;)>
+<!ATTLIST baleine %animal-attr;>
+
+<!ELEMENT orques (%block; | orque)+>
+<!ELEMENT orque (%animal;)>
+<!ATTLIST orque %animal-attr;>
+
+<!ELEMENT sélaciens (%block; | requin)+>
+<!ELEMENT requin (%animal;)>
+<!ATTLIST requin %animal-attr;>
+
+<!ELEMENT boas (%block; | boa)+>
+<!ELEMENT boa (%animal;)>
+<!ATTLIST boa %animal-attr;>
+
+<!ELEMENT mygales (%block; | mygale)+>
+<!ELEMENT mygale (%animal;)>
+<!ATTLIST mygale %animal-attr;>
+
+<!ELEMENT gorilles (%block; | gorille)+>
+<!ELEMENT gorille (%animal;)>
+<!ATTLIST gorille %animal-attr;>
+
+<!ELEMENT orangs-outans (%block; | orang-outan)+>
+<!ELEMENT orang-outan (%animal;)>
+<!ATTLIST orang-outan %animal-attr;>
+
+<!ELEMENT tigres (%block; | tigre)+>
+<!ELEMENT tigre (%animal;)>
+<!ATTLIST tigre %animal-attr;>
+
+<!ELEMENT lions (%block; | lion)+>
+<!ELEMENT lion (%animal;)>
+<!ATTLIST lion %animal-attr;>
+
+<!ELEMENT autruches (%block; | autruche)+>
+<!ELEMENT autruche (%animal;)>
+<!ATTLIST autruche %animal-attr;>
+
+<!ELEMENT pingoins (%block; | pingoin)+>
+<!ELEMENT pingoin (%animal;)>
+<!ATTLIST pingoin %animal-attr;>
+
+<!ELEMENT manchots (%block; | manchot)+>
+<!ELEMENT manchot (%animal;)>
+<!ATTLIST manchot %animal-attr;>
+
+<!ELEMENT aigles (%block; | aigle)+>
+<!ELEMENT aigle (%animal;)>
+<!ATTLIST aigle %animal-attr;>
+
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT sexe (#PCDATA)>
+<!ELEMENT taille (#PCDATA)>
+<!ATTLIST taille %u-attr;>
+
+<!ELEMENT poids (#PCDATA)>
+<!ATTLIST poids %u-attr;>
+
+<!ELEMENT commentaire (#PCDATA | %block;)*>

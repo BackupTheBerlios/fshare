@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE etat SYSTEM "etat.dtd">
+<etat xmlns="http://deptinfo.unice.fr/minfo/ns/p2p">
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<fichiers>
+<fichier>
+<nom>!!!dominique.jpg</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>156849</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="bill">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>sourire.chm</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>79337</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="jhon">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>Underwea.mpg</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>2228228</taille>
+<type>VIDEO</type>
+<client id="536181c9aa033400" name="bill">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>IMG_0285.jpg</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>579717</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="toto2">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>IMG_0287.jpg</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>547745</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="bill">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>Maison 002.jpg</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>1449489</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="toto2">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>image.zip</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>5104</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="bill">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>Maison 001.jpg</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>1456905</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="bill">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>004_02.jpg</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>559813</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="toto2">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>sexy.jpg</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>49877</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="bill">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>photo noel.zip</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>6569602</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="bill">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>Parunbeaumatindeprintemps.doc</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>19968</taille>
+<type>DOCUMENT</type>
+<client id="536181c9aa033400" name="bill">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>Copy of 008_06.jpg</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>3879</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="toto2">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>Main.java</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>4070</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="toto2">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>2003-2-1-19_5_45.jpg</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>14021</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="toto2">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>aude (3).jpg</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>57602</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="jhon">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>mes tchotes soeurettes.JPG</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>395413</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="toto2">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>Réveillon 2003- 01.JPG</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>690788</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="toto2">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>IMG_0286.jpg</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>530359</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="jhon">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>émoticones.zip</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>44833</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="toto2">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>008_06.jpg</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>4559</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="toto2">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>evanescence-.04-.my_immortal.mp3</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>6342240</taille>
+<type>AUDIO</type>
+<client id="536181c9aa033400" name="toto2">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>Jadludo.jpg</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>127390</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="toto2">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+<fichier>
+<nom>Numériser.pdf</nom>
+<date jour="06" mois="04" année="2004" heure="22" minute="02"/>
+<taille>957647</taille>
+<type>AUTRE</type>
+<client id="536181c9aa033400" name="toto2">
+<date jour="06" mois="04" année="2004" heure="22" minute="00"/>
+</client>
+</fichier>
+</fichiers>
+</etat>

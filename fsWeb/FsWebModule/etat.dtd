@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!--
+    Typical usage:
+    <?xml version="1.0"?>
+    <!DOCTYPE etat SYSTEM "etat.dtd">
+    <etat>
+    ...
+    </etat>
+-->
+
+<!ELEMENT client (date)*>
+<!ATTLIST client
+    name CDATA #IMPLIED
+    id NMTOKEN #REQUIRED
+  >
+
+<!ELEMENT date EMPTY>
+<!ATTLIST date
+    année NMTOKEN #REQUIRED
+    mois NMTOKEN #REQUIRED
+    jour NMTOKEN #REQUIRED
+    heure NMTOKEN #REQUIRED
+    minute NMTOKEN #REQUIRED
+  >
+
+<!ELEMENT etat (date,fichiers)>
+<!ATTLIST etat
+    xmlns CDATA #FIXED "http://deptinfo.unice.fr/minfo/ns/p2p"
+  >
+
+<!ELEMENT fichier (nom,date,taille,type,client+)>
+
+<!ELEMENT fichiers (fichier)*>
+
+<!ELEMENT nom (#PCDATA)>
+
+<!ELEMENT taille (#PCDATA)>
+
+<!ELEMENT type (#PCDATA)>
