@@ -28,6 +28,8 @@ public class Client {
 
   public static final String DEFAULT_SHARE_REP = "partage";
   public static final String FIC_PROPRIETE = "setting.props";
+  /** Le temps d'attente avant de revérifier que d'autre client n'ont pas le fichier */
+  public static final long DEFAULT_TEMPS_TEMPO = 5000;
 
   private static Logger logger =
       Logger.getLogger("fshare.client");
@@ -39,6 +41,7 @@ public class Client {
   private String repertoirePartage = null;
   private String urlServer = null;
   private ArrayList fichiersPartage = new ArrayList();
+  private long tempsTempo = 0;
 
   public Client(String serverURL, String nomClient) throws java.rmi.
       RemoteException {
@@ -75,6 +78,11 @@ public class Client {
       prepareInfoFichierClient();
      // client.afficheListeFichierClient();
       appli = new Main(this);
+      String temps = Propriete.getPropriete(FIC_PROPRIETE, "TEMPS_TEMPO");
+      if (null == temps)
+        tempsTempo = Client.DEFAULT_TEMPS_TEMPO;
+      else
+        tempsTempo = Long.parseLong(temps);
 
     }
   }
@@ -281,71 +289,138 @@ public class Client {
   }
 
 
-  public void telechargeFichier(Fichier fic) {
-    /*
-    //On récupere test.txt
-    try {
-      logger.info("Entrer dans télécharge fichier");
-      Fichier[] list = fServeur.rechercherFichier("txt");
-      if ( (list == null) || (list.length == 0))return; //rien a faire
-      //on prend le premier fichier
-      Fichier fic = list[0];
-      logger.info(list[0].toString());
-
-     String idFichier = fic.getIdFichier();
-     */
-    String idFichier = fic.getIdFichier();
+  public void telechargeFichier (Fichier fic)
+  {
+    if (null == fic)return;
+    String idFichier = fic.getIdFichier ();
     RemoteClient[] listeClient = null;
-    try {
-      listeClient = fServeur.rechercherClient(
-          idFichier);
+    FileOutputStream fwrite = null;
+    int numClient = -1;
+    String rep;
+    /* Ouverture du fichier de réception */
+    try
+    {
+      rep = repertoirePartage +
+          File.separator + Math.random () + "-" + fic.getNomFichier ();
+      //System.out.println(rep);
+      fwrite = new FileOutputStream (rep);
     }
-    catch (RemoteException ex) {
-      ex.printStackTrace();
+    catch (FileNotFoundException ex1)
+    {
+      /* Fichier pas trouvé */
+      logger.warning("Impossible d'ouvrir le fichier en écriture");
+      ex1.printStackTrace ();
+      return;
     }
-    if (null == listeClient || listeClient.length == 0)return; //pas de client
-      /*if (listeClient [0] == (client))
-           {
-        logger.info("Meme client");
-        return;
-           }*/
-      logger.info(listeClient[0].toString());
-      logger.info(client.toString());
 
-      /* Ouverture du fichier de réception */
-      try {
-        String rep = repertoirePartage +
-            File.separator + Math.random() + "-" + fic.getNomFichier();
-        //System.out.println(rep);
-        FileOutputStream fwrite = new FileOutputStream(rep);
-        /* lecture du fichier sauf la derniere partie */
-        for (long i = 0; i < (fic.getNbPartiesFichier() - 1); ++i) {
+    while (true)
+    {
+      try
+      {
+      /* Rechercher des clients qui ont le fichier */
+        listeClient = fServeur.rechercherClient (idFichier);
+      }
+      catch (RemoteException ex)
+      {
+        logger.warning ("Connexion avec le serveur impossible pour récuperer les clients qui ont le fichier");
+        ex.printStackTrace ();
+        /* On efface le fichier créer, on peut plus rien faire */
+        try
+        {
+          fwrite.close ();
+        }
+        catch (IOException ex3)
+        {
+          ex3.printStackTrace();
+        }
+        new File (rep).delete();
+        return;
+      }
+      if (null == listeClient || listeClient.length == 0)
+      {
+        /* Pas de client pour l'instant, on attend un peu */
+        try
+        {
+          Thread.sleep (tempsTempo);
+        }
+        catch (InterruptedException e)
+        {
+          e.printStackTrace();
+        }
+        continue;
+      }
+
+      try
+      {
+        /*sélection d'un client au hasard */
+        for (; ; )
+        {
+          numClient = (int) (Math.random () * listeClient.length);
+          System.out.println ("client au hasar : " + numClient);
+          if (numClient != listeClient.length)break;
+        }
+//pour les tests
+numClient = 0;
+        /* écriture du fichier sauf la derniere partie */
+        for (long i = 0; i < (fic.getNbPartiesFichier () - 1); ++i)
+        {
           byte[] b;
-          logger.info("On va télécharger la premiere partie du fichier");
-          b = listeClient[0].telechargerFichier(idFichier, i);
-          logger.info("octet lu : " + b.toString());
-          fwrite.write(b, 0, b.length);
+          logger.info ("On va télécharger la partie " + i + " du fichier");
+try
+{
+  Thread.sleep (5000);
+}
+catch (InterruptedException ex4)
+{
+}
+          b = listeClient[numClient].telechargerFichier (idFichier, i);
+          fwrite.write (b, 0, b.length);
         }
         /* écriture de la derniere partie */
-        int tailleBuff = (int) (fic.getTailleFichier() -
-                                ( (fic.getNbPartiesFichier() - 1) *
+        int tailleBuff = (int) (fic.getTailleFichier () -
+                                ((fic.getNbPartiesFichier () - 1) *
                                  ClientImpl.MAX_OCTET_LU));
-        System.out.println("taille buffer pour der lecture : " + tailleBuff);
         byte[] b;
-        logger.info("On va télécharger la premiere partie du fichier");
-        b = listeClient[0].telechargerFichier(idFichier,
-                                              fic.getNbPartiesFichier() - 1);
-        logger.info("octet lu : " + b.toString());
-        fwrite.write(b, 0, tailleBuff);
+        logger.info ("On va télécharger la derniere partie du fichier");
+        b = listeClient[numClient].telechargerFichier (idFichier,
+            fic.getNbPartiesFichier () - 1);
+        if (null == b)
+        {
+          /* On a pas pu lire la partie, on dit que le client ne possède plus le fichier
+             NORMALEMENT ON ENLEVE LA PARTIE QUI MANQUE POUR LE CLIENT à voir version future */
+          System.out.println ("Probleme lecture fichier");
+          fServeur.retirerFichier (fic, listeClient[numClient]);
+        }
+        logger.info ("octet lu : " + b.toString ());
+        fwrite.write (b, 0, tailleBuff);
+        //On sort de la boucle
+        break;
 
       }
-      catch (FileNotFoundException ex1) {
-        ex1.printStackTrace();
+      catch (RemoteException ex)
+      {
+        /* La fonction de téléchargement à échoué
+           le client est deconnecté */
+        System.out.println ("On a pas réussi a avoir la partie (déconnexion du client ayant le fichier).");
+        try
+        {
+          if (numClient > -1)
+            fServeur.retirerFichier (listeClient[numClient]);
+        }
+        catch (RemoteException ex2)
+        {
+          logger.warning("Connexion avec le serveur impossible");
+          ex2.printStackTrace ();
+        }
       }
-      catch (IOException ex1) {
-        ex1.printStackTrace();
+      catch (IOException ex1)
+      {
+        ex1.printStackTrace ();
       }
-
+      //Si erreur on continue
+    }
+    logger.info("Téléchargement de : " + (new File (rep).getName()) +
+                " RéUSSI dans le répertoire : " + (new File (rep).getAbsolutePath()));
   }
 
 

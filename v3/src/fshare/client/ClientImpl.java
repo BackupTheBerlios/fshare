@@ -103,6 +103,13 @@ System.out.println ("Telechargement de : " + id + ", partie : " + partie);
       return b;
 
     }
+    catch (java.io.FileNotFoundException ex1) {
+      /* On a plus le fichier, on le retire du client */
+      retirerFichier(id);
+      /* prevenir le serveur ??? dans telechargeFichier de client ? */
+      ex1.printStackTrace();
+    }
+
     catch (IOException e)
     {
       e.printStackTrace ();
