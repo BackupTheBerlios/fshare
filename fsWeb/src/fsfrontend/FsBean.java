@@ -72,23 +72,6 @@ public class FsBean implements Serializable
 
 
   /**
-   * @return le path avec nom du fichier du fichier XSLT.
-   */
-  public String getXsltPath ()
-  {
-    return this.xsltPath;
-  }
-
-  /**
-   * Fixe le fichier xslt.
-   * @param xsltPath String
-   */
-  public void setXsltPath (String xsltPath)
-  {
-    this.xsltPath = xsltPath;
-  }
-
-  /**
    * @return le path avec nom du fichier du fichier XML.
    */
   public String getXmlPath ()

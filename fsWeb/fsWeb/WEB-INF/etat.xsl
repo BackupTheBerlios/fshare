@@ -23,10 +23,11 @@
                     <xsl:when test="$typeRequete = 'clients'">
                 				 <h3>Liste des Clients</h3>
                        <p/> <a href="index.html">Retour</a>
-                          <p/> <a href="fsservlet?requete=&#38;typeRequete=clients&#38;typeTri=name">Tri par nom</a>
+                       <p/> <a href="fsservlet?requete=&#38;typeRequete=clients&#38;typeTri=name">Tri par nom</a>
                         <p/>  <a href="fsservlet?requete=&#38;typeRequete=clients&#38;typeTri=id">Tri par ID</a>
                         <p/>
-                          <table align="left" border="1">
+                     <p/>Pour consulter la liste des fichiers d'un client, cliquez sur son nom.<p/>
+                        <table align="left" border="1">
                       		<tr><th class="titre"><b>NOM</b></th><th class="titre"><b>ID</b></th></tr>
                             <xsl:choose>
                           <xsl:when test="$typeTri = 'id'">
@@ -59,7 +60,7 @@
       <p/>  <a href="fsservlet?requete=&#38;typeRequete=fichiers&#38;typeTri=taille">Tri par taille décroissante</a>
       <p/>  <a href="fsservlet?requete=&#38;typeRequete=fichiers&#38;typeTri=type">Tri par type</a>
       <p/>
-
+                     <p/>Pour consulter la liste des clients qui possède un fichier, cliquez sur son nom.<p/>
 			<table align="left" border="1" width="600">
       <tr> <th class="titre"><b>Nom</b></th> <th class="titre"><b>Taille (en octets)</b></th > <th class="titre"><b>Date</b></th> <th class="titre"><b>Type</b></th>
       </tr>
@@ -113,6 +114,7 @@
 
       </xsl:when>
               <xsl:when test="$typeRequete = 'clientsdufichier'">
+<p/>  <a href="fsservlet?requete=&#38;typeRequete=fichiers&#38;typeTri=name">Retour à la liste des fichiers</a>
         <h3> Liste des clients possédant le fichier : <xsl:value-of select="$requete"/></h3>
 
         <xsl:apply-templates select="//etat:fichier[etat:nom = $requete]">
@@ -121,8 +123,9 @@
 
 
       <xsl:when test="$typeRequete = 'fichiersduclient'">
-        <h3> Liste des fichiers de : <xsl:value-of select="$requete"/></h3>
 
+        <p/>  <a href="fsservlet?requete=&#38;typeRequete=clients&#38;typeTri=id">Retour à la liste des clients</a>
+        <h3> Liste des fichiers du client d'id : <xsl:value-of select="$requete"/></h3>
         		<xsl:variable name="idcli"><xsl:value-of select="$requete"/>
 						</xsl:variable>
             <ul>
