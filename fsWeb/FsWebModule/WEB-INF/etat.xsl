@@ -8,6 +8,7 @@
     <xsl:import href="dates.xsl"/>
     <xsl:output method="html"/>
     <xsl:param name="typeRequete" select="false()" />
+		<xsl:param name="typeTri" select="." />
 
     <xsl:template match="/">
         <html>
@@ -21,7 +22,8 @@
                 				 <h1>Liste des Clients</h1>
                         <table align="left" border="1">
          								<xsl:for-each select="//etat:client[not(@id = preceding::etat:client/@id)]">
-															<tr> <th><xsl:value-of select="@name"/></th>
+													<xsl:sort select="@id"/>
+                           <tr> <th><xsl:value-of select="@name"/></th>
                               		 <th><xsl:value-of select="@id"/></th>
                              </tr>
 												</xsl:for-each>
@@ -31,11 +33,10 @@
                     <xsl:otherwise>
                 <h1>Liste des Fichiers</h1>
 
-                        <ul>
-                            <xsl:apply-templates mode="toc" select="//etat:nom">
-                                <xsl:sort select="."/>
-                            </xsl:apply-templates>
-                        </ul>
+										<table align="left" border="1" width="600">
+         						<xsl:apply-templates mode="toc" select="//etat:fichier"/>
+
+                    </table>
                     </xsl:otherwise>
                 </xsl:choose>
 
@@ -44,8 +45,13 @@
 
     </xsl:template>
 
-    <xsl:template match="etat:nom" mode="toc">
-        <li><a href="#{generate-id()}"><xsl:value-of select="."/></a></li>
+    <xsl:template match="etat:fichier" mode="toc">
+        <tr> <th><xsl:value-of select="etat:nom"/></th>
+      			 <th><xsl:value-of select="etat:taille"/></th>
+             <th><xsl:value-of select="etat:date/@jour"/>/<xsl:value-of select="etat:date/@mois"/>/<xsl:value-of select="etat:date/@année"/> (<xsl:value-of select="etat:date/@heure"/>:<xsl:value-of select="etat:date/@minute"/>)</th>
+             <th><xsl:value-of select="etat:type"/></th>
+
+        </tr>
     </xsl:template>
 
     <xsl:template match="etat:client" mode="toc">
