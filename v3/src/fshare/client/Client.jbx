@@ -1,0 +1,12 @@
+[PropertyInfo]
+appli,Main,false,false, , ,false,<default>
+client,ClientImpl,false,false, , ,false,<default>
+fServeur,RemoteServeur,false,false, , ,false,<default>
+logger,Logger,false,false, , ,false,<default>
+nomClient,String,false,false, , ,false,<default>
+repertoirePartage,String,false,false, , ,true,<default>
+[IconNames]
+
+
+
+

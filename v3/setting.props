@@ -1,0 +1,3 @@
+AUDIO = mp3 raw wma 
+VIDEO = mpg mpeg wmv 
+DOCUMENT = txt doc html xml
