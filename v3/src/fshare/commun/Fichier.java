@@ -170,7 +170,7 @@ public class Fichier implements Serializable
           return i;
       }
     }
-    return 1;
+    return AUTRE;
   }
 
 
@@ -208,6 +208,8 @@ public class Fichier implements Serializable
 
   /**
    * Change l'affichage du fichier
+   *
+   * @param s String
    */
   public void setToString(String s){
     toString = s;
