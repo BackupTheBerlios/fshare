@@ -1,231 +1,24 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE etat SYSTEM "etat.dtd">
 <etat xmlns="http://deptinfo.unice.fr/minfo/ns/p2p">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
+<date jour="04" mois="04" année="2004" heure="16" minute="30"/>
 <fichiers>
 <fichier>
-<nom>Entries</nom>
-<date jour="04" mois="04" année="2004" heure="14" minute="51">
-<taille>612</taille>
-<type>AUTRE</type>
-<client id="375567f9d202d000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="50"/>
-</client>
-<client id="529fc716f0757000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-<client id="1c76d3c25132400" name="billbarood">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-</fichier>
-<fichier>
 <nom>Client.class</nom>
-<date jour="04" mois="04" année="2004" heure="14" minute="51">
+<date jour="04" mois="04" année="2004" heure="16" minute="30">
 <taille>4583</taille>
 <type>AUTRE</type>
-<client id="375567f9d202d000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="50"/>
-</client>
-<client id="529fc716f0757000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-<client id="1c76d3c25132400" name="billbarood">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
+<client id="619933dc32e0c000" name="toto">
+<date jour="04" mois="04" année="2004" heure="16" minute="19"/>
 </client>
 </fichier>
 <fichier>
-<nom>Profiles.usr</nom>
-<date jour="04" mois="04" année="2004" heure="14" minute="51">
-<taille>36</taille>
-<type>AUTRE</type>
-<client id="375567f9d202d000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="50"/>
-</client>
-<client id="529fc716f0757000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-<client id="1c76d3c25132400" name="billbarood">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-</fichier>
-<fichier>
-<nom>Repository</nom>
-<date jour="04" mois="04" année="2004" heure="14" minute="51">
-<taille>12</taille>
-<type>AUTRE</type>
-<client id="375567f9d202d000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="50"/>
-</client>
-<client id="529fc716f0757000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-<client id="1c76d3c25132400" name="billbarood">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-</fichier>
-<fichier>
-<nom>MD_autosave.ugd</nom>
-<date jour="04" mois="04" année="2004" heure="14" minute="51">
-<taille>52</taille>
-<type>AUTRE</type>
-<client id="375567f9d202d000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="50"/>
-</client>
-<client id="529fc716f0757000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-<client id="1c76d3c25132400" name="billbarood">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-</fichier>
-<fichier>
-<nom>MD.cfg</nom>
-<date jour="04" mois="04" année="2004" heure="14" minute="51">
-<taille>585</taille>
-<type>AUTRE</type>
-<client id="375567f9d202d000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="50"/>
-</client>
-<client id="529fc716f0757000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-<client id="1c76d3c25132400" name="billbarood">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-</fichier>
-<fichier>
-<nom>java.policy</nom>
-<date jour="04" mois="04" année="2004" heure="14" minute="51">
-<taille>56</taille>
-<type>AUTRE</type>
-<client id="375567f9d202d000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="50"/>
-</client>
-<client id="529fc716f0757000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-<client id="1c76d3c25132400" name="billbarood">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-</fichier>
-<fichier>
-<nom>v3.jpx.local</nom>
-<date jour="04" mois="04" année="2004" heure="14" minute="51">
-<taille>2143</taille>
-<type>AUTRE</type>
-<client id="375567f9d202d000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="50"/>
-</client>
-<client id="529fc716f0757000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-<client id="1c76d3c25132400" name="billbarood">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-</fichier>
-<fichier>
-<nom>aide</nom>
-<date jour="04" mois="04" année="2004" heure="14" minute="51">
-<taille>856</taille>
-<type>AUTRE</type>
-<client id="375567f9d202d000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="50"/>
-</client>
-<client id="529fc716f0757000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-<client id="1c76d3c25132400" name="billbarood">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-</fichier>
-<fichier>
-<nom>MD.opt</nom>
-<date jour="04" mois="04" année="2004" heure="14" minute="51">
-<taille>718</taille>
-<type>AUTRE</type>
-<client id="375567f9d202d000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="50"/>
-</client>
-<client id="529fc716f0757000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-<client id="1c76d3c25132400" name="billbarood">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-</fichier>
-<fichier>
-<nom>MD1.ugd</nom>
-<date jour="04" mois="04" année="2004" heure="14" minute="51">
-<taille>8458</taille>
-<type>AUTRE</type>
-<client id="375567f9d202d000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="50"/>
-</client>
-<client id="529fc716f0757000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-<client id="1c76d3c25132400" name="billbarood">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-</fichier>
-<fichier>
-<nom>MD0.ugd</nom>
-<date jour="04" mois="04" année="2004" heure="14" minute="51">
-<taille>8458</taille>
-<type>AUTRE</type>
-<client id="375567f9d202d000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="50"/>
-</client>
-<client id="529fc716f0757000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-<client id="1c76d3c25132400" name="billbarood">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-</fichier>
-<fichier>
-<nom>0.5942466344582206-MD2.txt</nom>
-<date jour="04" mois="04" année="2004" heure="14" minute="51">
-<taille>63123</taille>
+<nom>test.txt</nom>
+<date jour="04" mois="04" année="2004" heure="16" minute="30">
+<taille>3</taille>
 <type>DOCUMENT</type>
-<client id="375567f9d202d000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="50"/>
-</client>
-<client id="529fc716f0757000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-<client id="1c76d3c25132400" name="billbarood">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-</fichier>
-<fichier>
-<nom>salut.txt</nom>
-<date jour="04" mois="04" année="2004" heure="14" minute="51">
-<taille>3747</taille>
-<type>DOCUMENT</type>
-<client id="375567f9d202d000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="50"/>
-</client>
-<client id="529fc716f0757000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-<client id="1c76d3c25132400" name="billbarood">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-</fichier>
-<fichier>
-<nom>Root</nom>
-<date jour="04" mois="04" année="2004" heure="14" minute="51">
-<taille>55</taille>
-<type>AUTRE</type>
-<client id="375567f9d202d000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="50"/>
-</client>
-<client id="529fc716f0757000" name="john">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
-</client>
-<client id="1c76d3c25132400" name="billbarood">
-<date jour="04" mois="04" année="2004" heure="14" minute="51"/>
+<client id="619933dc32e0c000" name="toto">
+<date jour="04" mois="04" année="2004" heure="16" minute="19"/>
 </client>
 </fichier>
 </fichiers>
