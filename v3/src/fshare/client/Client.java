@@ -113,12 +113,9 @@ public class Client implements Runnable {
     return (fServeur != null);
   }
 
-  public void deconnect(){
-    fServeur = null;
-  }
-
   public void reConnectToServer(){
     stopClient();
+    appli.addTrace("Reconnexion au serveur " + getServerName());
     try {
       connectToServer(urlServer, nomClient);
     }
@@ -130,6 +127,7 @@ public class Client implements Runnable {
   public void connectToServer(String serverURL, String nomClient) throws java.
       rmi.RemoteException {
     try {
+      appli.addTrace("Connexion au serveur " + getServerName());
 
       /* Récupere l'objet serveur distant */
       logger.info("Connexion au serveur...");
@@ -209,6 +207,7 @@ public class Client implements Runnable {
       if (isConnected())
         fServeur.retirerFichier(this.client);
       fServeur = null;
+
     }
     catch (RemoteException ex)
     {
@@ -338,6 +337,7 @@ public class Client implements Runnable {
 
   public void telechargeFichier (Fichier fic)
   {
+
     new ClientTelecharge (this, fic, 0).start();
   }
 

@@ -24,6 +24,7 @@ import fshare.client.Client;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.rmi.*;
+import java.util.Date;
 
 public class Main {
   JFrame frame = new JFrame("fshare");
@@ -35,9 +36,9 @@ public class Main {
   JPanel panelP = new JPanel();
   JPanel panelC = new JPanel();
   JPanel panelR = new JPanel();
-  JPanel panelA = new JPanel();
+  JPanel panelT = new JPanel();
 
-  JTextField fieldR = new JTextField("regexp...", 30);
+  JTextField fieldR = new JTextField("", 30);
   JTextField fieldP;
   JTextField fieldC;
   JTextField fieldN;
@@ -53,15 +54,25 @@ public class Main {
   JList uploadTable;
   JList rechercheTable;
   JList partageTable;
+  JList traceTable;
+
   JScrollPane scrollD;
   JScrollPane scrollU = new JScrollPane(uploadTable);
   JScrollPane scrollR;
   JScrollPane scrollP;
+  JScrollPane scrollT;
 
   ArrayList downloadVector = new ArrayList();
   ArrayList uploadVector = new ArrayList();
   ArrayList partageVector = new ArrayList();
+  ArrayList traceVector = new ArrayList();
   JFileChooser repChooser = null;
+
+  public void addTrace(String trace){
+    traceVector.add((new Date()) +  " : "+ trace);
+    traceTable.setListData(traceVector.toArray());
+  }
+
 
   public void addDownload(Fichier f){
     downloadVector.add(f);
@@ -103,6 +114,13 @@ public class Main {
     if (controleur.isConnected())
       frame.setTitle("f-share (connecté)");
     else frame.setTitle("f-share (déconnecté)");
+  }
+
+  private void constructionT(){
+    traceTable = new JList();
+    scrollT = new JScrollPane(traceTable);
+    panelT.setLayout(new BorderLayout());
+    panelT.add(scrollT);
   }
 
   private void constructionC() {
@@ -232,7 +250,8 @@ public class Main {
   }
 
   private void constructionP() {
-    fieldP = new JTextField(controleur.getRepertoirePartage(),30);
+    fieldP = new JTextField("",30);
+    fieldP.setEditable(false);
     SpringLayout layout = new SpringLayout();
     BorderLayout bol = new BorderLayout();
     JButton boutAjout = new JButton("Ajouter un fichier");
@@ -340,6 +359,7 @@ public class Main {
       stopClient ();
     }});
 
+        fieldP.setText(controleur.getRepertoirePartage());
   }
 
   private void ajoutRecursif(File d) {
@@ -379,8 +399,8 @@ public class Main {
     onglets.addTab("Partage", new ImageIcon("images/share.gif"), panelP,
                    "Gestion des fichiers partagés");
 
-    onglets.addTab("Aide", new ImageIcon("images/aide.gif"), panelA,
-                   "Aide de l'application");
+    onglets.addTab("Traces", new ImageIcon("images/aide.gif"), panelT,
+                   "Traces");
 
     frame.getContentPane().add(onglets);
 
@@ -389,6 +409,7 @@ public class Main {
     constructionU();
     constructionR();
     constructionP();
+    constructionT();
     /*
         menu.add(menuAction);
         menuAction.add(itemConfig);
