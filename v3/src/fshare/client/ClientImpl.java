@@ -18,6 +18,7 @@ import java.util.Map;
 import java.util.Collections;
 import java.util.HashMap;
 import fshare.commun.AttributFichierClient;
+import fshare.commun.Fichier;
 
 public class ClientImpl extends java.rmi.server.UnicastRemoteObject implements RemoteClient
 {
@@ -75,4 +76,21 @@ System.out.println ("Telechargement de : " + id + ", partie : " + partie);
                           ", et sa date est : " + afc.getDateDerModif());
     }
   }
+
+  // Destiné à l'affichage dans l'interface graphique
+  public String[] getFichierClient(){
+    Object [] c = listeFichier.values().toArray();
+    String[] renvoi = new String[c.length];
+    for (int i = 0; i < c.length; ++i)
+    {
+      AttributFichierClient afc = (AttributFichierClient) c [i];
+      renvoi[i] = afc.getNomFichierAbsolu() +
+                          " " + afc.getNomClient() +
+                          "  " + afc.getNbPartieTotale() + " parties   (" +
+                          ((afc.fichierComplet()) ? "complet" : "incomplet") +
+                          ")   " + afc.getDateDerModif();
+    }
+    return renvoi;
+  }
+
 } // Classe ClientImpl
