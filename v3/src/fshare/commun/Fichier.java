@@ -83,6 +83,7 @@ public class Fichier implements Serializable
     String renvoi = null;
     try {
       MessageDigest md = MessageDigest.getInstance("MD5");
+      System.out.println(nomFichier + " " + f + " " + f.getAbsoluteFile());
       DataInputStream in = new DataInputStream(new java.io.FileInputStream(f));
       for (int i=0; i< ((f.length() < MD5_CONST) ? f.length() : MD5_CONST); i++)
         md.update(in.readByte());

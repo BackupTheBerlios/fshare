@@ -16,6 +16,8 @@ import fshare.util.Propriete;
 import java.io.File;
 import fshare.commun.Fichier;
 import fshare.commun.AttributFichierClient;
+import fshare.gui.Main;
+import java.util.logging.Level;
 
 public class Client {
 
@@ -61,7 +63,7 @@ public class Client {
   }
 
   public static void main(String[] args) throws Exception {
-    //Logger.getLogger("fshare.client").setLevel(java.util.logging.Level.WARNING);
+    Logger.getLogger("fshare.client").setLevel(Level.ALL);
     System.out.println("Entrer dans le main");
 
     if (args.length < 2) {
@@ -88,7 +90,7 @@ public class Client {
   {
     prepareInfoFichierClient ();
 client.afficheListeFichierClient();
-    appli = new Main (client);
+    appli = new Main (this);
   }
 
   /**
@@ -102,6 +104,10 @@ client.afficheListeFichierClient();
     /* Ajout des fichiers en cours de téléchargement */
   }
 
+  public void setRepertoirePartage(String rep){
+    repertoirePartage = rep;
+    prepareInfoFichierClient();
+  }
   /**
    * Récupere tous les fichiers dans le repertoire de partage (et sous repértoires)
    *  et les ajoute à
@@ -120,7 +126,7 @@ client.afficheListeFichierClient();
         else /* C'est un fichier */
         {
             /* Création des informations sur le fichier */
-            Fichier f = new Fichier (list[i].getAbsolutePath(), list[i].length(), Fichier.getTypeFichier(list[i]));
+            Fichier f = new Fichier (list[i].toString(), list[i].length(), Fichier.getTypeFichier(list[i]));
             AttributFichierClient atc = new AttributFichierClient (list[i].getAbsolutePath(),
                                                                    null, 1, true, nomClient);
             /* Enregistrement du fichier chez le client */
