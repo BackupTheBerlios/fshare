@@ -31,6 +31,11 @@ import javax.xml.transform.*;
 import javax.xml.transform.stream.*;
 import javax.xml.transform.sax.*;
 import fshare.gui.MainServer;
+import java.util.Properties;
+import java.util.Locale;
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Calendar;
 
 public class RemoteServeurImpl
     extends UnicastRemoteObject
@@ -111,32 +116,56 @@ public class RemoteServeurImpl
     return listeFichierServeur.rechercherClient(idFichier);
   }
 
+  public String getDateElement(int i){
+    Calendar calendrier = Calendar.getInstance(Locale.FRENCH);
+    calendrier.setTime(new Date(System.currentTimeMillis()));
+    String renvoi = null;
+    if (i == Calendar.MONTH)
+      renvoi = Integer.toString(((calendrier.get(i) + 1)%12));
+    else renvoi = Integer.toString(calendrier.get(i));
+
+    if (renvoi.length() == 1)
+      renvoi = "0" + renvoi;
+    return renvoi;
+  }
+
   public void xmlExport() throws TransformerConfigurationException,
       SAXException {
+  // Creation du flux de sortie
     FileOutputStream fos = null;
-    System.out.println("coucou");
+
     try {
       fos = new FileOutputStream("etat.xml");
     }
     catch (FileNotFoundException ex) {
       System.out.println(ex);
     }
+
+  // Sax init
     PrintWriter out = new PrintWriter(fos);
     StreamResult streamResult = new StreamResult(out);
     SAXTransformerFactory tf = (SAXTransformerFactory) SAXTransformerFactory.
         newInstance();
-// SAX2.0 ContentHandler.
     TransformerHandler hd = tf.newTransformerHandler();
-
     Transformer serializer = hd.getTransformer();
+
     serializer.setOutputProperty(OutputKeys.ENCODING, "ISO-8859-1");
-    serializer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "users.dtd");
+    serializer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "etat.dtd");
     serializer.setOutputProperty(OutputKeys.INDENT, "yes");
     hd.setResult(streamResult);
     hd.startDocument();
     AttributesImpl atts = new AttributesImpl();
 // USERS tag.
-    hd.startElement("", "", "USERS", atts);
+
+      System.out.println(getDateElement(Calendar.HOUR_OF_DAY));
+      System.out.println(getDateElement(Calendar.MINUTE));
+      System.out.println(getDateElement(Calendar.DAY_OF_MONTH));
+      System.out.println(getDateElement(Calendar.MONTH));
+      System.out.println(getDateElement(Calendar.YEAR));
+
+
+    hd.startElement("", "", "date", atts);
+
 // USER tags.
     String[] id = {
         "PWD122", "MX787", "A4Q45"};
