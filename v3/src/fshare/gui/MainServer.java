@@ -38,8 +38,10 @@ public class MainServer implements ActionListener{
       controleur.xmlExport();
     }
     catch (SAXException ex) {
+      ex.printStackTrace();
     }
     catch (TransformerConfigurationException ex) {
+      ex.printStackTrace();
     }
   }
 }

@@ -248,8 +248,7 @@ System.out.println("Entré dans télécharger");
                                (list[i].length() / ClientImpl.MAX_OCTET_LU) :
                                ((list[i].length() / ClientImpl.MAX_OCTET_LU) + 1);
           AttributFichierClient atc = new AttributFichierClient(list[i].
-              getAbsolutePath(),
-              null, nbParties, true, nomClient);
+              getAbsolutePath(), null, nbParties, true, nomClient, client.getIdClient());
           /* Enregistrement du fichier chez le client */
           client.ajouterFichier(f.getIdFichier(), atc);
           fichiersPartage.add(f);

@@ -48,6 +48,12 @@ public class AttributFichierClient implements Serializable
   private String nomClient;
 
   /**
+   * Represente l'id du client.
+   */
+  private String idClient;
+
+
+  /**
    * Construit les attributs en fonction des parties et s'il est complet ou pas.
    * @param parties les parties possédées par le client. Si complet est vrai ce paramètre sera ignoré.
    * @param complet si le fichier est complet ou non.
@@ -55,11 +61,7 @@ public class AttributFichierClient implements Serializable
    * @param nomFichierAbsolu le nom absolu du fichier.
    * @param nomClient le nom du client.
    */
-  public AttributFichierClient(String nomFichierAbsolu,
-                               ArrayList parties,
-                               long nbParties,
-                               boolean complet,
-                               String nomClient)
+  public AttributFichierClient(String nomFichierAbsolu, ArrayList parties, long nbParties, boolean complet, String nomClient, String idClient)
   {
     if (complet) /* pas besoin de stocker les parties. */
       parties = null;
@@ -70,7 +72,7 @@ public class AttributFichierClient implements Serializable
     this.nbPartieTotale = nbParties;
     this.nomFichierAbsolu = nomFichierAbsolu;
     this.nomClient = nomClient;
-
+    this.idClient = idClient;
     dateModif = new Date ();
   }
 
@@ -114,6 +116,15 @@ public class AttributFichierClient implements Serializable
   public String getNomClient ()
   {
     return nomClient;
+  }
+
+  /**
+   * Retourne l'id du client.
+   * @return l'id du client.
+   */
+  public String getIdClient ()
+  {
+    return idClient;
   }
 
   /**

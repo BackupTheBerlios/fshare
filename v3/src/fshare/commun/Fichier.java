@@ -256,7 +256,7 @@ public static void main (String [] args)
   System.out.println ("Nom du fichier : " + fichier.getNomFichier ());
   System.out.println ("Taille du fichier : " + fichier.getTailleFichier ());
 */
-  AttributFichierClient afc = new AttributFichierClient ("", null, 12, true, "tartanpion");
+  AttributFichierClient afc = new AttributFichierClient ("", null, 12, true, "tartanpion", "");
 
   java.util.Map map = java.util.Collections.synchronizedMap (new HashMap ());
   map.put ("toto", "valeur toto");
