@@ -55,6 +55,16 @@ public class Fichier implements Serializable
     public static final int IMAGE    = 4;
     public static final int DOCUMENT = 5;
 
+
+    /**
+     * L'indice des variables statiques doivent correspondent au type :
+     * ex TYPE_S [LOGICIEL] = "logiciel"
+     */
+    public static final String [] TYPE_S    = {"AUTRE", "AUDIO", "VIDEO",
+                                               "LOGICIEL", "IMAGE", "DOCUMENT"};
+
+
+
     private static final int MD5_CONST = 500;
 /**
  * Construteur d'un fichier.
@@ -116,7 +126,7 @@ public class Fichier implements Serializable
    * @return la sigification du typeFichier sous forme de string.
    */
   public static String getTypeFichier (int typeFichier)
-  {
+  {/*
     switch (typeFichier)
     {
       case AUDIO :
@@ -131,7 +141,8 @@ public class Fichier implements Serializable
         return "logiciel";
       default :
         return "autre";
-    }
+    }*/
+   return TYPE_S [typeFichier];
   }
 
   /**
@@ -141,6 +152,24 @@ public class Fichier implements Serializable
    */
   public static int getTypeFichier (File fichier)
   {
+    /* recupere le nom du fichier et son extension */
+    String nomFichier = fichier.getName();
+    String extension = nomFichier.substring(nomFichier.lastIndexOf(".")+1, nomFichier.length());
+    if (null == extension) return AUTRE; /* pas d'extension */
+    for (int i = 1; i < TYPE_S.length; ++i)
+    {
+      /* On récupere la ligne AUDIO ou VIDEO etc... */
+      String type = fshare.util.Propriete.getPropriete(fshare.client.Client.
+                                                       FIC_PROPRIETE, TYPE_S[i]);
+      if (null == type) continue; /* la ligne n'est pas présente dans le fichier de propriété */
+      StringTokenizer st = new StringTokenizer (type, " ");
+
+      while (st.hasMoreTokens())
+      {
+        if (extension.equals(st.nextToken()))
+          return i;
+      }
+    }
     return 1;
   }
 
@@ -190,20 +219,20 @@ public class Fichier implements Serializable
 
 public static void main (String [] args)
 {
-  File fic = new File ("fshare.html");
+  File fic = new File ("test.txt");
   Fichier fichier = new Fichier (fic.getAbsolutePath (), fic.length (), 1);
   System.out.println ("Type de fichier : " + fichier.getTypeFichier ());
   System.out.println ("Id du fichier : " + fichier.getIdFichier ());
   System.out.println ("Nom du fichier : " + fichier.getNomFichier ());
   System.out.println ("Taille du fichier : " + fichier.getTailleFichier ());
-
+/*
   fic = new File ("../fshare.html");
   fichier = new Fichier (fic.getAbsolutePath (), fic.length (), 1);
   System.out.println ("Type de fichier : " + fichier.getTypeFichier ());
   System.out.println ("Id du fichier : " + fichier.getIdFichier ());
   System.out.println ("Nom du fichier : " + fichier.getNomFichier ());
   System.out.println ("Taille du fichier : " + fichier.getTailleFichier ());
-
+*/
   AttributFichierClient afc = new AttributFichierClient ("", null, 12, true, "tartanpion");
 
   java.util.Map map = java.util.Collections.synchronizedMap (new HashMap ());
@@ -218,6 +247,8 @@ public static void main (String [] args)
     String value = (String) liste [i];
     System.out.println ("valeur : " + value);
   }
+
+  System.out.println ("Type de fichier : " +  Fichier.getTypeFichier(Fichier.getTypeFichier(fic)));
 
 
 }
