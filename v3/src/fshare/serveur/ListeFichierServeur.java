@@ -112,13 +112,34 @@ afficheListeFichierServeur ();
       }
     }
 
-    /* Remplissage d'un tableau de string */
+    /* Remplissage d'un tableau de Fichier */
     Fichier[] listeFichier = new Fichier[resultat.size()];
     for (int i = 0; i < resultat.size(); ++i) {
       listeFichier[i] = (Fichier) resultat.get(i);
     }
     return listeFichier;
 }
+
+  public Fichier[] getFichier() {
+     ArrayList resultat = new ArrayList();
+
+     /* récuperation des valeurs pour la contenuListe */
+     Object[] valeurListe = contenuListe.values().toArray();
+
+     /* Rechercher le nom du fichier match regexp. */
+     for (int i = 0; i < valeurListe.length; ++i) {
+       InfoFichierServeur info = (InfoFichierServeur) (valeurListe[i]);
+       String nomFichier = info.getFichier().getNomFichier();
+       resultat.add(info.getFichier());
+     }
+
+     /* Remplissage d'un tableau de Fichier */
+     Fichier[] listeFichier = new Fichier[resultat.size()];
+     for (int i = 0; i < resultat.size(); ++i) {
+       listeFichier[i] = (Fichier) resultat.get(i);
+     }
+     return listeFichier;
+ }
 
   /**
    * @param idFichier l'identifiant du fichier dont on souhaite savoir quels client le possède.
