@@ -36,6 +36,7 @@ import java.util.Locale;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Calendar;
+import java.util.Map;
 
 public class RemoteServeurImpl
     extends UnicastRemoteObject
@@ -79,8 +80,8 @@ public class RemoteServeurImpl
    */
   public void retirerFichier(Fichier fichier,
                              RemoteClient client)
-                             /* throws java.rmi.RemoteException */
-                             {
+  /* throws java.rmi.RemoteException */
+  {
     listeFichierServeur.retirerFichier(fichier, client);
   }
 
@@ -116,22 +117,26 @@ public class RemoteServeurImpl
     return listeFichierServeur.rechercherClient(idFichier);
   }
 
-  public String getDateElement(int i){
+  public String getDateElement(int i) {
     Calendar calendrier = Calendar.getInstance(Locale.FRENCH);
     calendrier.setTime(new Date(System.currentTimeMillis()));
     String renvoi = null;
-    if (i == Calendar.MONTH)
-      renvoi = Integer.toString(((calendrier.get(i) + 1)%12));
-    else renvoi = Integer.toString(calendrier.get(i));
+    if (i == Calendar.MONTH) {
+      renvoi = Integer.toString( ( (calendrier.get(i) + 1) % 12));
+    }
+    else {
+      renvoi = Integer.toString(calendrier.get(i));
 
-    if (renvoi.length() == 1)
+    }
+    if (renvoi.length() == 1) {
       renvoi = "0" + renvoi;
+    }
     return renvoi;
   }
 
   public void xmlExport() throws TransformerConfigurationException,
       SAXException {
-  // Creation du flux de sortie
+    // Creation du flux de sortie
     FileOutputStream fos = null;
 
     try {
@@ -141,7 +146,7 @@ public class RemoteServeurImpl
       System.out.println(ex);
     }
 
-  // Sax init
+    // Sax init
     PrintWriter out = new PrintWriter(fos);
     StreamResult streamResult = new StreamResult(out);
     SAXTransformerFactory tf = (SAXTransformerFactory) SAXTransformerFactory.
@@ -152,22 +157,48 @@ public class RemoteServeurImpl
     serializer.setOutputProperty(OutputKeys.ENCODING, "ISO-8859-1");
     serializer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "etat.dtd");
     serializer.setOutputProperty(OutputKeys.INDENT, "yes");
+
     hd.setResult(streamResult);
     hd.startDocument();
     AttributesImpl atts = new AttributesImpl();
-// USERS tag.
 
-      System.out.println(getDateElement(Calendar.HOUR_OF_DAY));
-      System.out.println(getDateElement(Calendar.MINUTE));
-      System.out.println(getDateElement(Calendar.DAY_OF_MONTH));
-      System.out.println(getDateElement(Calendar.MONTH));
-      System.out.println(getDateElement(Calendar.YEAR));
+    atts.addAttribute("", "", "xmlns", "CDATA",
+                      "http://deptinfo.unice.fr/minfo/ns/p2p");
 
+    hd.startElement("", "", "etat", atts);
+    atts.clear();
+    atts.addAttribute("", "", "jour", "NMTOKEN",
+                      getDateElement(Calendar.DAY_OF_MONTH));
+    atts.addAttribute("", "", "mois", "NMTOKEN", getDateElement(Calendar.MONTH));
+    atts.addAttribute("", "", "année", "NMTOKEN", getDateElement(Calendar.YEAR));
+    atts.addAttribute("", "", "heure", "NMTOKEN",
+                      getDateElement(Calendar.HOUR_OF_DAY));
+    atts.addAttribute("", "", "minute", "NMTOKEN",
+                      getDateElement(Calendar.MINUTE));
 
     hd.startElement("", "", "date", atts);
+    hd.endElement("", "", "date");
 
+    atts.clear();
+    hd.startElement("", "", "fichiers", atts);
+    hd.endElement("", "", "fichiers");
+    hd.endElement("", "", "etat");
+    hd.endDocument();
+    System.out.println("Export vers XML terminé");
+  }
+    /*
+    Map liste = listeFichierServeur.get();
+    InfoFichierServeur[] info = ( (InfoFichierServeur[]) liste.values().toArray());
+    for (int i = 0; i < liste.size(); i++) {
+      hd.startElement("", "", "fichier", atts);
+      hd.startElement("", "", "nom", atts);
+      hd.characters(info[i].getFichier().getNomFichier().toCharArray(), 0,
+                    info[i].getFichier().getNomFichier().toCharArray().length);
+
+     }
 // USER tags.
-    String[] id = {
+
+     String[] id = {
         "PWD122", "MX787", "A4Q45"};
     String[] type = {
         "customer", "manager", "employee"};

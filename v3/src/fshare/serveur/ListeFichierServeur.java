@@ -165,7 +165,5 @@ public class ListeFichierServeur {
 
   }
 
-  public Fichier[] get(){
-    return (Fichier[])contenuListe.values().toArray();
-  }
+
 } // Classe ListeFichierServeur

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE date SYSTEM "etat.dtd">
-<date>
-<USER ID="PWD122" TYPE="customer">Tim@Home</USER>
-<USER ID="MX787" TYPE="manager">Jack&amp;Moud</USER>
-<USER ID="A4Q45" TYPE="employee">John D'oé</USER>
-</USERS>
+<!DOCTYPE etat SYSTEM "etat.dtd">
+<etat xmlns="http://deptinfo.unice.fr/minfo/ns/p2p">
+<date jour="03" mois="04" année="2004" heure="19" minute="21"/>
+<fichiers/>
+</etat>
