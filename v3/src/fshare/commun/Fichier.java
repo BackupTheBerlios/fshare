@@ -22,6 +22,12 @@ import java.io.DataInputStream;
 public class Fichier implements Serializable
 {
 
+  /**
+   * Conditionne tostring()
+   */
+    private String toString;
+
+
 /**
  * Represente le nom (sans chemin) du fichier.
  */
@@ -62,14 +68,16 @@ public class Fichier implements Serializable
     this.tailleFichier = tailleFichier;
     this.typeFichier   = typeFichier;
     this.idFichier     = genereIdFichier (nomFichier);
+    this.setToString(getNomFichier());
   }
 
-  public Fichier(String f){
+  public Fichier(String nomFichier){
       this.nomFichier    = new File (nomFichier).getName();
         this.tailleFichier = -1;
         this.typeFichier   = 0;
         this.idFichier     = genereIdFichier (nomFichier);
-  }
+        this.setToString(getNomFichier());
+      }
 
   /**
    * A partir du nom (absolu) d'un fichier, génére une clé unique. Cette clé générée sera la même si on rappelle cette fonction avec le même paramêtre.
@@ -169,7 +177,16 @@ public class Fichier implements Serializable
     return tailleFichier;
   }
 
+  /**
+   * Change l'affichage du fichier
+   */
+  public void setToString(String s){
+    toString = s;
+  }
 
+  public String toString(){
+    return toString;
+  }
 
 public static void main (String [] args)
 {
