@@ -11,5 +11,5 @@ package fshare.remote;
 
 public interface RemoteClient extends java.rmi.Remote
 {
-  public byte [] telechargerFichier(String id, int partie) throws java.rmi.RemoteException;
+  public byte [] telechargerFichier(String id, long partie) throws java.rmi.RemoteException;
 }
