@@ -9,9 +9,10 @@
     <xsl:output method="html"/>
     <xsl:param name="typeRequete" select="clients"/>
 		<xsl:param name="typeTri" select="." />
+		<xsl:param name="requete" select="f" />
 
     <xsl:template match="/">
-      <link href="zoo.css" rel="stylesheet" type="text/css"/>
+      <link href="style.css" rel="stylesheet" type="text/css"/>
       <xsl:call-template name="fichiers"/>
 
     </xsl:template>
@@ -20,18 +21,19 @@
     <xsl:template name="fichiers">
                 <xsl:choose>
                     <xsl:when test="$typeRequete = 'clients'">
-                				 <h1>Liste des Clients</h1>
+                				 <h3>Liste des Clients</h3>
                        <p/> <a href="index.html">Retour</a>
                           <p/> <a href="fsservlet?requete=&#38;typeRequete=clients&#38;typeTri=name">Tri par nom</a>
                         <p/>  <a href="fsservlet?requete=&#38;typeRequete=clients&#38;typeTri=id">Tri par ID</a>
                         <p/>
                           <table align="left" border="1">
-                      		<tr><th><b>NOM</b></th><th><b>ID</b></th></tr>
+                      		<tr><th class="titre"><b>NOM</b></th><th class="titre"><b>ID</b></th></tr>
                             <xsl:choose>
                           <xsl:when test="$typeTri = 'id'">
          								<xsl:for-each select="//etat:client[not(@id = preceding::etat:client/@id)]">
 											      <xsl:sort select="@id"/>
-                               <tr> <th><xsl:value-of select="@name"/></th>
+                            <xsl:variable name="idclient" select="@id"/>
+                             <tr> <th><a href="fsservlet?requete={$idclient}&#38;typeRequete=fichiersduclient&#38;typeTri="><xsl:value-of select="@name"/></a></th>
                               		 <th><xsl:value-of select="@id"/></th>
                              </tr>
 												</xsl:for-each>
@@ -39,7 +41,8 @@
                   <xsl:when test="$typeTri = 'name'">
          								<xsl:for-each select="//etat:client[not(@id = preceding::etat:client/@id)]">
 											      <xsl:sort select="@name"/>
-                               <tr> <th><xsl:value-of select="@name"/></th>
+                           <xsl:variable name="idclient" select="@id"/>
+                            <tr> <th><a href="fsservlet?requete={$idclient}&#38;typeRequete=fichiersduclient&#38;typeTri="><xsl:value-of select="@name"/></a></th>
                               		 <th><xsl:value-of select="@id"/></th>
                              </tr>
 												</xsl:for-each>
@@ -49,7 +52,7 @@
                   </table>
                     </xsl:when>
                     <xsl:when test="$typeRequete = 'fichiers'">
-                <h1>Liste des Fichiers</h1>
+                <h3>Liste des Fichiers</h3>
 
       <p/> <a href="index.html">Retour</a>
       <p/> <a href="fsservlet?requete=&#38;typeRequete=fichiers&#38;typeTri=name">Tri par nom</a>
@@ -58,7 +61,7 @@
       <p/>
 
 			<table align="left" border="1" width="600">
-      <tr> <th><b>Nom</b></th> <th><b>Taille (en octets)</b></th> <th><b>Date</b></th> <th><b>Type</b></th>
+      <tr> <th class="titre"><b>Nom</b></th> <th class="titre"><b>Taille (en octets)</b></th > <th class="titre"><b>Date</b></th> <th class="titre"><b>Type</b></th>
       </tr>
 			<xsl:choose>
         <xsl:when test="$typeTri='name'">
@@ -80,14 +83,14 @@
         </table>
       	</xsl:when>
       <xsl:when test="$typeRequete = 'clientsparfichiers'">
-        <h1> Liste des clients par fichiers</h1>
+        <h3> Liste des clients par fichiers</h3>
         <p/> <a href="index.html">Retour</a>
         <xsl:apply-templates select="//etat:fichier" mode="clients"/>
 
 
       </xsl:when>
        <xsl:when test="$typeRequete = 'fichiersparclients'">
-        <h1> Liste des fichiers par clients</h1>
+        <h3> Liste des fichiers par clients</h3>
 				<p/> <a href="index.html">Retour</a>
         <xsl:for-each select="//etat:client[not(@id = preceding::etat:client/@id)]">
 						<xsl:variable name="idcli"><xsl:value-of select="@id"/>
@@ -109,13 +112,43 @@
 
 
       </xsl:when>
+              <xsl:when test="$typeRequete = 'clientsdufichier'">
+        <h3> Liste des clients possédant le fichier : <xsl:value-of select="$requete"/></h3>
+
+        <xsl:apply-templates select="//etat:fichier[etat:nom = $requete]">
+                     </xsl:apply-templates>
+      </xsl:when>
 
 
+      <xsl:when test="$typeRequete = 'fichiersduclient'">
+        <h3> Liste des fichiers de : <xsl:value-of select="$requete"/></h3>
+
+        		<xsl:variable name="idcli"><xsl:value-of select="$requete"/>
+						</xsl:variable>
+            <ul>
+          <xsl:for-each select="//etat:fichier">
+                <xsl:for-each select="etat:client">
+              		<xsl:if test="@id = $idcli">
+                        <li> <xsl:value-of select="preceding-sibling::etat:nom"/> --
+                            <xsl:value-of select="etat:date/@jour"/>/<xsl:value-of select="etat:date/@mois"/>/<xsl:value-of select="etat:date/@année"/> (<xsl:value-of select="etat:date/@heure"/>:<xsl:value-of select="etat:date/@minute"/>)
+             						</li>
+                            </xsl:if>
+              </xsl:for-each>
+		           </xsl:for-each>
+
+              </ul>
+
+
+
+      </xsl:when>
       </xsl:choose>
     </xsl:template>
 
     <xsl:template match="etat:fichier" >
-      <tr> <th><xsl:value-of select="etat:nom"/></th>
+			<xsl:variable name="nomfichier" select="etat:nom"/>
+      <tr> <th> <a href="fsservlet?requete={$nomfichier}&#38;typeRequete=clientsdufichier&#38;typeTri=name"><xsl:value-of select="etat:nom"/></a>
+
+      </th>
       			 <th><xsl:value-of select="etat:taille"/></th>
              <th><xsl:value-of select="etat:date/@jour"/>/<xsl:value-of select="etat:date/@mois"/>/<xsl:value-of select="etat:date/@année"/> (<xsl:value-of select="etat:date/@heure"/>:<xsl:value-of select="etat:date/@minute"/>)</th>
              <th><xsl:value-of select="etat:type"/></th>
@@ -133,6 +166,13 @@
      </ul>
     </xsl:template>
 
+		<xsl:template match="//etat:fichier[etat:nom = $requete]">
+    	 <ul>
+        <xsl:for-each select="etat:client">
+        <li> <xsl:value-of select="@id"/>  --  <xsl:value-of select="@name"/>  -- <th><xsl:value-of select="etat:date/@jour"/>/<xsl:value-of select="etat:date/@mois"/>/<xsl:value-of select="etat:date/@année"/> (<xsl:value-of select="etat:date/@heure"/>:<xsl:value-of select="etat:date/@minute"/>)</th></li>
+     </xsl:for-each>
+     </ul>
+    </xsl:template>
 
     <xsl:template match="etat:client" >
 
