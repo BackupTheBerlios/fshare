@@ -21,17 +21,29 @@ import fshare.commun.AttributFichierClient;
 import fshare.commun.Fichier;
 import fshare.remote.RemoteClient;
 import fshare.serveur.serveurhttp.ClassFileServer;
+import java.io.*;
+// SAX classes.
+import org.xml.sax.*;
+import org.xml.sax.helpers.*;
+//JAXP 1.1
+import javax.xml.parsers.*;
+import javax.xml.transform.*;
+import javax.xml.transform.stream.*;
+import javax.xml.transform.sax.*;
+import fshare.gui.MainServer;
 
 public class RemoteServeurImpl
     extends UnicastRemoteObject
     implements fshare.remote.RemoteServeur {
 
   private ListeFichierServeur listeFichierServeur = null;
+  private MainServer mainServer;
   private static Logger logger =
       Logger.getLogger("fshare.serveur");
 
   public RemoteServeurImpl() throws RemoteException {
     listeFichierServeur = new ListeFichierServeur();
+    mainServer = new MainServer(this);
   }
 
   /**
@@ -42,8 +54,8 @@ public class RemoteServeurImpl
    */
   public void ajouterFichier(Fichier fichier, RemoteClient client,
                              AttributFichierClient attr)
-                             /* throws java.rmi.RemoteException */
-                             {
+  /* throws java.rmi.RemoteException */
+  {
     logger.info("Ajout du fichier qui a pour clé : " + fichier.getNomFichier() +
                 ", qui a pour type : " + fichier.getTypeFichier());
     System.out.println("listeFichierServeur initialisé, null ?" +
@@ -61,7 +73,8 @@ public class RemoteServeurImpl
    * @param client le client qui souhaite départager le fichier.
    */
   public void retirerFichier(Fichier fichier,
-                             RemoteClient client) /* throws java.rmi.RemoteException */
+                             RemoteClient client)
+                             /* throws java.rmi.RemoteException */
                              {
     listeFichierServeur.retirerFichier(fichier, client);
   }
@@ -71,8 +84,8 @@ public class RemoteServeurImpl
    * @param client le client qui départage tous ces fichiers.
    */
   public void retirerFichier(RemoteClient client)
-                             /* throws java.rmi.RemoteException */
-                             {
+  /* throws java.rmi.RemoteException */
+  {
     listeFichierServeur.retirerFichierClient(client);
   }
 
@@ -82,8 +95,8 @@ public class RemoteServeurImpl
    * @return la liste des nom de fichiers correspondant a l'expression régulière.
    */
   public Fichier[] rechercherFichier(String regexp)
-                                    /* throws java.rmi.RemoteException */
-                                    {
+  /* throws java.rmi.RemoteException */
+  {
     return listeFichierServeur.rechercherFichier(regexp);
   }
 
@@ -93,9 +106,55 @@ public class RemoteServeurImpl
    * @return la liste des clients qui posséde ce fichier.
    */
   public RemoteClient[] rechercherClient(String idFichier)
-                                         /* throws java.rmi.RemoteException */
-                                         {
+  /* throws java.rmi.RemoteException */
+  {
     return listeFichierServeur.rechercherClient(idFichier);
+  }
+
+  public void xmlExport() throws TransformerConfigurationException,
+      SAXException {
+    FileOutputStream fos = null;
+    System.out.println("coucou");
+    try {
+      fos = new FileOutputStream("etat.xml");
+    }
+    catch (FileNotFoundException ex) {
+      System.out.println(ex);
+    }
+    PrintWriter out = new PrintWriter(fos);
+    StreamResult streamResult = new StreamResult(out);
+    SAXTransformerFactory tf = (SAXTransformerFactory) SAXTransformerFactory.
+        newInstance();
+// SAX2.0 ContentHandler.
+    TransformerHandler hd = tf.newTransformerHandler();
+
+    Transformer serializer = hd.getTransformer();
+    serializer.setOutputProperty(OutputKeys.ENCODING, "ISO-8859-1");
+    serializer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "users.dtd");
+    serializer.setOutputProperty(OutputKeys.INDENT, "yes");
+    hd.setResult(streamResult);
+    hd.startDocument();
+    AttributesImpl atts = new AttributesImpl();
+// USERS tag.
+    hd.startElement("", "", "USERS", atts);
+// USER tags.
+    String[] id = {
+        "PWD122", "MX787", "A4Q45"};
+    String[] type = {
+        "customer", "manager", "employee"};
+    String[] desc = {
+        "Tim@Home", "Jack&Moud", "John D'oé"};
+    for (int i = 0; i < id.length; i++) {
+      atts.clear();
+      atts.addAttribute("", "", "ID", "CDATA", id[i]);
+      atts.addAttribute("", "", "TYPE", "CDATA", type[i]);
+      hd.startElement("", "", "USER", atts);
+      hd.characters(desc[i].toCharArray(), 0, desc[i].length());
+      hd.endElement("", "", "USER");
+    }
+    hd.endElement("", "", "USERS");
+    hd.endDocument();
+
   }
 
   /**
@@ -106,15 +165,16 @@ public class RemoteServeurImpl
    */
   public void majAttrFichier(String idFichier, RemoteClient client,
                              AttributFichierClient attr)
-                             /* throws java.rmi.RemoteException */
-                             {
+  /* throws java.rmi.RemoteException */
+  {
     listeFichierServeur.majAttrFichier(idFichier, client, attr);
   }
 
   public static void main(String[] args) {
     try {
       // Crée un serveur HTTP sur le port 8765
-      ClassFileServer httpServer = new ClassFileServer( ((args.length < 2)?8765:Integer.parseInt(args[1])), null);
+      ClassFileServer httpServer = new ClassFileServer( ( (args.length < 2) ?
+          8765 : Integer.parseInt(args[1])), null);
 
       if (args.length < 1) {
         System.out.println("Donner le nom du serveur en argument");
