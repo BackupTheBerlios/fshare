@@ -144,12 +144,12 @@ public class Client {
     Client fclient = new Client(null, null);
 
     System.out.println("Démarrage du client");
-    //fclient.startClient();
+    fclient.startClient();
 
   }
 
   private void startClient() {
-    try {
+/*    try {
       client = new ClientImpl();
     }
     catch (RemoteException ex) {
@@ -158,7 +158,26 @@ public class Client {
 
     prepareInfoFichierClient();
 //client.afficheListeFichierClient();
-    appli = new Main(this);
+    appli = new Main(this);*/
+System.out.println("Entré dans télécharger");
+    telechargeFichier ();
+  }
+
+  /**
+   * Arrete le client (enleve les fichiers du serveur).
+   */
+  public void stopClient ()
+  {
+    /* On enlève les fichiers du serveur */
+    try
+    {
+      fServeur.retirerFichier(this.client);
+    }
+    catch (RemoteException ex)
+    {
+      logger.warning("Impossible de fermer proprement le client");
+      ex.printStackTrace();
+    }
   }
 
   /**
@@ -246,5 +265,38 @@ public class Client {
     }
 
   }
+
+  private void telechargeFichier ()
+{
+  //On récupere test.txt
+  try
+  {
+    logger.info("Entrer dans télécharge fichier");
+    Fichier [] list = fServeur.rechercherFichier("txt");
+    if ((list == null) || (list.length == 0)) return; //rien a faire
+    //on prend le premier fichier
+    Fichier fic = list [0];
+    logger.info(list[0].toString());
+    String idFichier = fic.getIdFichier();
+    fshare.remote.RemoteClient [] listeClient = fServeur.rechercherClient(idFichier);
+    if (null == listeClient || listeClient.length == 0) return; //pas de client
+    if (listeClient [0] == (client))
+    {
+      logger.info("Meme client");
+      return;
+    }
+    logger.info(listeClient[0].toString());
+    logger.info(client.toString());
+    byte [] b = new byte [ClientImpl.MAX_OCTET_LU];
+    logger.info("On va télécharger la premiere partie du fichier");
+    b = listeClient [0].telechargerFichier(idFichier, 0);
+    logger.info("octet lu : " + b.toString());
+  }
+  catch (RemoteException ex)
+  {
+    ex.printStackTrace();
+  }
+}
+
 
 } //Classe Client
